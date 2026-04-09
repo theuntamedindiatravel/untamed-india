@@ -1,0 +1,150 @@
+.section {
+  padding: var(--section-py) 0;
+  background: var(--cream);
+}
+
+/* Alternate sections get a crisp white card feel */
+.section:nth-of-type(even) {
+  background: #fff;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.reverse {
+  grid-template-columns: 0.95fr 1.05fr;
+}
+
+.reverse .copy {
+  order: 2;
+}
+
+.reverse .media {
+  order: 1;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* Display title */
+.title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  line-height: 1.05;
+  margin-bottom: 22px;
+  color: var(--charcoal);
+}
+
+.body {
+  font-size: 1.05rem;
+  line-height: 1.95;
+  color: var(--charcoal-soft);
+  max-width: 52ch;
+}
+
+.ctaRow {
+  margin-top: 36px;
+}
+
+/* Underline-grow CTA — gold line on green text */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  position: relative;
+  padding-bottom: 7px;
+  transition: color 0.35s ease;
+}
+
+.cta::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 1.5px;
+  background: var(--gold);
+  transition: width 0.45s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.cta:hover {
+  color: #333;
+}
+
+.cta:hover::after {
+  width: 100%;
+}
+
+/* Image */
+.media {
+  width: 100%;
+}
+
+.imageFrame {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--cream-dark);
+  box-shadow: 0 60px 140px rgba(15, 61, 46, 0.10);
+}
+
+.image {
+  width: 100%;
+  height: min(520px, 62vh);
+  object-fit: cover;
+  transform: scale(1.03);
+  transition: transform 1.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.imageFrame:hover .image {
+  transform: scale(1.07);
+}
+
+@media (max-width: 900px) {
+  .inner,
+  .reverse {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .reverse .copy,
+  .reverse .media {
+    order: initial;
+  }
+
+  .image {
+    height: 360px;
+  }
+}

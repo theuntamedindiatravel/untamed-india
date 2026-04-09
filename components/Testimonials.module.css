@@ -1,0 +1,100 @@
+.section {
+  padding: var(--section-py) 0;
+  background: var(--cream);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+.subtitle {
+  font-size: 1rem;
+  color: var(--charcoal-soft);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 4px 20px var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  transition: transform 0.4s var(--transition), box-shadow 0.4s var(--transition);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px var(--border-subtle);
+}
+
+.quote {
+  color: var(--gold);
+  opacity: 0.2;
+  margin-bottom: 16px;
+}
+
+.stars {
+  display: flex;
+  gap: 3px;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--charcoal-soft);
+  line-height: 1.75;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  flex-shrink: 0;
+}
+
+.name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 2px;
+}
+.role {
+  font-size: 0.78rem;
+  color: var(--charcoal-soft);
+  margin-bottom: 3px;
+}
+.tourLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+:root {
+  /* ── Page surfaces ─────────────────────────── */
+  --cream:       #F8F8F5;  /* main page background — warm off-white  */
+  --cream-dark:  #FFFFFF;  /* card / section white                   */
+
+  /* ── Everyday ink (near-black) ─────────────── */
+  --charcoal:      #1C1C1C;  /* headings, body text, primary buttons   */
+  --charcoal-soft: #4A4A4A;  /* secondary text, captions               */
+
+  /* ── Brand green — used ONLY as deliberate accent ─ */
+  --green:       #0F3D2E;  /* hero overlay, membership bg, footer bg  */
+  --green-soft:  #1F5C45;  /* CTA banner, hover states on green bg    */
+  --green-tint:  rgba(15, 61, 46, 0.06); /* very light green wash    */
+
+  /* ── Gold ──────────────────────────────────── */
+  --gold:        #C6A55C;
+  --gold-light:  #E6D3A3;
+  --gold-pale:   rgba(198, 165, 92, 0.14);
+
+  /* ── Borders ───────────────────────────────── */
+  --border-subtle: rgba(28, 28, 28, 0.08);
+
+  /* ── Legacy aliases (keep other components working) */
+  --midnight:      #0B2019;
+  --muted:         rgba(28, 28, 28, 0.62);
+  --saffron:       var(--gold);
+  --saffron-light: var(--gold-light);
+  --saffron-dark:  #A78945;
+  --forest-light:  var(--green-soft);
+  
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+
+  /* Spacing & Layout */
+  --section-py: 120px;
+  --container-max: 1200px;
+  --transition: 0.6s cubic-bezier(0.2, 0, 0, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--charcoal);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ─── Typography Utils ─── */
+h1, h2, h3 { 
+  font-family: var(--font-serif); 
+  line-height: 1.2; 
+  font-weight: 400; 
+  letter-spacing: -0.01em;
+}
+
+.luxury-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--gold);
+}
+
+.modern-caps {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 36px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: background 0.45s ease, color 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+/* Near-black fill — clean on cream/white pages */
+.btn-primary {
+  background: var(--charcoal);
+  color: #fff;
+  border-color: var(--charcoal);
+}
+.btn-primary:hover {
+  background: #333;
+  border-color: #333;
+  transform: translateY(-2px);
+}
+
+/* Ink outline — dark border, fills dark on hover */
+.btn-outline {
+  border: 1px solid rgba(28, 28, 28, 0.55);
+  color: var(--charcoal);
+  background: transparent;
+}
+.btn-outline:hover {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Ghost — gold bordered, for use on dark/green backgrounds */
+.btn-ghost {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+}
+.btn-ghost:hover {
+  background: var(--gold);
+  color: var(--charcoal);
+  transform: translateY(-2px);
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.section-label::after {
+  content: '';
+  flex: 0 0 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 999px; }
+
+::selection { background: var(--gold-pale); color: var(--charcoal); }
+
+@media (max-width: 768px) {
+  :root { --section-py: 80px; }
+  .container { padding: 0 24px; }
+}
