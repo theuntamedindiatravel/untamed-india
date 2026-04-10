@@ -16,10 +16,11 @@
 }
 
 .formCard {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.06);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+  border: 1px solid rgba(212, 175, 55, 0.22);
 }
 
 .formGroup {
@@ -72,7 +73,7 @@
 .iconWrap {
   width: 44px;
   height: 44px;
-  background: #f8f9fa;
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 50%;
   display: flex;
   align-items: center;

@@ -1,0 +1,96 @@
+.section {
+  padding: calc(var(--section-py) - 20px) 0;
+  background: var(--cream);
+}
+
+.header {
+  max-width: 760px;
+  margin: 0 auto 46px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 3.5vw, 3.1rem);
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: var(--charcoal-soft);
+  line-height: 1.9;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+
+.card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  background: #fff;
+  box-shadow: 0 40px 100px rgba(15, 91, 60, 0.12);
+}
+
+.card:nth-child(1) { grid-column: span 7; }
+.card:nth-child(2) { grid-column: span 5; }
+.card:nth-child(3) { grid-column: span 5; }
+.card:nth-child(4) { grid-column: span 7; }
+.card:nth-child(5) { grid-column: span 6; }
+.card:nth-child(6) { grid-column: span 6; }
+
+.image {
+  height: 340px;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.78) saturate(1.05);
+  transform: scale(1.02);
+  transition: transform 1.2s cubic-bezier(0.2, 0, 0, 1), filter 0.6s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.06);
+  filter: brightness(0.92) saturate(1.1);
+}
+
+.label {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(15, 91, 60, 0.55);
+  border: 1px solid rgba(212, 175, 55, 0.34);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { grid-column: auto !important; }
+  .image { height: 280px; }
+}
+

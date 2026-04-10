@@ -1,5 +1,5 @@
 .page {
-  --background: #fafafa;
+  --background: var(--cream);
   --foreground: #fff;
 
   --text-primary: #000;

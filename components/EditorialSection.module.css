@@ -5,7 +5,7 @@
 
 /* Alternate sections get a crisp white card feel */
 .section:nth-of-type(even) {
-  background: #fff;
+  background: var(--cream-dark);
 }
 
 .inner {
@@ -34,7 +34,7 @@
   font-weight: 700;
   letter-spacing: 0.30em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
   margin-bottom: 18px;
   display: flex;
   align-items: center;
@@ -46,14 +46,14 @@
   display: block;
   width: 32px;
   height: 1px;
-  background: var(--gold);
+  background: var(--gold-ink);
   flex-shrink: 0;
 }
 
 /* Display title */
 .title {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: -0.02em;
   font-size: clamp(2.2rem, 3.8vw, 3.4rem);
   line-height: 1.05;
@@ -62,7 +62,7 @@
 }
 
 .body {
-  font-size: 1.05rem;
+  font-size: 1.0625rem;
   line-height: 1.95;
   color: var(--charcoal-soft);
   max-width: 52ch;
@@ -112,7 +112,27 @@
   width: 100%;
 }
 
+.imageFrameButton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 16px;
+  text-align: left;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.imageFrameButton:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
 .imageFrame {
+  position: relative;
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
@@ -128,8 +148,73 @@
   transition: transform 1.4s cubic-bezier(0.2, 0, 0, 1);
 }
 
+.imageFrameButton:hover .image,
 .imageFrame:hover .image {
   transform: scale(1.07);
+}
+
+.imageLabel {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(11, 32, 25, 0.55);
+  border: 1px solid rgba(198, 165, 92, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--gold-light);
+}
+
+.imageKicker {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(230, 211, 163, 0.85);
+  margin-bottom: 6px;
+}
+
+.imageTitle {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--gold-light);
+  line-height: 1.1;
+}
+
+.tapHint {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 240, 0.92);
+  background: rgba(11, 32, 25, 0.55);
+  border: 1px solid rgba(198, 165, 92, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+
+@media (min-width: 901px) {
+  .tapHint {
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .imageFrameButton:hover .tapHint {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 900px) {

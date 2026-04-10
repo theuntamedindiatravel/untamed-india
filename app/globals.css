@@ -1,39 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 :root {
-  /* ── Page surfaces ─────────────────────────── */
-  --cream:       #F8F8F5;  /* main page background — warm off-white  */
-  --cream-dark:  #FFFFFF;  /* card / section white                   */
+  /* ── Surfaces (quiet luxury ivory) ─────────── */
+  --cream:       #F7F3EA;  /* page background (ivory)                */
+  --cream-dark:  #FFFDF8;  /* cards / sections                       */
+  --header-ivory: rgba(247, 243, 234, 0.92);
 
-  /* ── Everyday ink (near-black) ─────────────── */
-  --charcoal:      #1C1C1C;  /* headings, body text, primary buttons   */
-  --charcoal-soft: #4A4A4A;  /* secondary text, captions               */
+  /* ── Ink (higher contrast on ivory / cream) ── */
+  --ink:         #0E1814;
+  --ink-muted:   #243530;
+  
+  /* ── Legacy aliases (keep existing styles working) */
+  --charcoal:      var(--ink);
+  --charcoal-soft: var(--ink-muted);
+  --text-primary:  var(--ink);
+  /* Gold/brown for small caps on light backgrounds (WCAG-friendly vs. pale gold) */
+  --gold-ink:      #5a4822;
 
-  /* ── Brand green — used ONLY as deliberate accent ─ */
-  --green:       #0F3D2E;  /* hero overlay, membership bg, footer bg  */
-  --green-soft:  #1F5C45;  /* CTA banner, hover states on green bg    */
-  --green-tint:  rgba(15, 61, 46, 0.06); /* very light green wash    */
+  /* ── Tricolor palette (green/white/orange) ─── */
+  --green:       #0F5B3C;
+  --green-soft:  #137A4F;
+  --orange:      #FF7A00;
+  --orange-soft: #FF9A3D;
+  --green-tint:  rgba(15, 91, 60, 0.08);
 
   /* ── Gold ──────────────────────────────────── */
   --gold:        #C6A55C;
   --gold-light:  #E6D3A3;
-  --gold-pale:   rgba(198, 165, 92, 0.14);
+  --gold-pale:   rgba(198, 165, 92, 0.18);
 
   /* ── Borders ───────────────────────────────── */
-  --border-subtle: rgba(28, 28, 28, 0.08);
+  --border-subtle: rgba(27, 43, 35, 0.10);
+  --border-gold:   rgba(198, 165, 92, 0.34);
 
   /* ── Legacy aliases (keep other components working) */
   --midnight:      #0B2019;
-  --muted:         rgba(28, 28, 28, 0.62);
+  --muted:         var(--ink-muted);
   --saffron:       var(--gold);
   --saffron-light: var(--gold-light);
   --saffron-dark:  #A78945;
   --forest-light:  var(--green-soft);
   
   /* Typography */
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
 
   /* Spacing & Layout */
   --section-py: 120px;
@@ -55,11 +66,36 @@ html {
 body {
   font-family: var(--font-sans);
   background: var(--cream);
-  color: var(--charcoal);
+  color: var(--ink);
   line-height: 1.7;
   letter-spacing: 0.01em;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Global rich “grainy green” atmosphere (subtle) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(1100px 700px at 18% 12%, rgba(15, 91, 60, 0.14), transparent 62%),
+    radial-gradient(900px 620px at 85% 30%, rgba(255, 122, 0, 0.06), transparent 60%),
+    linear-gradient(180deg, rgba(11, 32, 25, 0.02) 0%, rgba(11, 32, 25, 0.06) 100%);
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 img {
@@ -85,8 +121,9 @@ button {
 h1, h2, h3 { 
   font-family: var(--font-serif); 
   line-height: 1.2; 
-  font-weight: 400; 
-  letter-spacing: -0.01em;
+  font-weight: 600; 
+  letter-spacing: -0.015em;
+  color: var(--ink);
 }
 
 .luxury-title {
@@ -101,7 +138,7 @@ h1, h2, h3 {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
 }
 
 .container {
@@ -125,31 +162,33 @@ h1, h2, h3 {
   text-transform: uppercase;
   transition: background 0.45s ease, color 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid var(--border-gold);
+  border-radius: 0;
 }
 
-/* Near-black fill — clean on cream/white pages */
+/* Primary: deep green with thin gold border */
 .btn-primary {
-  background: var(--charcoal);
-  color: #fff;
-  border-color: var(--charcoal);
+  background: var(--green);
+  color: var(--gold-light);
+  border-color: var(--border-gold);
 }
 .btn-primary:hover {
-  background: #333;
-  border-color: #333;
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--midnight);
   transform: translateY(-2px);
 }
 
-/* Ink outline — dark border, fills dark on hover */
+/* Outline: gold border, no fill; inverts on hover */
 .btn-outline {
-  border: 1px solid rgba(28, 28, 28, 0.55);
-  color: var(--charcoal);
+  border: 1px solid var(--border-gold);
+  color: var(--gold);
   background: transparent;
 }
 .btn-outline:hover {
-  background: var(--charcoal);
-  border-color: var(--charcoal);
-  color: #fff;
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--midnight);
   transform: translateY(-2px);
 }
 
@@ -173,14 +212,14 @@ h1, h2, h3 {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-ink);
   margin-bottom: 24px;
 }
 .section-label::after {
   content: '';
   flex: 0 0 40px;
   height: 1px;
-  background: var(--gold);
+  background: var(--gold-ink);
 }
 
 /* ─── Scrollbar ─── */

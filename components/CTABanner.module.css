@@ -64,7 +64,7 @@
 
 .title {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 500;
   font-size: clamp(1.8rem, 3vw, 3rem);
   color: #fff;
   line-height: 1.1;
@@ -73,8 +73,8 @@
 }
 
 .subtitle {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.60);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.86);
   line-height: 1.85;
 }
 

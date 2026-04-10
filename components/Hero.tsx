@@ -14,7 +14,7 @@ export default function HeroSection() {
       >
         <div 
           className={styles.bgSlide} 
-          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1519681393784-d120267933ba?w=2200&q=85)` }}
+          style={{ backgroundImage: `url(/hero-tiger.jpg)` }}
         />
       </motion.div>
 
@@ -27,8 +27,6 @@ export default function HeroSection() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.25 }}
         >
-          The Untamed India
-          <span className={styles.kickerDot}>•</span>
           Luxury journeys with purpose
         </motion.div>
 
@@ -38,7 +36,7 @@ export default function HeroSection() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.45 }}
         >
-          Travel that <em>Gives Back</em>
+          The Untamed India
         </motion.h1>
 
         <motion.p 
@@ -47,7 +45,7 @@ export default function HeroSection() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.65 }}
         >
-          Not just a journey through India — a quiet, meaningful contribution to the places, people, and landscapes you touch.
+          Not just a journey through India, a quiet, meaningful contribution to the places, people, and landscapes you touch.
         </motion.p>
 
         <motion.div 

@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import styles from './Navbar.module.css';
 
 const destinations = [
@@ -17,8 +17,8 @@ const destinations = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [megaOpen, setMegaOpen] = useState(false);
   const megaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,49 +27,22 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const showNav = scrolled || mobileOpen;
+
   return (
-    <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${mobileOpen ? styles.mobileActive : ''}`}>
+    <header className={`${styles.navbar} ${showNav ? styles.visible : styles.hidden} ${scrolled ? styles.scrolled : ''} ${mobileOpen ? styles.mobileActive : ''}`}>
       <div className={`container ${styles.inner}`}>
-        {/* Logo */}
-        <Link href="/" className={styles.logo}>
-          <span className={styles.logoPrimary}>
-            <span className={styles.logoThe}>THE</span> UNTAMED
-          </span>
-          <span className={styles.logoSecondary}>INDIA</span>
+        <Link href="/" className={styles.brand} aria-label="Untamed India">
+          UNTAMED INDIA
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className={styles.desktopNav}>
-          <div className={styles.navItem} ref={megaRef} onMouseEnter={() => setMegaOpen(true)} onMouseLeave={() => setMegaOpen(false)}>
-            <button className={styles.navLink}>
-              Destinations <ChevronDown size={12} className={megaOpen ? styles.chevronOpen : ''} />
-            </button>
-            {megaOpen && (
-              <div className={styles.mega}>
-                <div className={styles.megaGrid}>
-                  {destinations.map((d) => (
-                    <Link key={d.href} href={d.href} className={styles.megaItem}>
-                      {d.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          <Link href="/tours" className={styles.navLink}>Journeys</Link>
-          <Link href="/about" className={styles.navLink}>Expertise</Link>
-          <Link href="/contact" className={styles.navLink}>Concierge</Link>
-        </nav>
-
-        {/* CTA */}
-        <div className={styles.actions}>
-          <Link href="/?register=1#register" className={styles.primaryCta}>
-            Register Interest
-          </Link>
-          <button className={styles.mobileToggle} onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <button
+          className={styles.menuButton}
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+        >
+          <span className={styles.burger} aria-hidden="true" />
+        </button>
       </div>
 
       {/* Mobile Menu */}

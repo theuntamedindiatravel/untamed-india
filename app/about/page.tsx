@@ -37,7 +37,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className={styles.section} style={{ backgroundColor: '#fff' }}>
+      <section className={styles.section} style={{ backgroundColor: 'var(--cream-dark)' }}>
         <div className="container">
           <div className={styles.grid}>
             <div className={styles.content}>
@@ -115,7 +115,7 @@ export default function AboutPage() {
             <div className={styles.impactCard}>
               <h3>Education, carried forward</h3>
               <p style={{ color: 'var(--charcoal-soft)', lineHeight: 1.9 }}>
-                With every booking, we dedicate <strong>2%</strong> to the education of underprivileged children in India — supporting the next
+                With every booking, we dedicate <strong>5%</strong> to the education of underprivileged children in India — supporting the next
                 generation with practical access to learning, dignity, and choice.
               </p>
             </div>

@@ -31,18 +31,18 @@ export default function Footer() {
         {/* Brand */}
         <div className={styles.brand}>
           <div className={styles.logo}>
-            <span>🌺</span>
+            <span className={styles.tuiMark} aria-hidden="true">TUI</span>
             <span className={styles.logoText}>The Untamed <span>India</span></span>
           </div>
           <p className={styles.tagline}>
             A 30-year legacy of travel design — reimagined as conscious luxury across India’s wild, cultural, and desert landscapes.
           </p>
           <div className={styles.contact}>
-            <a href="tel:+918001234567" className={styles.contactItem}>
-              <Phone size={14} /> +91 800 123 4567
+            <a href="tel:+919929867924" className={styles.contactItem}>
+              <Phone size={14} /> +91 9929867924
             </a>
-            <a href="mailto:concierge@untamedindia.com" className={styles.contactItem}>
-              <Mail size={14} /> concierge@untamedindia.com
+            <a href="mailto:Theuntamedindia.travel@gmail.com" className={styles.contactItem}>
+              <Mail size={14} /> Theuntamedindia.travel@gmail.com
             </a>
             <span className={styles.contactItem}>
               <MapPin size={14} /> New Delhi, India

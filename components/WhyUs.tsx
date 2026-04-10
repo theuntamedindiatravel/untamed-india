@@ -70,8 +70,8 @@ export default function WhyUsSection() {
                   className={styles.trustImg}
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=300&q=80"
-                  alt="Taj Mahal"
+                  src="https://images.unsplash.com/photo-1760835251791-1fda687de791?auto=format&fit=crop&w=300&q=80"
+                  alt="Ladakh monastery"
                   className={styles.trustImg}
                 />
               </div>

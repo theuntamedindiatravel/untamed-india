@@ -1,0 +1,131 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(11, 32, 25, 0.52);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.modal {
+  width: min(680px, 100%);
+  max-height: min(88vh, 900px);
+  overflow-y: auto;
+  border-radius: 20px;
+  background: rgba(252, 250, 245, 0.96);
+  border: 1px solid rgba(198, 165, 92, 0.35);
+  box-shadow: 0 70px 160px rgba(0, 0, 0, 0.22);
+  padding: 40px 40px 32px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--charcoal);
+  background: rgba(0, 0, 0, 0.05);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.kicker {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  line-height: 1.12;
+  margin-bottom: 10px;
+  color: var(--charcoal);
+}
+
+.subtitle {
+  font-size: 0.98rem;
+  font-style: italic;
+  color: rgba(26, 26, 26, 0.88);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.status {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 22px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(15, 91, 60, 0.08);
+  border: 1px solid rgba(15, 91, 60, 0.15);
+}
+
+.body {
+  margin-bottom: 24px;
+}
+
+.para {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--charcoal-soft);
+  margin-bottom: 16px;
+}
+
+.para:last-child {
+  margin-bottom: 0;
+}
+
+.why {
+  padding: 18px 18px 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(242, 215, 122, 0.12), rgba(15, 91, 60, 0.06));
+  border: 1px solid rgba(198, 165, 92, 0.28);
+}
+
+.whyLabel {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  margin-bottom: 10px;
+}
+
+.whyText {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--charcoal);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .modal {
+    padding: 32px 22px 24px;
+  }
+}
