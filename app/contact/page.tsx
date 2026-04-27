@@ -1,12 +1,61 @@
 'use client';
+import { useMemo, useState } from 'react';
 import { MapPin, Phone, Mail, Camera, Globe, Play, Send } from 'lucide-react';
 import styles from './Contact.module.css';
 import { getWhatsAppLink, getWhatsAppNumberE164Digits } from '@/lib/whatsapp';
 
 export default function ContactPage() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [destination, setDestination] = useState('');
+  const [message, setMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [error, setError] = useState<string | null>(null);
+
+  const canSubmit = useMemo(() => {
+    if (!name.trim()) return false;
+    if (!email.trim()) return false;
+    if (!message.trim()) return false;
+    return !submitting;
+  }, [name, email, message, submitting]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you! A The Untamed India travel designer will contact you shortly.');
+    if (!canSubmit) return;
+    setSubmitting(true);
+    setStatus('idle');
+    setError(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          destination,
+          message,
+          pagePath: typeof window !== 'undefined' ? window.location.pathname : undefined,
+          source: 'contact-page',
+        }),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error || 'Could not send your message. Please try again.');
+      }
+
+      setStatus('success');
+      setName('');
+      setEmail('');
+      setDestination('');
+      setMessage('');
+    } catch (err) {
+      setStatus('error');
+      setError(err instanceof Error ? err.message : 'Could not send your message. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -20,15 +69,31 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
                   <label className={styles.label}>Full Name</label>
-                  <input type="text" placeholder="John Doe" className={styles.input} required />
+                  <input
+                    type="text"
+                    placeholder="John Doe"
+                    className={styles.input}
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    autoComplete="name"
+                  />
                 </div>
                 <div className={styles.formGroup}>
                   <label className={styles.label}>Email Address</label>
-                  <input type="email" placeholder="john@example.com" className={styles.input} required />
+                  <input
+                    type="email"
+                    placeholder="john@example.com"
+                    className={styles.input}
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    autoComplete="email"
+                  />
                 </div>
                 <div className={styles.formGroup}>
                   <label className={styles.label}>Destination of Interest</label>
-                  <select className={styles.input}>
+                  <select className={styles.input} value={destination} onChange={(e) => setDestination(e.target.value)}>
                     <option>Select a destination</option>
                     <option>Ranthambore & Wildlife</option>
                     <option>Rajasthan Cultural</option>
@@ -38,10 +103,33 @@ export default function ContactPage() {
                 </div>
                 <div className={styles.formGroup}>
                   <label className={styles.label}>Message / Details</label>
-                  <textarea placeholder="Tell us about your travel plans..." className={styles.textarea} required></textarea>
+                  <textarea
+                    placeholder="Tell us about your travel plans..."
+                    className={styles.textarea}
+                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                  />
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '10px' }}>
-                  Send Message
+                {status === 'error' && (
+                  <p style={{ marginTop: 10, color: 'rgba(160, 20, 20, 0.9)', lineHeight: 1.5 }}>
+                    {error || 'Could not send your message. Please try again.'}
+                  </p>
+                )}
+                {status === 'success' && (
+                  <p style={{ marginTop: 10, color: 'rgba(14, 24, 20, 0.75)', lineHeight: 1.5 }}>
+                    Thank you — we’ve received your message. A travel designer will reach out shortly.
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  style={{ width: '100%', marginTop: '10px' }}
+                  disabled={!canSubmit}
+                  aria-disabled={!canSubmit}
+                >
+                  {submitting ? 'Sending…' : 'Send Message'}
                 </button>
               </form>
             </div>
