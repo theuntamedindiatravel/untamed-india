@@ -11,6 +11,11 @@ function requiredEnv(name: string) {
   return v && v.trim() ? v.trim() : null;
 }
 
+function optionalEnv(name: string) {
+  const v = process.env[name];
+  return v && v.trim() ? v.trim() : null;
+}
+
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -35,6 +40,8 @@ export async function POST(req: Request) {
 
   const opsEmailTo = requiredEnv('OPS_EMAIL_TO') || 'theuntamedindia.travel@gmail.com';
   const opsEmailFrom = requiredEnv('OPS_EMAIL_FROM') || 'Untamed India <onboarding@resend.dev>';
+  const sheetsWebhookUrl = optionalEnv('GOOGLE_SHEETS_WEBHOOK_URL');
+  const sheetsSecret = optionalEnv('GOOGLE_SHEETS_WEBHOOK_SECRET');
 
   const subject = `Newsletter signup — ${email}`;
 
@@ -76,6 +83,33 @@ export async function POST(req: Request) {
   if (error) {
     console.error('[subscribe] resend error', error);
     return Response.json({ error: 'We received your email, but delivery failed. Please try again.' }, { status: 502 });
+  }
+
+  if (sheetsWebhookUrl) {
+    try {
+      const res = await fetch(sheetsWebhookUrl, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          source: payload.source,
+          pagePath: payload.pagePath,
+          createdAt: new Date().toISOString(),
+          secret: sheetsSecret || undefined,
+        }),
+      });
+
+      if (!res.ok) {
+        console.error('[subscribe] google sheets webhook failed', {
+          status: res.status,
+          statusText: res.statusText,
+        });
+        // Do not fail the user signup if Sheets write fails.
+      }
+    } catch (e) {
+      console.error('[subscribe] google sheets webhook error', e);
+      // Do not fail the user signup if Sheets write fails.
+    }
   }
 
   return Response.json({ ok: true }, { status: 200 });
