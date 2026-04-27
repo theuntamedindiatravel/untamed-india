@@ -1,4 +1,5 @@
 'use client';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { MapPin, Phone, Mail, Camera, Globe, Play, Send } from 'lucide-react';
 import styles from './Footer.module.css';
@@ -23,6 +24,15 @@ const links = {
 };
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [error, setError] = useState<string | null>(null);
+
+  const canSubmit = useMemo(() => {
+    return Boolean(email.trim()) && !submitting;
+  }, [email, submitting]);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.topBand} />
@@ -78,11 +88,58 @@ export default function Footer() {
         <div className={styles.newsletter}>
           <h4 className={styles.colTitle}>Stay Inspired</h4>
           <p className={styles.newsletterText}>Get expert travel stories, hidden gems, and exclusive offers from the heart of India.</p>
-          <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="Your email address" className={styles.input} required />
-            <button type="submit" className={styles.submitBtn}>Subscribe</button>
+          <form
+            className={styles.form}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              if (!canSubmit) return;
+              setSubmitting(true);
+              setStatus('idle');
+              setError(null);
+              try {
+                const res = await fetch('/api/subscribe', {
+                  method: 'POST',
+                  headers: { 'content-type': 'application/json' },
+                  body: JSON.stringify({
+                    email,
+                    source: 'footer-newsletter',
+                    pagePath: typeof window !== 'undefined' ? window.location.pathname : undefined,
+                  }),
+                });
+                if (!res.ok) {
+                  const data = (await res.json().catch(() => null)) as { error?: string } | null;
+                  throw new Error(data?.error || 'Could not subscribe. Please try again.');
+                }
+                setStatus('success');
+                setEmail('');
+              } catch (err) {
+                setStatus('error');
+                setError(err instanceof Error ? err.message : 'Could not subscribe. Please try again.');
+              } finally {
+                setSubmitting(false);
+              }
+            }}
+          >
+            <input
+              type="email"
+              placeholder="Your email address"
+              className={styles.input}
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+            />
+            <button type="submit" className={styles.submitBtn} disabled={!canSubmit} aria-disabled={!canSubmit}>
+              {submitting ? 'Subscribing…' : 'Subscribe'}
+            </button>
           </form>
-          <p className={styles.fine}>No spam. Unsubscribe anytime.</p>
+          <p className={styles.fine}>
+            {status === 'success'
+              ? 'Subscribed. Thank you — we’ll share inspiration occasionally.'
+              : status === 'error'
+                ? error || 'Could not subscribe. Please try again.'
+                : 'No spam. Unsubscribe anytime.'}
+          </p>
         </div>
       </div>
 
