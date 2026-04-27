@@ -63,16 +63,22 @@ export default function WhyUsSection() {
                   src="https://images.unsplash.com/photo-1549366021-9f761d040a94?w=300&q=80"
                   alt="India tiger"
                   className={styles.trustImg}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <img
                   src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=300&q=80"
                   alt="India culture"
                   className={styles.trustImg}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <img
                   src="https://images.unsplash.com/photo-1760835251791-1fda687de791?auto=format&fit=crop&w=300&q=80"
                   alt="Ladakh monastery"
                   className={styles.trustImg}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <span className={styles.trustBadge}>★ 4.9 / 5 from 12,000+ guests</span>

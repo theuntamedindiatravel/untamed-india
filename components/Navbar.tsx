@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import styles from './Navbar.module.css';
+import { usePathname, useRouter } from 'next/navigation';
 
 const destinations = [
   { label: 'Wildlife Safaris', href: '/destinations/wildlife' },
@@ -16,6 +17,8 @@ const destinations = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
@@ -27,11 +30,33 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const showNav = scrolled || mobileOpen;
+  const isHome = pathname === '/';
+  const showNav = !isHome || scrolled || mobileOpen;
 
   return (
     <header className={`${styles.navbar} ${showNav ? styles.visible : styles.hidden} ${scrolled ? styles.scrolled : ''} ${mobileOpen ? styles.mobileActive : ''}`}>
       <div className={`container ${styles.inner}`}>
+        {!isHome ? (
+          <button
+            type="button"
+            className={styles.backButton}
+            onClick={() => {
+              // router.back() is ideal; if history is empty, fall back to home.
+              try {
+                if (window.history.length > 1) router.back();
+                else router.push('/');
+              } catch {
+                router.push('/');
+              }
+            }}
+            aria-label="Go back"
+          >
+            ←
+          </button>
+        ) : (
+          <span className={styles.backSpacer} aria-hidden="true" />
+        )}
+
         <Link href="/" className={styles.brand} aria-label="Untamed India">
           UNTAMED INDIA
         </Link>

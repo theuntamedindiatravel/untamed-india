@@ -3,6 +3,7 @@ import { stats } from '@/lib/data';
 import styles from './About.module.css';
 import Link from 'next/link';
 import { Leaf, Users, Star, Shield, Camera, Heart } from 'lucide-react';
+import OurGuidesSection from '@/components/OurGuidesSection';
 
 const reasons = [
   {
@@ -39,30 +40,152 @@ export default function AboutPage() {
       {/* Story */}
       <section className={styles.section} style={{ backgroundColor: 'var(--cream-dark)' }}>
         <div className="container">
-          <div className={styles.grid}>
-            <div className={styles.content}>
-              <h2>The story behind the journey</h2>
-              <p>
-                It began in Rajasthan — in landscapes where water is precious, where wildlife moves quietly at the edge of villages,
-                and where communities live in close conversation with the land.
-              </p>
-              <p>
-                For years, the work was simple: design beautiful journeys across India, with the care and precision that discerning
-                international travelers expect. Over time, a deeper understanding emerged — travel is powerful. In the right hands,
-                it can create far more than memories.
-              </p>
-              <p>
-                Untamed India is that legacy, reimagined. A modern expression of decades of expertise — shaped by a quieter ambition:
-                that the places we love should grow stronger with every journey, and that even a small contribution from each traveler
-                can become something lasting.
-              </p>
-            </div>
-            <div className={styles.imgWrap}>
-              <img 
-                src="https://images.unsplash.com/photo-1549366021-9f761d040a94?w=800&q=80" 
-                alt="Bengal Tiger" 
-                style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} 
-              />
+          <div className={styles.content}>
+            <h2>The story behind the journey</h2>
+            <div className={styles.storyBlocks}>
+              <div className={styles.storyBlock}>
+                <div className={styles.storyText}>
+                  <p>
+                    It began in Rajasthan — a land of striking contrasts, where golden deserts stretch endlessly under vast skies, where
+                    ancient forts rise like guardians of time, and where life has learned to thrive against all odds. Here, water is not
+                    just a resource but a treasure, carefully preserved and deeply respected. Wildlife moves silently at the fringes of
+                    human settlement — leopards slipping through rocky hills, antelopes grazing in the distance — while villages pulse
+                    with a quiet, enduring spirit. In these landscapes, communities have lived for generations in close harmony with
+                    nature, shaping a way of life rooted in resilience, balance, and tradition. It is here, in this raw and poetic
+                    setting, that the story of Untamed India truly began.
+                  </p>
+                </div>
+                <div className={styles.storyMedia}>
+                  <div className={styles.storyImage}>
+                    <img
+                      src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85"
+                      alt="A wide desert landscape at sunrise with dunes glowing in soft golden light"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className={styles.caption}>A wide desert landscape at sunrise with dunes glowing in soft golden light.</div>
+                </div>
+              </div>
+
+              <div className={styles.storyBlock}>
+                <div className={styles.storyText}>
+                  <p>
+                    What started years ago was simple in intention yet refined in execution — to design beautiful, seamless journeys
+                    across India for discerning international travelers. Every itinerary was crafted with precision, every experience
+                    carefully curated to reveal not just destinations, but emotions. Palaces, wildlife reserves, sacred cities, and
+                    hidden rural corners were woven together to create journeys that felt personal, authentic, and unforgettable. Over
+                    time, however, something deeper revealed itself. Through countless interactions, shared stories, and lived
+                    experiences, a powerful understanding emerged — travel is never just movement. It is presence. It is exchange. And
+                    when guided with intention, it becomes a force capable of shaping the very places it touches.
+                  </p>
+                </div>
+                <div className={styles.storyMedia}>
+                  <div className={styles.storyImage}>
+                    <img
+                      src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?auto=format&fit=crop&w=1400&q=85"
+                      alt="A luxury heritage palace in Rajasthan with guests experiencing royal hospitality"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className={styles.caption}>A luxury heritage palace in Rajasthan with guests experiencing royal hospitality.</div>
+                </div>
+              </div>
+
+              <div className={styles.storyBlock}>
+                <div className={styles.storyText}>
+                  <p>
+                    With this realization came a quiet shift in purpose. The question was no longer just how to create extraordinary
+                    journeys, but how those journeys could leave a meaningful imprint. Rajasthan, with its delicate ecosystems and
+                    deeply rooted communities, became both inspiration and responsibility. The same villages that welcomed travelers
+                    with warmth were also navigating modern challenges. The same landscapes that inspired awe required protection and
+                    care. It became clear that travel, when done thoughtfully, could go beyond admiration — it could contribute,
+                    sustain, and uplift.
+                  </p>
+                </div>
+                <div className={styles.storyMedia}>
+                  <div className={styles.storyImage}>
+                    <img
+                      src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1400&q=85"
+                      alt="A village elder sharing stories with travelers under a tree in a rural setting"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className={styles.caption}>A village elder sharing stories with travelers under a tree in a rural setting.</div>
+                </div>
+              </div>
+
+              <div className={styles.storyBlock}>
+                <div className={styles.storyText}>
+                  <p>
+                    Untamed India is the embodiment of that evolution — a legacy built on years of expertise, now reimagined with a
+                    deeper vision. It is not a departure from luxury, but a refinement of it. Here, luxury is not only found in
+                    exquisite stays or flawless service, but in authenticity, connection, and purpose. Each journey is designed to
+                    create a balance — offering travelers unparalleled experiences while ensuring that local communities, traditions,
+                    and ecosystems are respected and supported. Whether it is engaging with artisans preserving centuries-old crafts,
+                    witnessing wildlife in its natural habitat, or simply sharing a moment in a rural village, every experience is
+                    intended to be meaningful, both for the traveler and for the land.
+                  </p>
+                </div>
+                <div className={styles.storyMedia}>
+                  <div className={styles.storyImage}>
+                    <img
+                      src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1400&q=85"
+                      alt="An artisan weaving traditional Rajasthani textiles with intricate detail"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className={styles.caption}>An artisan weaving traditional Rajasthani textiles with intricate detail.</div>
+                </div>
+              </div>
+
+              <div className={styles.storyBlock}>
+                <div className={styles.storyText}>
+                  <p>
+                    At its heart lies a quiet yet powerful belief — that the places we love should grow stronger with every visit. That
+                    travel should not take away, but give back. That even the smallest gesture, when multiplied across journeys, can
+                    create lasting change. A single traveler’s contribution may seem modest, but together, they become part of
+                    something far greater — supporting livelihoods, preserving heritage, and protecting the fragile beauty of these
+                    landscapes for generations to come.
+                  </p>
+                </div>
+                <div className={styles.storyMedia}>
+                  <div className={styles.storyImage}>
+                    <img
+                      src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?auto=format&fit=crop&w=1400&q=85"
+                      alt="Children smiling and playing in a village supported by tourism initiatives"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className={styles.caption}>Children smiling and playing in a village supported by tourism initiatives.</div>
+                </div>
+              </div>
+
+              <div className={styles.storyBlock}>
+                <div className={styles.storyText}>
+                  <p>
+                    Untamed India is not just a name, nor simply a travel company. It is a philosophy — a way of seeing and experiencing
+                    the world with awareness and respect. It is an invitation to explore India not only with curiosity, but with
+                    intention. To go beyond the surface, to connect with its people, its stories, and its soul. And in doing so, to
+                    become part of a journey that extends far beyond travel itself — one that nurtures, preserves, and endures.
+                  </p>
+                </div>
+                <div className={styles.storyMedia}>
+                  <div className={styles.storyImage}>
+                    <img
+                      src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1400&q=85"
+                      alt="A traveler sharing a quiet moment with a local family over tea in a traditional home"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className={styles.caption}>A traveler sharing a quiet moment with a local family over tea in a traditional home.</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -98,6 +221,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <OurGuidesSection />
 
       {/* Purpose */}
       <section className={styles.section} id="conservation" style={{ backgroundColor: 'var(--cream)' }}>

@@ -18,8 +18,13 @@ type RegisterInterestModalProps = {
 export default function RegisterInterestModal({ open, onClose }: RegisterInterestModalProps) {
   const titleId = useId();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [timing, setTiming] = useState('');
+  const [interests, setInterests] = useState('');
   const [annualSpend, setAnnualSpend] = useState<AnnualSpend>('');
   const [subscribe, setSubscribe] = useState(true);
 
@@ -33,6 +38,8 @@ export default function RegisterInterestModal({ open, onClose }: RegisterInteres
   useEffect(() => {
     if (!open) return;
     setSubmitted(false);
+    setSubmitting(false);
+    setError(null);
   }, [open]);
 
   useEffect(() => {
@@ -71,10 +78,40 @@ export default function RegisterInterestModal({ open, onClose }: RegisterInteres
 
             <form
               className={styles.form}
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
                 if (!canSubmit) return;
-                setSubmitted(true);
+                setSubmitting(true);
+                setError(null);
+
+                try {
+                  const res = await fetch('/api/register-interest', {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({
+                      name,
+                      email,
+                      phone,
+                      timing,
+                      interests,
+                      annualSpend,
+                      subscribe,
+                      source: 'register-interest-modal',
+                      pagePath: typeof window !== 'undefined' ? window.location.pathname : undefined,
+                    }),
+                  });
+
+                  if (!res.ok) {
+                    const data = (await res.json().catch(() => null)) as { error?: string } | null;
+                    throw new Error(data?.error || 'Submission failed. Please try again.');
+                  }
+
+                  setSubmitted(true);
+                } catch (err) {
+                  setError(err instanceof Error ? err.message : 'Submission failed. Please try again.');
+                } finally {
+                  setSubmitting(false);
+                }
               }}
             >
               <div className={styles.grid}>
@@ -103,6 +140,28 @@ export default function RegisterInterestModal({ open, onClose }: RegisterInteres
                   />
                 </label>
 
+                <label className={styles.field}>
+                  <span className={styles.label}>Phone (optional)</span>
+                  <input
+                    className={styles.input}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    autoComplete="tel"
+                    placeholder="+44 7… / +91…"
+                    inputMode="tel"
+                  />
+                </label>
+
+                <label className={styles.field}>
+                  <span className={styles.label}>When are you looking to travel? (optional)</span>
+                  <input
+                    className={styles.input}
+                    value={timing}
+                    onChange={(e) => setTiming(e.target.value)}
+                    placeholder="Month / season, 2026"
+                  />
+                </label>
+
                 <label className={styles.fieldFull}>
                   <span className={styles.label}>Annual travel spend</span>
                   <select
@@ -119,6 +178,17 @@ export default function RegisterInterestModal({ open, onClose }: RegisterInteres
                   </select>
                 </label>
 
+                <label className={styles.fieldFull}>
+                  <span className={styles.label}>What are you interested in? (optional)</span>
+                  <textarea
+                    className={styles.input}
+                    value={interests}
+                    onChange={(e) => setInterests(e.target.value)}
+                    placeholder="Wildlife, heritage, Himalayas, special occasions, accessibility needs…"
+                    style={{ minHeight: 110, resize: 'vertical' }}
+                  />
+                </label>
+
                 <label className={styles.checkbox}>
                   <input
                     type="checkbox"
@@ -129,8 +199,14 @@ export default function RegisterInterestModal({ open, onClose }: RegisterInteres
                 </label>
               </div>
 
-              <button className={styles.submit} type="submit" disabled={!canSubmit}>
-                Submit
+              {error && (
+                <p className={styles.fine} style={{ color: 'rgba(160, 20, 20, 0.9)', marginTop: 10 }}>
+                  {error}
+                </p>
+              )}
+
+              <button className={styles.submit} type="submit" disabled={!canSubmit || submitting}>
+                {submitting ? 'Submitting…' : 'Submit'}
               </button>
 
               <p className={styles.fine}>

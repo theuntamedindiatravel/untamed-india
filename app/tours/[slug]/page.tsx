@@ -15,6 +15,8 @@ export default function TourDetailPage() {
     notFound();
   }
 
+  const itinerary = (tour as unknown as { itinerary?: { day: string; title: string; body: string }[] }).itinerary ?? [];
+
   return (
     <div className={styles.page}>
       {/* Hero */}
@@ -56,6 +58,33 @@ export default function TourDetailPage() {
                   </li>
                 ))}
               </ul>
+
+              <h2 className={styles.sectionTitle}>Itinerary</h2>
+              {itinerary.length > 0 ? (
+                <div style={{ display: 'grid', gap: 14 }}>
+                  {itinerary.map((item) => (
+                    <div
+                      key={`${item.day}-${item.title}`}
+                      style={{
+                        border: '1px solid rgba(26,26,26,0.08)',
+                        borderRadius: 14,
+                        padding: '14px 14px',
+                        background: 'rgba(255,255,255,0.65)',
+                      }}
+                    >
+                      <div style={{ fontSize: 12, letterSpacing: 1, textTransform: 'uppercase', color: 'rgba(26,26,26,0.6)' }}>
+                        {item.day}
+                      </div>
+                      <div style={{ fontSize: 18, fontWeight: 700, marginTop: 4 }}>{item.title}</div>
+                      <div style={{ marginTop: 6, color: 'rgba(26,26,26,0.75)', lineHeight: 1.8 }}>{item.body}</div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className={styles.description}>
+                  Detailed itineraries are available on request. Share your dates and preferences and we’ll tailor the journey.
+                </p>
+              )}
             </section>
           </div>
 

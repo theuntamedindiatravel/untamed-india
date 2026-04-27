@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import styles from './OurStorySection.module.css';
+import { getWhatsAppLink } from '@/lib/whatsapp';
 
 export default function OurStorySection() {
   return (
@@ -44,9 +45,14 @@ export default function OurStorySection() {
         </div>
 
         <div className={styles.ctaRow}>
-          <Link className="btn btn-primary" href="/contact">
+          <a
+            className="btn btn-primary"
+            href={getWhatsAppLink('Hi! I’d like to speak to the Untamed India concierge about planning a journey.')}
+            target="_blank"
+            rel="noreferrer"
+          >
             Talk to our concierge
-          </Link>
+          </a>
           <Link className="btn btn-outline" href="/?register=1#register">
             Register interest
           </Link>

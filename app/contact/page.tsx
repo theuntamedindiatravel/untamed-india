@@ -1,6 +1,7 @@
 'use client';
 import { MapPin, Phone, Mail, Camera, Globe, Play, Send } from 'lucide-react';
 import styles from './Contact.module.css';
+import { getWhatsAppLink, getWhatsAppNumberE164Digits } from '@/lib/whatsapp';
 
 export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
@@ -55,6 +56,20 @@ export default function ContactPage() {
                 our team of destination specialists is here to guide you.
               </p>
 
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 22 }}>
+                <a
+                  className="btn btn-primary"
+                  href={getWhatsAppLink('Hi! I’d like to plan a journey with Untamed India.')}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  WhatsApp Concierge
+                </a>
+                <a className="btn btn-outline" href={`/` + `?register=1#register`}>
+                  Register interest
+                </a>
+              </div>
+
               <div className={styles.contactInfo}>
                 <div className={styles.infoItem}>
                   <div className={styles.iconWrap}><MapPin size={20} /></div>
@@ -67,7 +82,7 @@ export default function ContactPage() {
                   <div className={styles.iconWrap}><Phone size={20} /></div>
                   <div>
                     <strong>Direct Line</strong><br />
-                    +91 800 123 4567
+                    +{getWhatsAppNumberE164Digits()}
                   </div>
                 </div>
                 <div className={styles.infoItem}>

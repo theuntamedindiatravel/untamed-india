@@ -38,6 +38,33 @@
   gap: 24px;
 }
 
+/* Inner pages: visible back affordance */
+.backButton {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(198, 165, 92, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1), border-color 0.35s cubic-bezier(0.2, 0, 0, 1), background 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+.backButton:hover {
+  transform: translateY(-1px);
+  border-color: rgba(198, 165, 92, 0.55);
+  background: rgba(198, 165, 92, 0.06);
+}
+
+.backSpacer {
+  width: 44px;
+  height: 44px;
+  display: inline-block;
+}
+
 /* Brand (left) */
 .brand {
   font-family: var(--font-serif);

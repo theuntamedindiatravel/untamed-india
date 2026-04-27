@@ -33,21 +33,30 @@
   color: var(--charcoal-soft);
   font-size: 0.9rem;
   font-weight: 500;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.24s cubic-bezier(0.2, 0, 0, 1), border-color 0.24s cubic-bezier(0.2, 0, 0, 1), color 0.24s cubic-bezier(0.2, 0, 0, 1), transform 0.24s cubic-bezier(0.2, 0, 0, 1);
   cursor: pointer;
+  will-change: transform;
+  touch-action: manipulation;
 }
 
 .filterChip:hover {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
+  transform: translateY(-1px);
 }
 
 .filterChip.active {
   background: var(--gold);
   border-color: var(--gold);
   color: #fff;
-  box-shadow: 0 4px 20px rgba(163, 139, 113, 0.3);
+  box-shadow: 0 8px 24px rgba(163, 139, 113, 0.18);
+  transform: translateY(-1px);
+}
+
+.filterChip:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(198, 165, 92, 0.22);
 }
 
 @media (max-width: 768px) {
@@ -57,8 +66,14 @@
     padding-bottom: 8px;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    scroll-snap-type: x proximity;
   }
   .filterGroup::-webkit-scrollbar {
     display: none;
+  }
+
+  .filterChip {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
   }
 }
