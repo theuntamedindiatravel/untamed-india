@@ -87,22 +87,18 @@ export async function POST(req: Request) {
 
   if (sheetsWebhookUrl) {
     try {
-      const res = await fetch(sheetsWebhookUrl, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          source: payload.source,
-          pagePath: payload.pagePath,
-          createdAt: new Date().toISOString(),
-          secret: sheetsSecret || undefined,
-        }),
+      const { postJsonToAppsScript } = await import('@/lib/appsScriptPost');
+      const res = await postJsonToAppsScript(sheetsWebhookUrl, {
+        email,
+        source: payload.source,
+        pagePath: payload.pagePath,
+        createdAt: new Date().toISOString(),
+        secret: sheetsSecret || undefined,
       });
 
-      if (!res.ok) {
+      if (res.status < 200 || res.status >= 300) {
         console.error('[subscribe] google sheets webhook failed', {
           status: res.status,
-          statusText: res.statusText,
         });
         // Do not fail the user signup if Sheets write fails.
       }
