@@ -50,6 +50,25 @@ Energetic, approachable, and highly attentive`,
     photo: '/guides/shyam.png',
   },
   {
+    id: 'raj',
+    name: 'Raj',
+    languages: ['English', 'Hindi'],
+    region: 'Ladakh · Himalayas',
+    descriptor: 'Trekking & wilderness',
+    experienceYears: 10,
+    bio: `Raj is a seasoned trekker and wilderness expert, built for those who seek the raw, untamed beauty of India’s most remote landscapes. With extensive experience in high-altitude trekking and jungle exploration, he is the ideal companion for expeditions into regions like Ladakh, where nature is both breathtaking and unforgiving.
+
+Having spent years navigating mountain trails and rugged terrains, Raj combines deep technical knowledge with an instinctive understanding of the outdoors. From altitude awareness to route planning and safety management, every journey with him is handled with precision and care, allowing travelers to explore confidently even in the most challenging environments.
+
+What truly defines Raj is his connection with nature. He doesn’t just lead treks—he interprets the landscape. Whether it’s reading weather patterns in the mountains, identifying wildlife traces in the जंगल, or sharing survival insights, he transforms each expedition into a learning experience.
+
+Calm, resilient, and highly dependable`,
+    // Place Raj's portrait at:
+    //   public/guides/raj.png
+    // or replace this with a public URL.
+    photo: '/guides/raj.png',
+  },
+  {
     id: 'aanya-mehra',
     name: 'Aanya Mehra',
     languages: ['English', 'French'],
