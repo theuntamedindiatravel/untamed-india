@@ -11,6 +11,19 @@ export type Guide = {
 
 export const GUIDES: Guide[] = [
   {
+    id: 'karan',
+    name: 'Karan',
+    languages: ['English', 'Hindi'],
+    region: 'Delhi · North India',
+    descriptor: 'Culture & storytelling',
+    experienceYears: 5,
+    bio: 'Young, dynamic, and deeply passionate about sharing India with the world, Karan brings fresh energy paired with a strong foundation in history and culture. He’s known for connecting naturally with travellers — creating meaningful moments beyond the obvious, with a pace that adapts to you. Fluent, attentive to detail, and constantly learning, he represents the next generation of Indian travel.',
+    // To use the real portrait you shared, place it at:
+    //   public/guides/karan.png
+    // or replace this with a public URL.
+    photo: '/guides/karan.png',
+  },
+  {
     id: 'aanya-mehra',
     name: 'Aanya Mehra',
     languages: ['English', 'French'],
