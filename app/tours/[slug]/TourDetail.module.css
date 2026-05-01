@@ -12,7 +12,15 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+  z-index: 1;
+  /* Darken full frame so type stays legible on busy temple/sky photos */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.52) 0%,
+    rgba(0, 0, 0, 0.22) 38%,
+    rgba(0, 0, 0, 0.55) 72%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
 }
 
 .heroContent {
@@ -21,30 +29,70 @@
   z-index: 2;
 }
 
+.heroBack {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.heroBack:hover {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-color: #fff !important;
+}
+
+.heroTextPanel {
+  max-width: min(100%, 44rem);
+  padding: 1.35rem 1.6rem 1.5rem;
+  border-radius: 16px;
+  background: rgba(6, 18, 14, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
 .badge {
   display: inline-block;
   padding: 6px 16px;
-  background: var(--text-primary);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--ink);
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 15px;
+  letter-spacing: 0.06em;
 }
 
-.title {
+/* Beat global h1 { color: var(--ink) } — hero titles must stay light */
+.heroContent h1.title {
+  color: #fefdfb;
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 10px;
+  line-height: 1.08;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.45), 0 8px 40px rgba(0, 0, 0, 0.35);
 }
 
 .region {
   font-size: 1.2rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.94);
+  line-height: 1.45;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.region svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  opacity: 0.95;
 }
 
 .mainGrid {
@@ -141,9 +189,13 @@
   .mainGrid {
     grid-template-columns: 1fr;
   }
-  
-  .title {
+
+  .heroContent h1.title {
     font-size: 2.5rem;
+  }
+
+  .heroTextPanel {
+    padding: 1.1rem 1.2rem 1.25rem;
   }
 }
 

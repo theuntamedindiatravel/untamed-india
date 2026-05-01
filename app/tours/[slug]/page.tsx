@@ -27,14 +27,15 @@ export default function TourDetailPage() {
         <div className={styles.heroOverlay} />
         <div className="container">
           <div className={styles.heroContent}>
-            <Link href="/tours" className="btn btn-outline" style={{ color: '#fff', borderColor: '#fff', marginBottom: '30px', padding: '8px 16px' }}>
+            <Link href="/tours" className={`btn btn-outline ${styles.heroBack}`}>
               <ArrowLeft size={16} /> Back to All Tours
             </Link>
-            <br />
-            {tour.badge && <span className={styles.badge}>{tour.badge}</span>}
-            <h1 className={styles.title}>{tour.title}</h1>
-            <div className={styles.region}>
-              <MapPin size={20} /> {tour.region}
+            <div className={styles.heroTextPanel}>
+              {tour.badge && <span className={styles.badge}>{tour.badge}</span>}
+              <h1 className={styles.title}>{tour.title}</h1>
+              <div className={styles.region}>
+                <MapPin size={20} aria-hidden /> {tour.region}
+              </div>
             </div>
           </div>
         </div>
