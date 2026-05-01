@@ -3,7 +3,13 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import styles from './Navbar.module.css';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+function scrollToGuidesSection() {
+  requestAnimationFrame(() => {
+    document.getElementById('guides')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
 
 const destinations = [
   { label: 'Wildlife Safaris', href: '/destinations/wildlife' },
@@ -19,6 +25,7 @@ const destinations = [
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
@@ -31,18 +38,42 @@ export default function Navbar() {
   }, []);
 
   const isHome = pathname === '/';
-  const showNav = !isHome || scrolled || mobileOpen;
+  const overlayOnHome =
+    isHome && (!!searchParams.get('story') || searchParams.get('register') === '1');
+  const showNav = !isHome || scrolled || mobileOpen || overlayOnHome;
 
   return (
     <header className={`${styles.navbar} ${showNav ? styles.visible : styles.hidden} ${scrolled ? styles.scrolled : ''} ${mobileOpen ? styles.mobileActive : ''}`}>
       <div className={`container ${styles.inner}`}>
-        {!isHome ? (
+        {!isHome || overlayOnHome ? (
           <button
             type="button"
             className={styles.backButton}
             onClick={() => {
-              // router.back() is ideal; if history is empty, fall back to home.
               try {
+                // Dismiss in-page overlays first (stay on the same route).
+                if (pathname === '/about' && searchParams.get('guide')) {
+                  const next = new URLSearchParams(searchParams.toString());
+                  next.delete('guide');
+                  const qs = next.toString();
+                  router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+                  scrollToGuidesSection();
+                  return;
+                }
+                if (pathname === '/' && searchParams.get('story')) {
+                  const next = new URLSearchParams(searchParams.toString());
+                  next.delete('story');
+                  const qs = next.toString();
+                  router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+                  return;
+                }
+                if (pathname === '/' && searchParams.get('register') === '1') {
+                  const next = new URLSearchParams(searchParams.toString());
+                  next.delete('register');
+                  const qs = next.toString();
+                  router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+                  return;
+                }
                 if (window.history.length > 1) router.back();
                 else router.push('/');
               } catch {

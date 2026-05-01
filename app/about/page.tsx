@@ -1,4 +1,5 @@
 'use client';
+import { Suspense } from 'react';
 import { stats } from '@/lib/data';
 import styles from './About.module.css';
 import Link from 'next/link';
@@ -222,7 +223,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <OurGuidesSection />
+      <Suspense fallback={null}>
+        <OurGuidesSection />
+      </Suspense>
 
       {/* Purpose */}
       <section className={styles.section} id="conservation" style={{ backgroundColor: 'var(--cream)' }}>

@@ -1,16 +1,45 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './OurGuidesSection.module.css';
 import { GUIDES, type Guide } from '@/lib/guides';
 import GuideModal from '@/components/GuideModal';
 
+function scrollToGuidesSection() {
+  requestAnimationFrame(() => {
+    document.getElementById('guides')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
 export default function OurGuidesSection() {
   const guides = useMemo(() => GUIDES, []);
-  const [active, setActive] = useState<Guide | null>(null);
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  const openGuide = useCallback((g: Guide) => setActive(g), []);
-  const closeGuide = useCallback(() => setActive(null), []);
+  const guideId = searchParams.get('guide');
+  const active = useMemo(() => {
+    if (!guideId) return null;
+    return guides.find((g) => g.id === guideId) ?? null;
+  }, [guideId, guides]);
+
+  const openGuide = useCallback(
+    (g: Guide) => {
+      const next = new URLSearchParams(searchParams.toString());
+      next.set('guide', g.id);
+      router.push(`${pathname}?${next.toString()}`, { scroll: false });
+    },
+    [pathname, router, searchParams],
+  );
+
+  const closeGuide = useCallback(() => {
+    const next = new URLSearchParams(searchParams.toString());
+    next.delete('guide');
+    const qs = next.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    scrollToGuidesSection();
+  }, [pathname, router, searchParams]);
 
   return (
     <section className={styles.section} id="guides" aria-label="Our Guides">

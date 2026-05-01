@@ -34,6 +34,11 @@ export default function GuideModal({ open, guide, onClose }: GuideModalProps) {
 
   if (!open || !guide) return null;
 
+  const bioParagraphs = guide.bio
+    .split(/\n\s*\n/)
+    .map((p) => p.trim().replace(/\n/g, ' '))
+    .filter(Boolean);
+
   return (
     <div className={styles.backdrop} role="presentation" onMouseDown={onClose}>
       <div
@@ -53,40 +58,48 @@ export default function GuideModal({ open, guide, onClose }: GuideModalProps) {
           </div>
 
           <div className={styles.content}>
-            <div className={styles.kicker}>Our Guides</div>
-            <h3 className={styles.name} id={titleId}>
-              {guide.name}
-            </h3>
+            <div className={styles.contentInner}>
+              <div className={styles.kicker}>Our Guides</div>
+              <h3 className={styles.name} id={titleId}>
+                {guide.name}
+              </h3>
 
-            <div className={styles.meta}>
-              <div className={styles.metaRow}>
-                <div className={styles.metaLabel}>Languages</div>
-                <div className={styles.metaValue}>{guide.languages.join(', ')}</div>
+              <div className={styles.meta}>
+                <div className={styles.metaRow}>
+                  <div className={styles.metaLabel}>Languages</div>
+                  <div className={styles.metaValue}>{guide.languages.join(', ')}</div>
+                </div>
+                <div className={styles.metaRow}>
+                  <div className={styles.metaLabel}>Region</div>
+                  <div className={styles.metaValue}>{guide.region}</div>
+                </div>
+                <div className={styles.metaRow}>
+                  <div className={styles.metaLabel}>Experience</div>
+                  <div className={styles.metaValue}>{guide.experienceYears}+ years</div>
+                </div>
               </div>
-              <div className={styles.metaRow}>
-                <div className={styles.metaLabel}>Region</div>
-                <div className={styles.metaValue}>{guide.region}</div>
-              </div>
-              <div className={styles.metaRow}>
-                <div className={styles.metaLabel}>Experience</div>
-                <div className={styles.metaValue}>{guide.experienceYears}+ years</div>
-              </div>
-            </div>
 
-            <p className={styles.bio}>{guide.bio}</p>
+              <div className={styles.bio}>
+                {bioParagraphs.map((para, i) => (
+                  <p key={i} className={styles.bioPara}>
+                    {para}
+                  </p>
+                ))}
+              </div>
 
-            <div className={styles.actions}>
-              <a
-                className="btn btn-primary"
-                href={getWhatsAppLink(`Hi! I’d like to request ${guide.name} as our guide. Could you share availability?`)}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Request this guide
-              </a>
-              <button type="button" className="btn btn-outline" onClick={onClose}>
-                Back
-              </button>
+              <div className={styles.actions}>
+                <a
+                  className="btn btn-primary"
+                  href={getWhatsAppLink(`Hi! I’d like to request ${guide.name} as our guide. Could you share availability?`)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Request this guide
+                </a>
+                <button type="button" className="btn btn-outline" onClick={onClose}>
+                  Back
+                </button>
+              </div>
             </div>
           </div>
         </div>

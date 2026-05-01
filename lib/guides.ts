@@ -36,14 +36,7 @@ With years of hands-on experience in leading cycle tours through bustling cities
 
 What sets Shyam apart is his deep connection with local communities. Whether it’s sharing a meal in a village home, interacting with artisans, or exploring lesser-known neighborhoods, he ensures that every experience feels personal and meaningful. His passion for cultural exchange transforms simple moments into lasting memories.
 
-Energetic, approachable, and highly attentive
-Shyam is the perfect companion for travelers seeking a more active, immersive, and authentic side of India. A specialist in cycling and adventure tourism, he goes far beyond traditional guiding—offering experiences that bring you closer to the rhythm of local life.
-
-With years of hands-on experience in leading cycle tours through bustling cities, quiet countryside, and hidden village trails, Shyam has an exceptional understanding of India’s landscapes and its people. His routes are carefully designed to balance exploration, safety, and genuine discovery, allowing travelers to experience places that are often missed by conventional tours.
-
-What sets Shyam apart is his deep connection with local communities. Whether it’s sharing a meal in a village home, interacting with artisans, or exploring lesser-known neighborhoods, he ensures that every experience feels personal and meaningful. His passion for cultural exchange transforms simple moments into lasting memories.
-
-Energetic, approachable, and highly attentive`,
+Energetic, approachable, and highly attentive.`,
     // Place Shyam's portrait at:
     //   public/guides/shyam.png
     // or replace this with a public URL.

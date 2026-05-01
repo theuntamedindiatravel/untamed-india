@@ -21,19 +21,31 @@ export default function HomeLanding() {
 
   const shouldOpen = useMemo(() => searchParams.get('register') === '1', [searchParams]);
   const [open, setOpen] = useState(false);
-  const [photoStoryId, setPhotoStoryId] = useState<string | null>(null);
-  const photoStory = photoStoryId ? getHomePhotoStory(photoStoryId) ?? null : null;
 
-  const openPhotoStory = useCallback((id: string) => {
-    setPhotoStoryId(id);
-  }, []);
+  const storyParam = searchParams.get('story');
+  const photoStory = useMemo(() => {
+    if (!storyParam) return null;
+    return getHomePhotoStory(storyParam) ?? null;
+  }, [storyParam]);
+
+  const openPhotoStory = useCallback(
+    (id: string) => {
+      const next = new URLSearchParams(searchParams.toString());
+      next.set('story', id);
+      router.push(`${pathname}?${next.toString()}`, { scroll: false });
+    },
+    [pathname, router, searchParams],
+  );
 
   const closePhotoStory = useCallback(() => {
-    setPhotoStoryId(null);
-  }, []);
+    const next = new URLSearchParams(searchParams.toString());
+    next.delete('story');
+    const qs = next.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  }, [pathname, router, searchParams]);
 
   useEffect(() => {
-    if (shouldOpen) setOpen(true);
+    setOpen(shouldOpen);
   }, [shouldOpen]);
 
   return (
