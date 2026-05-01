@@ -38,6 +38,16 @@ export const categories = [
     color: '#8C6A4A',
     count: 0,
   },
+  {
+    id: 'spiritual',
+    title: 'Spiritual Pilgrimages',
+    description:
+      'Follow sacred rivers, temple bells, and living traditions from the Ganges ghats to the Golden Temple — with unhurried pacing, private guides, and stays that honour both comfort and contemplation.',
+    image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1400&q=85',
+    icon: '🕉️',
+    color: '#5C4A6B',
+    count: 1,
+  },
 ];
 
 export const tours = [
@@ -135,6 +145,122 @@ export const tours = [
     ],
     tribes: ['Solo', 'Friends'],
     moods: ['Nature', 'Photography', 'Adventure'],
+  },
+  {
+    slug: 'souls-of-the-north-luxury-spiritual',
+    title: 'Souls of the North: Luxury Spiritual Circuit',
+    category: 'spiritual',
+    region: 'Delhi · Rishikesh · Punjab · Varanasi · Bundelkhand · Rajasthan',
+    duration: '19 Days',
+    groupSize: 'Private Journey',
+    price: 18900,
+    rating: 5.0,
+    reviews: 0,
+    featured: true,
+    badge: 'Sacred India',
+    image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1400&q=85',
+    description:
+      'A nineteen-day private pilgrimage through North India’s spiritual spine: the Ganges at Rishikesh and Varanasi, the Golden Temple at Amritsar, erotic-sculpture temples at Khajuraho, the riverside forts of Orchha, the cliff citadel of Gwalior, regal Dholpur, the Taj at Agra, and the Pink City of Jaipur — with curated yoga, aartis, temple access, and heritage stays at a pace built for international travellers.',
+    highlights: [
+      'Private chauffeured road legs with airport-style meet-and-greets',
+      'Ganga Aarti in Rishikesh & Varanasi (premium viewing where available)',
+      'Dedicated yoga & pranayama sessions with vetted instructors in Rishikesh',
+      'Golden Temple (Harmandir Sahib) at dawn & dusk with expert Sikh heritage guide',
+      'Domestic flights: Amritsar–Varanasi & Varanasi–Khajuraho (routing refined at booking)',
+      'Khajuraho UNESCO temples + optional evening classical dance',
+      'Orchha palaces & chhatris, Gwalior Fort, heritage stay in Dholpur',
+      'Taj Mahal sunrise/sunset planning, Agra Fort, Fatehpur Sikri en route to Jaipur',
+      'Jaipur: Amber, City Palace, observatory, artisan and spiritual storytelling',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Delhi — Arrival & soft landing',
+        body: 'VIP airport meet, private transfer to a premium city hotel (e.g. Oberoi / Leela / Imperial). Light briefing over dinner; optional short evening drive past India Gate if jet lag allows.',
+      },
+      {
+        day: 'Day 2',
+        title: 'Delhi — Faith & empire in the capital',
+        body: 'Private tour of Old Delhi (Jama Masjid, heritage lanes) with respectful dress guidance; afternoon Qutub Minar complex or Humayun’s Tomb. Evening at leisure — spa or early night before the hills.',
+      },
+      {
+        day: 'Day 3',
+        title: 'Delhi → Rishikesh — Into the Himalayan foothills',
+        body: 'Scenic private drive (~6 hrs) with comfort stops. Late-afternoon check-in at a top riverside or estate retreat. Sunset Ganga Aarti at Parmarth Niketan or Triveni Ghat (your guide secures calm viewing).',
+      },
+      {
+        day: 'Days 4–5',
+        title: 'Rishikesh — Yoga, Ganga & sacred forest',
+        body: 'Two full days: sunrise yoga and pranayama at your stay; guided walks to key ashrams; optional Beatles Ashram (Maharishi) with storytelling; temple visits (Bharat Mandir, Trayambakeshwar as interests align). Second evening: second Aarti experience or private meditation block — pacing stays unhurried.',
+      },
+      {
+        day: 'Day 6',
+        title: 'Rishikesh → Chandigarh — From river to planned city',
+        body: 'Morning yoga optional, then private drive to Chandigarh. Afternoon: Le Corbusier’s Capitol Complex (UNESCO) and Rock Garden with an architecture-focused guide. Overnight at Chandigarh’s best hotel.',
+      },
+      {
+        day: 'Day 7',
+        title: 'Chandigarh → Amritsar — Toward the Golden Temple',
+        body: 'Private road to Amritsar (~4–5 hrs). Evening: first immersion at Harmandir Sahib — marble walkways, kirtan, and the glow of the sanctum after dark. Stay within easy reach of the Old City.',
+      },
+      {
+        day: 'Day 8',
+        title: 'Amritsar — Dawn, langar & memory',
+        body: 'Pre-dawn return to the Golden Temple for Amrit Velā; participate in langar if you wish. Later: Jallianwala Bagh and curated Old City walk. Optional Wagah border (late afternoon) — we’ll advise on pacing. Second night in Amritsar.',
+      },
+      {
+        day: 'Day 9',
+        title: 'Amritsar → Varanasi (flight) — The eternal city',
+        body: 'Transfer to airport; fly to Varanasi (often via Delhi — we book the smoothest connection). Evening: introduction to the ghats and a major Ganga Aarti (Dashashwamedh or a quieter ghat per your preference) with reserved seating assistance when possible.',
+      },
+      {
+        day: 'Days 10–11',
+        title: 'Varanasi — Boats, Sarnath & silk',
+        body: 'Sunrise private boat on the Ganges; walking exploration of core ghats and shrines with a cultural-spiritual guide. Full day for Sarnath (where the Buddha first taught), museum, and stupas. Visit a master silk weaver’s home. Second evening: repeat or alternate Aarti, or a classical music baithak if you prefer sound over crowds.',
+      },
+      {
+        day: 'Day 12',
+        title: 'Varanasi → Khajuraho (flight)',
+        body: 'Morning at leisure or optional last boat. Fly to Khajuraho. Afternoon orientation of the Western Group (UNESCO) with an art-historian angle — symbolism, not sensationalism. Overnight at the finest available lodge/hotel.',
+      },
+      {
+        day: 'Day 13',
+        title: 'Khajuraho — Temples & living culture',
+        body: 'Eastern & Jain temple clusters; village craft visit. Optional evening: sound-and-light or classical dance at an intimate venue. Rest before Bundelkhand’s fort towns.',
+      },
+      {
+        day: 'Day 14',
+        title: 'Khajuraho → Orchha — Riverside palaces',
+        body: 'Private drive to Orchha (~3 hrs). Fort complex, Jahangir Mahal, riverside chhatris, Ram Raja Temple legend. Stay in a restored palace or heritage hotel overlooking the Betwa.',
+      },
+      {
+        day: 'Day 15',
+        title: 'Orchha → Gwalior — Cliff-top fort',
+        body: 'Morning light in Orchha, then drive to Gwalior. Gwalior Fort: Man Mandir, Sas-Bahu temples, Teli-ka-Mandir with rock-cut Jain figures. Overnight at a premium city or palace hotel.',
+      },
+      {
+        day: 'Day 16',
+        title: 'Gwalior → Dholpur — Quiet regal Rajasthan',
+        body: 'Drive to Dholpur — red sandstone country, birdlife, and the Chambal. Check into a heritage palace hotel; afternoon property walk, high tea, or gentle nature drive. A breathing day before the Taj.',
+      },
+      {
+        day: 'Day 17',
+        title: 'Dholpur → Agra — Taj timing',
+        body: 'Private drive to Agra. Afternoon: Agra Fort and Mehtab Bagh across the Yamuna for Taj silhouette at sunset. Oberoi Amarvilas or equivalent for iconic views and service.',
+      },
+      {
+        day: 'Day 18',
+        title: 'Agra → Jaipur via Fatehpur Sikri',
+        body: 'Sunrise Taj Mahal visit with timed entry and private guide. Continue to Fatehpur Sikri — Buland Darwaza, Jama Masjid, Jodha Bai’s palace. Arrive Jaipur for a relaxed evening and royal Rajasthani dinner.',
+      },
+      {
+        day: 'Day 19',
+        title: 'Jaipur → Delhi — Departure',
+        body: 'Morning Amber Fort (jeep or elephant per policy/season), City Palace, Jantar Mantar. Afternoon private road or flight to Delhi for international connection; day-use room arranged if needed. Safe travels — you leave with North India’s sacred geography mapped in memory.',
+      },
+    ],
+    tribes: ['Couple', 'Family', 'Solo', 'Friends'],
+    moods: ['Spiritual', 'Heritage', 'Cultural', 'Himalayan'],
   },
 ];
 
