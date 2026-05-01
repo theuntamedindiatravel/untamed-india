@@ -135,7 +135,7 @@ export const tours = [
     reviews: 42,
     featured: false,
     badge: 'Artist Series',
-    image: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=88',
     description: 'Master the macro and the majestic. Join a world-renowned wildlife photographer to capture the endemic life of the Western Ghats. Focused on slow observation and technical mastery in India’s most biodiverse hotspot.',
     highlights: ['Lead by NatGeo Contributor', 'Macro & Landscape Workshops', 'Private Jungle River Cruises', 'Premium Equipment Concierge'],
     itinerary: [
@@ -158,7 +158,7 @@ export const tours = [
     reviews: 0,
     featured: true,
     badge: 'Sacred India',
-    image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1400&q=85',
+    image: 'https://images.unsplash.com/photo-1695956353120-54ce5e91632b?auto=format&fit=crop&w=1400&q=85',
     description:
       'A nineteen-day private pilgrimage through North India’s spiritual spine: the Ganges at Rishikesh and Varanasi, the Golden Temple at Amritsar, erotic-sculpture temples at Khajuraho, the riverside forts of Orchha, the cliff citadel of Gwalior, regal Dholpur, the Taj at Agra, and the Pink City of Jaipur — with curated yoga, aartis, temple access, and heritage stays at a pace built for international travellers.',
     highlights: [

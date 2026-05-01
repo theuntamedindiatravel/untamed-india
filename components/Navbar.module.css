@@ -21,6 +21,49 @@
   pointer-events: auto;
 }
 
+/* Tour detail: readable chrome over full-bleed hero (until page scroll) */
+.navbar.onTourHero.visible:not(.scrolled) {
+  background: rgba(8, 14, 12, 0.52);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 16px 0;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.navbar.onTourHero.visible:not(.scrolled) .brand {
+  color: #fefdfb;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35);
+}
+
+.navbar.onTourHero.visible:not(.scrolled) .backButton {
+  color: #fefdfb;
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.navbar.onTourHero.visible:not(.scrolled) .backButton:hover {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.navbar.onTourHero.visible:not(.scrolled) .menuButton {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.navbar.onTourHero.visible:not(.scrolled) .menuButton:hover {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.navbar.onTourHero.visible:not(.scrolled) .burger,
+.navbar.onTourHero.visible:not(.scrolled) .burger::before,
+.navbar.onTourHero.visible:not(.scrolled) .burger::after {
+  background: #fefdfb;
+  opacity: 0.95;
+}
+
 /* Scrolled: crisp off-white, ink shadow */
 .navbar.scrolled {
   background: var(--header-ivory);

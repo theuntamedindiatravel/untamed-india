@@ -17,8 +17,15 @@ export default function TourDetailPage() {
 
   const itinerary = (tour as unknown as { itinerary?: { day: string; title: string; body: string }[] }).itinerary ?? [];
 
+  const themeClass =
+    tour.category === 'photography'
+      ? styles.themePhotography
+      : tour.category === 'spiritual'
+        ? styles.themeSpiritual
+        : styles.themeSafari;
+
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${themeClass}`}>
       {/* Hero */}
       <section 
         className={styles.hero} 
@@ -62,22 +69,12 @@ export default function TourDetailPage() {
 
               <h2 className={styles.sectionTitle}>Itinerary</h2>
               {itinerary.length > 0 ? (
-                <div style={{ display: 'grid', gap: 14 }}>
+                <div className={styles.itineraryGrid}>
                   {itinerary.map((item) => (
-                    <div
-                      key={`${item.day}-${item.title}`}
-                      style={{
-                        border: '1px solid rgba(26,26,26,0.08)',
-                        borderRadius: 14,
-                        padding: '14px 14px',
-                        background: 'rgba(255,255,255,0.65)',
-                      }}
-                    >
-                      <div style={{ fontSize: 12, letterSpacing: 1, textTransform: 'uppercase', color: 'rgba(26,26,26,0.6)' }}>
-                        {item.day}
-                      </div>
-                      <div style={{ fontSize: 18, fontWeight: 700, marginTop: 4 }}>{item.title}</div>
-                      <div style={{ marginTop: 6, color: 'rgba(26,26,26,0.75)', lineHeight: 1.8 }}>{item.body}</div>
+                    <div key={`${item.day}-${item.title}`} className={styles.itineraryCard}>
+                      <div className={styles.itineraryDay}>{item.day}</div>
+                      <div className={styles.itineraryTitle}>{item.title}</div>
+                      <div className={styles.itineraryBody}>{item.body}</div>
                     </div>
                   ))}
                 </div>
@@ -95,7 +92,7 @@ export default function TourDetailPage() {
               <div className={styles.priceHeader}>
                 <span className={styles.priceTitle}>Expedition Cost</span>
                 <div className={styles.priceLarge}>
-                  ${tour.price.toLocaleString()} <span className={styles.pricePer} style={{ fontSize: '1rem' }}>/ person</span>
+                  ${tour.price.toLocaleString()} <span className={styles.pricePer}>/ person</span>
                 </div>
               </div>
 
@@ -114,12 +111,10 @@ export default function TourDetailPage() {
                 </div>
               </div>
 
-              <Link href="/contact" className="btn btn-primary" style={{ width: '100%', textAlign: 'center' }}>
+              <Link href="/contact" className={`btn btn-primary ${styles.bookCta}`}>
                 Check Availability
               </Link>
-              <p style={{ textAlign: 'center', fontSize: '0.8rem', color: '#666', marginTop: '15px' }}>
-                Secure your spot with a flexible deposit.
-              </p>
+              <p className={styles.bookNote}>Secure your spot with a flexible deposit.</p>
             </div>
           </aside>
         </div>

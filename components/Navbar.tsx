@@ -37,13 +37,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isHome = pathname === '/';
+  const path = pathname ?? '';
+  const isHome = path === '/';
+  const isTourDetail = path.startsWith('/tours/') && path !== '/tours';
   const overlayOnHome =
     isHome && (!!searchParams.get('story') || searchParams.get('register') === '1');
   const showNav = !isHome || scrolled || mobileOpen || overlayOnHome;
+  const tourHeroNav = isTourDetail && !scrolled;
 
   return (
-    <header className={`${styles.navbar} ${showNav ? styles.visible : styles.hidden} ${scrolled ? styles.scrolled : ''} ${mobileOpen ? styles.mobileActive : ''}`}>
+    <header
+      className={`${styles.navbar} ${showNav ? styles.visible : styles.hidden} ${scrolled ? styles.scrolled : ''} ${mobileOpen ? styles.mobileActive : ''} ${tourHeroNav ? styles.onTourHero : ''}`}
+    >
       <div className={`container ${styles.inner}`}>
         {!isHome || overlayOnHome ? (
           <button
@@ -52,26 +57,26 @@ export default function Navbar() {
             onClick={() => {
               try {
                 // Dismiss in-page overlays first (stay on the same route).
-                if (pathname === '/about' && searchParams.get('guide')) {
+                if (path === '/about' && searchParams.get('guide')) {
                   const next = new URLSearchParams(searchParams.toString());
                   next.delete('guide');
                   const qs = next.toString();
-                  router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+                  router.replace(qs ? `${path}?${qs}` : path, { scroll: false });
                   scrollToGuidesSection();
                   return;
                 }
-                if (pathname === '/' && searchParams.get('story')) {
+                if (path === '/' && searchParams.get('story')) {
                   const next = new URLSearchParams(searchParams.toString());
                   next.delete('story');
                   const qs = next.toString();
-                  router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+                  router.replace(qs ? `${path}?${qs}` : path, { scroll: false });
                   return;
                 }
-                if (pathname === '/' && searchParams.get('register') === '1') {
+                if (path === '/' && searchParams.get('register') === '1') {
                   const next = new URLSearchParams(searchParams.toString());
                   next.delete('register');
                   const qs = next.toString();
-                  router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+                  router.replace(qs ? `${path}?${qs}` : path, { scroll: false });
                   return;
                 }
                 if (window.history.length > 1) router.back();
