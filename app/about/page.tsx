@@ -59,13 +59,16 @@ export default function AboutPage() {
                 <div className={styles.storyMedia}>
                   <div className={styles.storyImage}>
                     <img
-                      src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85"
-                      alt="A wide desert landscape at sunrise with dunes glowing in soft golden light"
+                      src="https://images.unsplash.com/photo-1717329162563-2f93e83cc717?auto=format&fit=crop&w=1400&q=85"
+                      alt="Chittorgarh Fort above the river and plain — one of the largest fort complexes in Asia"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  <div className={styles.caption}>A wide desert landscape at sunrise with dunes glowing in soft golden light.</div>
+                  <div className={styles.caption}>
+                    Chittorgarh — Asia’s largest fort, its walls and towers rising above the river and the sprawl below; Mewar’s great
+                    sentinel on the plain.
+                  </div>
                 </div>
               </div>
 
@@ -84,13 +87,15 @@ export default function AboutPage() {
                 <div className={styles.storyMedia}>
                   <div className={styles.storyImage}>
                     <img
-                      src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?auto=format&fit=crop&w=1400&q=85"
-                      alt="A luxury heritage palace in Rajasthan with guests experiencing royal hospitality"
+                      src="https://images.unsplash.com/photo-1695956353120-54ce5e91632b?auto=format&fit=crop&w=1400&q=85"
+                      alt="City Palace and Lake Pichola, Udaipur — white marble palaces along the water"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  <div className={styles.caption}>A luxury heritage palace in Rajasthan with guests experiencing royal hospitality.</div>
+                  <div className={styles.caption}>
+                    The City Palace rising from Lake Pichola — Mewar’s courts and courtyards reflected in the water, the soul of Udaipur.
+                  </div>
                 </div>
               </div>
 
@@ -108,13 +113,15 @@ export default function AboutPage() {
                 <div className={styles.storyMedia}>
                   <div className={styles.storyImage}>
                     <img
-                      src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1400&q=85"
-                      alt="A village elder sharing stories with travelers under a tree in a rural setting"
+                      src="https://images.unsplash.com/photo-1765700325167-7f130176502d?auto=format&fit=crop&w=1400&q=85"
+                      alt="Men in red turbans talking in a crowded Rajasthan street"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  <div className={styles.caption}>A village elder sharing stories with travelers under a tree in a rural setting.</div>
+                  <div className={styles.caption}>
+                    Men in turbans mid-conversation amid the bustle of the street — Rajasthan’s rhythm of talk, colour, and closeness.
+                  </div>
                 </div>
               </div>
 
@@ -133,13 +140,16 @@ export default function AboutPage() {
                 <div className={styles.storyMedia}>
                   <div className={styles.storyImage}>
                     <img
-                      src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1400&q=85"
-                      alt="An artisan weaving traditional Rajasthani textiles with intricate detail"
+                      src="https://images.unsplash.com/photo-1648113137741-43e7e00c87f4?auto=format&fit=crop&w=1400&q=85"
+                      alt="Artisan workspace with hand-printed textiles and craft tools in Rajasthan"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  <div className={styles.caption}>An artisan weaving traditional Rajasthani textiles with intricate detail.</div>
+                  <div className={styles.caption}>
+                    Block-print and textile workshops — the smell of dye, folded fabric, and skills passed down through families in towns
+                    like Jaipur and Bagru.
+                  </div>
                 </div>
               </div>
 
@@ -156,13 +166,15 @@ export default function AboutPage() {
                 <div className={styles.storyMedia}>
                   <div className={styles.storyImage}>
                     <img
-                      src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?auto=format&fit=crop&w=1400&q=85"
-                      alt="Children smiling and playing in a village supported by tourism initiatives"
+                      src="https://images.unsplash.com/photo-1764967411778-01b04900447d?auto=format&fit=crop&w=1400&q=85"
+                      alt="Children together in a village in rural Rajasthan"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  <div className={styles.caption}>Children smiling and playing in a village supported by tourism initiatives.</div>
+                  <div className={styles.caption}>
+                    Village children in Rajasthan — where thoughtful travel helps schools, families, and local economies stay strong.
+                  </div>
                 </div>
               </div>
 
@@ -178,13 +190,15 @@ export default function AboutPage() {
                 <div className={styles.storyMedia}>
                   <div className={styles.storyImage}>
                     <img
-                      src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1400&q=85"
-                      alt="A traveler sharing a quiet moment with a local family over tea in a traditional home"
+                      src="https://images.unsplash.com/photo-1649074705058-9d1579429e37?auto=format&fit=crop&w=1400&q=85"
+                      alt="A musician with sitar at a Rajasthan fort and palace setting"
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
-                  <div className={styles.caption}>A traveler sharing a quiet moment with a local family over tea in a traditional home.</div>
+                  <div className={styles.caption}>
+                    Sitar and courtyard stone — the sound of Rajasthan where fort and palace meet, and travel meets the soul of the place.
+                  </div>
                 </div>
               </div>
             </div>
