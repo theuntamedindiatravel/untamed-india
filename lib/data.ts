@@ -79,7 +79,7 @@ export const tours = [
     reviews: 38,
     featured: true,
     badge: 'Exclusive Access',
-    image: 'https://images.unsplash.com/photo-1614027164847-1b28096a6f54?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=800&q=80',
     description: 'Track the last bastion of the Asiatic Lion in the dry jungles of Gujarat. This private expedition offers unparalleled access to the forest’s heart, staying in an ultra-luxury lodge that blends modern comfort with timeless wilderness.',
     highlights: ['Private Sightings with Head Trackers', 'The Postcard Gir Luxury Stay', 'Bespoke Desert Dining Experiences', 'Tribal Interaction with Maldharis'],
     itinerary: [
