@@ -315,6 +315,48 @@
   border-color: rgba(180, 83, 9, 0.22);
 }
 
+.themeCoastal {
+  --tour-accent: #0e7490;
+  --tour-surface-tint: rgba(14, 116, 144, 0.09);
+}
+
+.themeCoastal .heroOverlay {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 40, 52, 0.55) 0%,
+    rgba(12, 58, 68, 0.3) 42%,
+    rgba(10, 48, 56, 0.58) 72%,
+    rgba(6, 22, 28, 0.88) 100%
+  );
+}
+
+.themeCoastal .bookCard {
+  background: linear-gradient(165deg, #f5fcfd 0%, #eef8fb 38%, #fffef9 100%);
+  border-color: rgba(14, 116, 144, 0.26);
+  box-shadow: 0 16px 48px rgba(8, 60, 72, 0.09), 0 2px 0 rgba(255, 255, 255, 0.85) inset;
+}
+
+.themeHimalayan {
+  --tour-accent: #4c6b95;
+  --tour-surface-tint: rgba(76, 107, 149, 0.1);
+}
+
+.themeHimalayan .heroOverlay {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 28, 48, 0.58) 0%,
+    rgba(28, 40, 58, 0.32) 42%,
+    rgba(22, 32, 48, 0.6) 72%,
+    rgba(12, 16, 28, 0.9) 100%
+  );
+}
+
+.themeHimalayan .bookCard {
+  background: linear-gradient(165deg, #f7f8fc 0%, #eef1f8 42%, #fffef9 100%);
+  border-color: rgba(76, 107, 149, 0.28);
+  box-shadow: 0 16px 48px rgba(24, 36, 64, 0.1), 0 2px 0 rgba(255, 255, 255, 0.85) inset;
+}
+
 @media (max-width: 992px) {
   .mainGrid {
     grid-template-columns: 1fr;

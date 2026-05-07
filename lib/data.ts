@@ -48,6 +48,26 @@ export const categories = [
     color: '#5C4A6B',
     count: 1,
   },
+  {
+    id: 'coastal',
+    title: 'Coastal Escapes',
+    description:
+      'Drift from the Coromandel shore to French bougainvillea, Chola stone, Chettinad mansions, temple drums in Madurai, misty tea country, and finally Kerala’s backwaters — ending in colonial Cochin.',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1400&q=85',
+    icon: '🌊',
+    color: '#2D6A7A',
+    count: 1,
+  },
+  {
+    id: 'himalayan',
+    title: 'Himalayan Adventures',
+    description:
+      'Thin air, cobalt lakes, and passes that touch the sky — from Leh’s palaces and gompas to Nubra’s dunes and Pangong’s shifting blues, with room for wildlife, culture, and pure mountain drama.',
+    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85',
+    icon: '🏔️',
+    color: '#3D5A80',
+    count: 1,
+  },
 ];
 
 export const tours = [
@@ -261,6 +281,157 @@ export const tours = [
     ],
     tribes: ['Couple', 'Family', 'Solo', 'Friends'],
     moods: ['Spiritual', 'Heritage', 'Cultural', 'Himalayan'],
+  },
+  {
+    slug: 'coastal-escapes-south-india-chennai-cochin',
+    title: 'Coastal Escapes of South India',
+    category: 'coastal',
+    region: 'Chennai · Coromandel · Pondicherry · Tamil Nadu · Kerala · Cochin',
+    duration: '12 Days',
+    groupSize: 'Private Journey',
+    price: 9450,
+    rating: 5.0,
+    reviews: 0,
+    featured: true,
+    badge: 'Coromandel to Malabar',
+    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=88',
+    description:
+      'Twelve days from Chennai to Cochin — a journey through South India’s serene coastline, colonial heritage, backwaters, temple towns, and tropical landscapes. Unhurried pacing pairs UNESCO rock-cut shrines and Chola grandeur with French Pondicherry, Chettinad mansions, Meenakshi’s night ceremony, Munnar’s tea hills, a private houseboat on the backwaters, and Kathakali in Fort Kochi.',
+    highlights: [
+      'Chennai: Marina Beach, Fort St. George, Santhome Basilica, Kapaleeshwarar & Mylapore',
+      'UNESCO Mahabalipuram: Shore Temple, Five Rathas, Arjuna’s Penance, Krishna’s Butter Ball',
+      'Pondicherry: French Quarter, Promenade, Sri Aurobindo Ashram, optional Auroville & cycling',
+      'Thanjavur: Brihadeeswarar Temple (UNESCO), palace complex, Saraswathi Mahal Library',
+      'Chettinad heritage mansions, crafts, and an authentic regional feast',
+      'Madurai: Meenakshi Amman, Nayakkar Palace, markets, evening temple procession',
+      'Munnar: tea museum, Eravikulam, Mattupetty, Echo Point, plantation walks',
+      'Alleppey: private traditional houseboat — lagoons, villages, Kerala cuisine, sunset on the water',
+      'Cochin: Chinese nets, Fort Kochi, St. Francis, Mattancherry Palace, synagogue, spice bazaar, Kathakali',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Arrival in Chennai — Welcome to South India',
+        body: 'Our representative meets you at the airport and transfers you to your hotel. India’s cultural gateway to the south, Chennai blends colonial history, classical traditions, and modern energy. In the afternoon: Marina Beach, Fort St. George, Santhome Basilica, Kapaleeshwarar Temple, and the Mylapore heritage quarter — ending with a traditional South Indian dinner. Overnight in Chennai.',
+      },
+      {
+        day: 'Day 2',
+        title: 'Chennai to Mahabalipuram — Along the Coromandel Coast',
+        body: 'After breakfast, drive to Mahabalipuram (~2 hours), a UNESCO World Heritage site on the Bay of Bengal. Explore the Shore Temple, Five Rathas, Arjuna’s Penance, Krishna’s Butter Ball, and local stone-carving workshops. Evening free by the beach. Overnight in Mahabalipuram.',
+      },
+      {
+        day: 'Day 3',
+        title: 'Mahabalipuram to Pondicherry — French heritage by the sea',
+        body: 'Drive south on the scenic East Coast Road to Pondicherry. Visit the French Quarter, Promenade Beach, Sri Aurobindo Ashram, Notre Dame des Anges Church, and colonial streets and cafés. Optional evening cycling in the old town. Overnight in Pondicherry.',
+      },
+      {
+        day: 'Day 4',
+        title: 'Pondicherry — Slow travel & coastal elegance',
+        body: 'A relaxed day at your pace: optional Auroville and the Matrimandir viewing point, local markets and boutiques, a walk through the Tamil quarter, and time by the sea. Savour the fusion of French and Tamil cultures. Overnight in Pondicherry.',
+      },
+      {
+        day: 'Day 5',
+        title: 'Pondicherry to Thanjavur — From coastline to Chola heritage',
+        body: 'Drive inland to Thanjavur. Visit the Brihadeeswarar Temple (UNESCO), the royal palace complex, and the Saraswathi Mahal Library — a masterclass in Chola grandeur. Overnight in Thanjavur.',
+      },
+      {
+        day: 'Day 6',
+        title: 'Thanjavur to Chettinad — Mansions & culinary traditions',
+        body: 'Enter the Chettinad region: heritage mansions, village lanes, antique markets, and craft workshops. Enjoy an authentic Chettinad meal — bold, aromatic, and unforgettable. Overnight in Chettinad.',
+      },
+      {
+        day: 'Day 7',
+        title: 'Chettinad to Madurai — The temple city',
+        body: 'Continue to one of India’s oldest living cities. Visit Meenakshi Amman Temple, Thirumalai Nayakkar Palace, and flower and spice markets. In the evening, witness the temple’s ceremonial night procession. Overnight in Madurai.',
+      },
+      {
+        day: 'Day 8',
+        title: 'Madurai to Munnar — Into the Western Ghats',
+        body: 'Ascend into Kerala’s hill country: tea plantations, waterfalls, and misty ridges replace the plains. Evening at leisure in cool mountain air. Overnight in Munnar.',
+      },
+      {
+        day: 'Day 9',
+        title: 'Munnar — Tea gardens & mountain serenity',
+        body: 'Tea Museum, Eravikulam National Park, Mattupetty Dam, Echo Point, and scenic plantation walks — panoramic views and unhurried time in nature. Overnight in Munnar.',
+      },
+      {
+        day: 'Day 10',
+        title: 'Munnar to Alleppey — Kerala backwaters',
+        body: 'Descend to Alleppey and board your private traditional houseboat. Glide through coconut lagoons and village life, with regional cuisine on board and sunset over the canals. Overnight on the houseboat.',
+      },
+      {
+        day: 'Day 11',
+        title: 'Alleppey to Cochin — Colonial port city',
+        body: 'After breakfast, disembark and drive to Cochin. Explore the Chinese fishing nets, Fort Kochi, St. Francis Church, Mattancherry Palace, the Jewish Synagogue, and spice markets. Evening Kathakali performance. Overnight in Cochin.',
+      },
+      {
+        day: 'Day 12',
+        title: 'Departure from Cochin — Farewell South India',
+        body: 'After breakfast, transfer to Cochin International Airport for your onward flight — taking with you beaches, backwaters, temples, heritage, and tropical calm.',
+      },
+    ],
+    tribes: ['Couple', 'Family', 'Friends', 'Solo'],
+    moods: ['Coastal', 'Cultural', 'Heritage', 'Nature'],
+  },
+  {
+    slug: 'himalayan-adventure-ladakh-expedition',
+    title: 'Himalayan Adventure: Ladakh Expedition',
+    category: 'himalayan',
+    region: 'Leh · Nubra Valley · Pangong Lake',
+    duration: '6 Days',
+    groupSize: 'Private Expedition',
+    price: 8750,
+    rating: 5.0,
+    reviews: 0,
+    featured: true,
+    badge: 'Roof of the World',
+    image: 'https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=1600&q=88',
+    description:
+      'Six days through Ladakh’s high-altitude theatre — Leh acclimatization, snow leopard–focused outings with expert naturalists, Khardung La into Nubra’s dunes and Diskit, and a night by Pangong’s impossible blues in premium Swiss tents. Culture, wilderness, and photography at a pace that respects the altitude.',
+    highlights: [
+      'Leh: arrival at one of the world’s highest commercial airports; gentle market walks as you acclimatize',
+      'Dedicated snow leopard sighting opportunities with expert naturalists in selected valleys near Leh',
+      'Acclimatization day: Leh Palace, Shanti Stupa, bazaar & Ladakhi cafés; second guided wildlife session',
+      'Hall of Fame, Pathar Sahib, Magnetic Hill, Indus–Zanskar Sangam, Spituk — plus continued tracking in prime zones',
+      'Khardung La crossing into Nubra: Diskit Monastery, Maitreya Buddha, Hunder dunes & Bactrian camels',
+      'Full-day Pangong Lake: remote high-altitude scenery, lakeside time, sunset; premium Swiss tent camp',
+      'Scenic return to Leh — optional extension or onward flights',
+      'Ladakhi culture, Himalayan light, and photography throughout',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Arrival in Leh — Welcome to the roof of the world',
+        body: 'Land at Leh Airport, surrounded by dramatic peaks. Transfer to your hotel and rest for altitude adaptation. If you feel well, a gentle evening stroll in Leh Market. Special focus: first snow leopard–oriented outing in surrounding areas with our expert naturalist team (terrain and conditions permitting). Overnight in Leh.',
+      },
+      {
+        day: 'Day 2',
+        title: 'Acclimatization in Leh — Himalayan altitude',
+        body: 'A light schedule for safe acclimatization. Late morning: Leh Palace, Shanti Stupa, the local bazaar, and traditional Ladakhi cafés — then free time to rest. Snow leopard experience: second guided observation session in carefully chosen nearby wildlife zones. Overnight in Leh.',
+      },
+      {
+        day: 'Day 3',
+        title: 'Leh, Magnetic Hill & Sangam — Culture & tracking',
+        body: 'After breakfast: Hall of Fame Museum, Gurudwara Pathar Sahib, Magnetic Hill, the Sangam confluence of the Indus and Zanskar, and Spituk Monastery. Throughout the day, continue dedicated snow leopard tracking with local experts where sightings are most promising — a mix of cultural highlights and high-altitude wildlife focus. Overnight in Leh.',
+      },
+      {
+        day: 'Day 4',
+        title: 'Leh to Nubra Valley — Across Khardung La',
+        body: 'Drive the legendary Khardung La, among the world’s highest motorable passes, with sweeping Himalayan views. Descend into Nubra — the “valley of flowers” of Ladakh. Visit Diskit Monastery, the giant Maitreya Buddha, Hunder’s sand dunes, and the double-humped Bactrian camel country. Evening under clear mountain skies. Overnight in Nubra Valley.',
+      },
+      {
+        day: 'Day 5',
+        title: 'Nubra to Pangong Lake — The jewel of Ladakh',
+        body: 'Early departure for Pangong Tso across remote, cinematic landscapes. On arrival, watch the lake’s colours shift through the day. Lakeside exploration, photography, and a peaceful Himalayan sunset from premium Swiss tents at a lakeside camp — a true high wilderness highlight. Overnight at Pangong (Swiss tent camp).',
+      },
+      {
+        day: 'Day 6',
+        title: 'Pangong to Leh — Departure or extension',
+        body: 'After breakfast, drive back to Leh with final views of rugged ranges and villages. On arrival, transfer for your onward flight or optional extension. Depart with Ladakh’s passes, Pangong’s blues, and snow leopard country etched in memory.',
+      },
+    ],
+    tribes: ['Couple', 'Family', 'Friends', 'Solo'],
+    moods: ['Himalayan', 'Adventure', 'Nature', 'Wildlife'],
   },
 ];
 

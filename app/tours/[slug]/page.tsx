@@ -22,7 +22,11 @@ export default function TourDetailPage() {
       ? styles.themePhotography
       : tour.category === 'spiritual'
         ? styles.themeSpiritual
-        : styles.themeSafari;
+        : tour.category === 'coastal'
+          ? styles.themeCoastal
+          : tour.category === 'himalayan'
+            ? styles.themeHimalayan
+            : styles.themeSafari;
 
   return (
     <div className={`${styles.page} ${themeClass}`}>
