@@ -37,7 +37,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'A lakeside palace of courtyards, reflecting pools, and Mughal-inspired gardens — where arrival by boat sets the tone for unhurried Rajasthani grandeur.',
     roomCategories: ['Premier Room', 'Luxury Suite', 'Royal Suite', 'Kohinoor Suite'],
     signatureExperience: 'Private sunset on Lake Pichola with dedicated butler service.',
-    image: 'https://images.unsplash.com/photo-1695956353120-54ce5e91632b?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://gos3.ibcdn.com/987e68e0fadd11e89ecb0242ac110003.jpg',
     filters: ['royal-palaces'],
   },
   {
@@ -73,7 +73,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'A desert fort-hotel of sandstone and starlight — caravanserai dinners, Thar silence, and hospitality rooted in Marwar tradition.',
     roomCategories: ['Fort Room', 'Heritage Suite', 'Luxury Suite', 'Signature Suite'],
     signatureExperience: 'Private dunes supper with folk musicians and astronomer-led stargazing.',
-    image: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://inditales.com/wp-content/uploads/2013/08/musicians-welcome-guests-suryagarh.jpg',
     filters: ['royal-palaces'],
   },
   {
@@ -85,7 +85,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'A contemporary palace in the capital — rooftop infinity pool, art-filled corridors, and service calibrated for diplomats and discerning travellers.',
     roomCategories: ['Deluxe Room', 'Royal Club Room', 'Luxury Suite', 'Presidential Suite'],
     signatureExperience: 'Insider Old Delhi breakfast expedition with private guide and vehicle.',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://www.theleela.com/prod/content/assets/aio-banner/dekstop/The-Leela-Palace-New-Delhi-FAQ.jpg?VersionId=fRNi5Ik7t0UGo6cA8otxHBZFCFDAnsHH',
     filters: ['urban-luxury'],
   },
   {
@@ -97,7 +97,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'Uninterrupted views of the Taj Mahal from terraced gardens and suites — the definitive address for sunrise symmetry and moonlit marble.',
     roomCategories: ['Premier Room', 'Luxury Suite', 'Kohinoor Suite', 'Presidential Suite'],
     signatureExperience: 'Private Taj Mahal visit timed for first light and quiet courtyard moments.',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://www.fivestaralliance.com/files/fivestaralliance.com/field/image/nodes/2019/28241/0%20The%20Oberoi%20Amarvilas%20-%20day.jpg',
     filters: ['royal-palaces'],
   },
   {
@@ -109,7 +109,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'Landmark hospitality at the heart of Lutyens’ Delhi — polished brass, silk carpets, and a legacy of hosting heads of state.',
     roomCategories: ['Luxury Room', 'Executive Suite', 'Grand Luxury Suite', 'Presidential Suite'],
     signatureExperience: 'Curated gallery walk and diplomatic-quarter architecture drive.',
-    image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://cdn.sanity.io/images/ocl5w36p/prod5/89a2af9e82a4e688e9c8d6c7060673bac44c46e8-3840x1860.jpg?w=1920&auto=format&dpr=2',
     filters: ['urban-luxury'],
   },
   {
@@ -121,7 +121,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'Tented suites around lotus pools at the edge of tiger country — safari mornings and candlelit evenings without compromising comfort.',
     roomCategories: ['Luxury Tent', 'Premier Tent', 'Royal Tent', 'Private Villa'],
     signatureExperience: 'Private jeep safari with senior naturalist and bush breakfast.',
-    image: 'https://images.unsplash.com/photo-1581012771300-224937651c42?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://r1imghtlak.mmtcdn.com/fc15d90c236e11e8b8310a4cef95d023.jpg?&output-quality=75&downsize=520:350&crop=520:350;2,0&output-format=jpg&downsize=480:336&crop=480:336',
     filters: ['wildlife-lodges'],
   },
   {
@@ -145,7 +145,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'Mughal-inspired tents and Aman quiet beside the national park — sparse luxury, personalised expeditions, and evenings under canvas.',
     roomCategories: ['Luxury Tent', 'Suite Tent', 'Private Villa'],
     signatureExperience: 'Twilight champagne at the fort ruins after an exclusive safari.',
-    image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://www.ranthamborenationalpark.com/wp-content/uploads/2020/02/hotel-resorts-aman-i-khas.jpg',
     filters: ['wildlife-lodges'],
   },
   {
@@ -169,7 +169,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'A restored fourteenth-century fort reborn as a Six Senses retreat — spa rituals, slow food, and Suites within ramparts.',
     roomCategories: ['Fort Suite', 'Heritage Suite', 'Royal Suite', 'Presidential Suite'],
     signatureExperience: 'Integrated wellness journey with spa, sleep, and mindfulness programming.',
-    image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/340515602.jpg?k=1bb878f7716605e22d679773cd238a10c43e780d2a5af675c10a0170813e9148&o=',
     filters: ['wellness-retreats', 'royal-palaces'],
   },
   {
@@ -205,7 +205,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'Laterite walls and lagoon-facing villas on the Malabar Coast — Kettuvallam-inspired architecture and Arabian Sea breezes.',
     roomCategories: ['Superior Room', 'Luxury Villa', 'Presidential Villa', 'Private Pool Villa'],
     signatureExperience: 'Sunset on the beach with curated coastal spice tasting.',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://cdn.sanity.io/images/ocl5w36p/prod5/833f0ec36559637a5a1a8f7ef2ac5125429d3603-1280x1761.jpg',
     filters: ['beach-escapes'],
   },
 ];
