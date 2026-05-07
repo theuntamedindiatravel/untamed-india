@@ -165,10 +165,7 @@ export default function ChatAssistant() {
         }}
         aria-label={open ? 'Close chat assistant' : 'Open chat assistant'}
       >
-        <span className={styles.fabMark} aria-hidden="true">
-          <span className={styles.fabMarkTop}>TUI</span>
-          <span className={styles.fabMarkBottom}>(the untamedindia)</span>
-        </span>
+        <span className={styles.fabMark} aria-hidden="true">TUI</span>
       </button>
     </div>
   );
