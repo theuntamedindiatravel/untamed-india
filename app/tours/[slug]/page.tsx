@@ -26,7 +26,9 @@ export default function TourDetailPage() {
           ? styles.themeCoastal
           : tour.category === 'himalayan'
             ? styles.themeHimalayan
-            : styles.themeSafari;
+            : tour.category === 'cultural'
+              ? styles.themeCultural
+              : styles.themeSafari;
 
   return (
     <div className={`${styles.page} ${themeClass}`}>

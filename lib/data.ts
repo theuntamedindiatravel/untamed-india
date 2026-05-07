@@ -68,6 +68,16 @@ export const categories = [
     color: '#3D5A80',
     count: 1,
   },
+  {
+    id: 'cultural',
+    title: 'Cultural Journeys',
+    description:
+      'Trace the living pulse of India through ancient stone, tribal traditions, sacred forests, and centuries-old craft — private journeys that connect you to the subcontinent’s most authentic stories.',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=85',
+    icon: '🏛️',
+    color: '#7A5C3A',
+    count: 1,
+  },
 ];
 
 export const tours = [
@@ -432,6 +442,96 @@ export const tours = [
     ],
     tribes: ['Couple', 'Family', 'Friends', 'Solo'],
     moods: ['Himalayan', 'Adventure', 'Nature', 'Wildlife'],
+  },
+  {
+    slug: 'heart-of-central-india',
+    title: 'Heart of Central India',
+    category: 'cultural',
+    region: 'Bhopal · Sanchi · Pachmarhi · Kanha · Bandhavgarh · Khajuraho · Orchha',
+    duration: '12 Days',
+    groupSize: 'Private Journey',
+    price: 8400,
+    rating: 5.0,
+    reviews: 0,
+    featured: true,
+    badge: 'Cultural Journeys',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=88',
+    description:
+      'Twelve days through the untamed heart of India — from the Buddhist stupas of Sanchi and the prehistoric caves of Pachmarhi, to tiger-dense jungles of Kanha and Bandhavgarh, the erotic sculptures of Khajuraho, and the riverside forts of Orchha. A journey that weaves wildlife, ancient stone, tribal culture, and living tradition into one unforgettable arc.',
+    highlights: [
+      'Sanchi: UNESCO Great Stupa with a dedicated Buddhist scholar',
+      'Pachmarhi: prehistoric rock art, Satpura hill trails, and hidden waterfalls',
+      "Kanha National Park: dawn and dusk safaris in Kipling's Jungle Book landscape",
+      "Bandhavgarh: India's highest tiger density, ancient hilltop fort, and Baiga tribal village",
+      'Khajuraho: UNESCO Western Group temples with an art historian — symbolism, not sensationalism',
+      'Orchha: riverside Mughal palaces, chhatris, and the Ram Raja Temple legend',
+      'Private naturalist and cultural guides throughout; no shared vehicles',
+      'Curated heritage and jungle lodges at every stage',
+    ],
+    itinerary: [
+      {
+        day: 'Day 1',
+        title: 'Arrival in Bhopal — City of Lakes',
+        body: 'Private airport meet and transfer to your hotel in the City of Lakes. Evening stroll along the Upper Lake at dusk, followed by a welcome dinner of Bhopali cuisine — fiery kebabs and slow-cooked biryanis born from a royal kitchen. Briefing on the journey ahead.',
+      },
+      {
+        day: 'Day 2',
+        title: 'Bhopal → Sanchi — The Great Stupa',
+        body: "Drive to the UNESCO World Heritage site of Sanchi, home to one of India's oldest stone structures — the Great Stupa commissioned by Emperor Ashoka in the 3rd century BCE. A dedicated Buddhist scholar brings the carved toranas and reliquary mounds to life. Return to Bhopal for the night.",
+      },
+      {
+        day: 'Day 3',
+        title: 'Bhopal → Pachmarhi — Into the Satpura Hills',
+        body: "Depart for Central India's only hill station, rising into forested Satpura terrain. Afternoon walk to prehistoric rock shelters carrying art from 10,000 years ago. Check into your heritage hill lodge and settle into the cool mountain air.",
+      },
+      {
+        day: 'Day 4',
+        title: 'Pachmarhi — Waterfalls, Caves & Rock Art',
+        body: 'A full day in Pachmarhi: trek to the hidden Bee Falls, explore the sacred Jata Shankar cave shrine deep in a forest ravine, and visit further painted rock shelters with a local archaeologist. Evening at leisure in the hills.',
+      },
+      {
+        day: 'Day 5',
+        title: 'Pachmarhi → Kanha National Park',
+        body: "Drive down from the hills and enter the landscape that inspired Rudyard Kipling's Jungle Book. Check into your jungle lodge and join an evening briefing with your senior naturalist. Optional short sunset game drive to settle into the rhythms of the forest.",
+      },
+      {
+        day: 'Day 6',
+        title: 'Kanha — Dawn Safari & Barasingha Meadows',
+        body: 'Pre-dawn departure for your first full game drive through open meadows carpeted with barasingha (swamp deer) and dense sal forests where Bengal tigers and leopards hunt. Return for breakfast, rest, and an afternoon drive into different zones. Naturalist talk by the fire in the evening.',
+      },
+      {
+        day: 'Day 7',
+        title: 'Kanha — Full Day in the Jungle',
+        body: 'A second full day of morning and afternoon safaris — flexible pacing lets your naturalist follow fresh tracks, sightings, and optimal light. Kanha is also home to wild dog (dhole), sloth bear, and gaur. Afternoon natural history workshop at the lodge.',
+      },
+      {
+        day: 'Day 8',
+        title: 'Kanha → Bandhavgarh — Tiger Country',
+        body: "Drive to Bandhavgarh — India's most tiger-dense reserve. Check into your lodge and join an evening briefing. If timing allows, an optional late-afternoon drive to orient you to this more intimate, dramatic landscape of bamboo, sal, and rocky escarpments.",
+      },
+      {
+        day: 'Day 9',
+        title: 'Bandhavgarh — Safaris & Ancient Fort',
+        body: 'Morning and afternoon game drives through zones with the highest concentration of wild tigers in India. Between drives, visit the ancient Bandhavgarh hilltop fort — a 2,000-year-old citadel with rock-cut Vishnu figures and panoramic forest views. Evening naturalist debrief.',
+      },
+      {
+        day: 'Day 10',
+        title: 'Bandhavgarh — Baiga Village & Final Safaris',
+        body: "A guided walk into a neighbouring Baiga tribal village — one of India's most ancient indigenous communities — to understand their forest relationship, art, and daily life. Final morning game drive before a private transfer to Khajuraho by road or chartered flight.",
+      },
+      {
+        day: 'Day 11',
+        title: 'Khajuraho — Temples of Stone & Devotion',
+        body: 'After a relaxed morning, afternoon exploration of the UNESCO Western Group temples with an art historian — a nuanced reading of the Chandela sculptural programme: cosmology, devotion, and the full spectrum of human life rendered in sandstone. Optional evening: classical Kathak dance performance in the temple precinct.',
+      },
+      {
+        day: 'Day 12',
+        title: 'Khajuraho → Orchha — Farewell & Departure',
+        body: 'Morning visit to the Eastern and Jain temple clusters, quieter and often uncrowded. Drive to Orchha: the riverside Mughal-Rajput fort complex, the Jahangir Mahal, the chhatris lining the Betwa River, and the legendary Ram Raja Temple. Late afternoon transfer to Jhansi railway station or airstrip for onward connections — departing with stone, jungle, and living India woven into memory.',
+      },
+    ],
+    tribes: ['Couple', 'Family', 'Friends', 'Solo'],
+    moods: ['Cultural', 'Wildlife', 'Heritage', 'Nature', 'Adventure'],
   },
 ];
 
