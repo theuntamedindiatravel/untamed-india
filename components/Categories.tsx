@@ -39,7 +39,6 @@ export default function CategoriesSection() {
                   <div className={styles.overlay} />
                 </div>
                 <div className={styles.content}>
-                  <span className={styles.icon}>{cat.icon}</span>
                   <div className={styles.count}>{cat.count} tours</div>
                   <h3 className={styles.cardTitle}>{cat.title}</h3>
                   <p className={styles.cardDesc}>{cat.description}</p>
