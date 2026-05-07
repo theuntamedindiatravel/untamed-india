@@ -93,7 +93,7 @@ export const tours = [
     reviews: 84,
     featured: true,
     badge: 'Signature Collection',
-    image: 'https://images.unsplash.com/photo-1581012771300-224937651c42?w=800&q=80',
+    image: 'https://www.thrillophilia.com/blog/wp-content/uploads/2025/11/Ranthambore-vs-Bandhavgarh-1024x612.jpg',
     description: 'A masterpiece of wildlife travel. Follow the tiger’s secret paths in Ranthambore and Bandhavgarh, staying in opulent jungle camps that recall the era of the Raj. Our expert naturalists ensure every sighting is a deep revelation of the wild.',
     highlights: ['Senior Naturalist as Private Lead', 'Aman-i-Khas Tented Suites', 'Private Tracking Vehicles', 'No Tipping Policy Throughout'],
     itinerary: [
