@@ -49,7 +49,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'Once the residence of a maharaja, today a Taj masterpiece of marble corridors, peacocks on the lawn, and ballroom evenings under chandeliers.',
     roomCategories: ['Palace Room', 'Historical Suite', 'Royal Suite', 'Grand Royal Suite'],
     signatureExperience: 'Heritage high tea in the palace gardens with curated Jaipur storytelling.',
-    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://images.unsplash.com/photo-1573363059793-b27b0b94302c?auto=format&fit=crop&w=2000&q=88',
     filters: ['royal-palaces'],
   },
   {
@@ -61,7 +61,7 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'An eighteenth-century hill fortress reimagined as a minimalist sanctuary — dramatic architecture, village walks, and silence above the Aravallis.',
     roomCategories: ['Garden Suite', 'Palace Suite', 'Royal Suite', 'Devigarh Suite'],
     signatureExperience: 'Sunrise yoga on the ramparts followed by a farm-to-table breakfast.',
-    image: 'https://images.unsplash.com/photo-1564760055775-d63b17a55c44?auto=format&fit=crop&w=2000&q=88',
+    image: 'https://images.unsplash.com/photo-1759387758817-1a1861261963?auto=format&fit=crop&w=2000&q=88',
     filters: ['royal-palaces'],
   },
   {
