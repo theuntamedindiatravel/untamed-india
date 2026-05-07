@@ -28,9 +28,9 @@
 .filterChip {
   padding: 10px 24px;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--charcoal-soft);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(27, 43, 35, 0.12);
+  color: rgba(14, 24, 20, 0.78);
   font-size: 0.9rem;
   font-weight: 500;
   transition: background 0.24s cubic-bezier(0.2, 0, 0, 1), border-color 0.24s cubic-bezier(0.2, 0, 0, 1), color 0.24s cubic-bezier(0.2, 0, 0, 1), transform 0.24s cubic-bezier(0.2, 0, 0, 1);
@@ -40,17 +40,17 @@
 }
 
 .filterChip:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(198, 165, 92, 0.45);
+  color: var(--ink);
   transform: translateY(-1px);
 }
 
-.filterChip.active {
+.active {
   background: var(--gold);
   border-color: var(--gold);
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(163, 139, 113, 0.18);
+  color: var(--midnight);
+  box-shadow: 0 14px 34px rgba(198, 165, 92, 0.18);
   transform: translateY(-1px);
 }
 

@@ -1,5 +1,6 @@
 'use client';
 import styles from './ThreePanelHero.module.css';
+import Reveal from '@/components/motion/Reveal';
 
 const panels = [
   {
@@ -28,25 +29,32 @@ export default function ThreePanelHero({ onOpenStory }: ThreePanelHeroProps) {
     <section className={styles.hero} aria-label="Three panel hero">
       <div className={styles.panels}>
         {panels.map((p) => (
-          <button
-            key={p.src}
-            type="button"
-            className={styles.panel}
-            aria-label={`${p.alt}. Open story.`}
-            onClick={() => onOpenStory(p.storyId)}
-          >
-            <div className={styles.image} style={{ backgroundImage: `url(${p.src})` }} />
-            <div className={styles.panelOverlay} />
-          </button>
+          <Reveal key={p.src} y={18}>
+            <button
+              type="button"
+              className={styles.panel}
+              aria-label={`${p.alt}. Open story.`}
+              onClick={() => onOpenStory(p.storyId)}
+            >
+              <div className={styles.image} style={{ backgroundImage: `url(${p.src})` }} />
+              <div className={styles.panelOverlay} />
+            </button>
+          </Reveal>
         ))}
       </div>
 
       <div className={styles.globalOverlay} />
 
       <div className={styles.copy}>
-        <h1 className={styles.heading}>Private | Luxury | Travel</h1>
-        <p className={styles.subheading}>Designed exclusively for you</p>
-        <p className={styles.hint}>Tap a panel to read the story behind the scene</p>
+        <Reveal y={14}>
+          <h1 className={styles.heading}>Private | Luxury | Travel</h1>
+        </Reveal>
+        <Reveal y={14} delay={0.1}>
+          <p className={styles.subheading}>Designed exclusively for you</p>
+        </Reveal>
+        <Reveal y={14} delay={0.18}>
+          <p className={styles.hint}>Tap a panel to read the story behind the scene</p>
+        </Reveal>
       </div>
     </section>
   );

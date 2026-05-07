@@ -1,11 +1,21 @@
 'use client';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import styles from './Hero.module.css';
 
 export default function HeroSection() {
+  const heroRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 110]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.65]);
+
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} ref={heroRef}>
       <motion.div 
         className={styles.bgStack}
         initial={{ scale: 1.05, opacity: 0 }}
@@ -18,7 +28,9 @@ export default function HeroSection() {
         />
       </motion.div>
 
-      <div className={styles.overlay} />
+      <motion.div className={styles.overlay} style={{ opacity: overlayOpacity }} />
+
+      <motion.div className={styles.cinematicLayer} style={{ y: bgY, scale: bgScale }} aria-hidden="true" />
 
       <div className={`container ${styles.content}`}>
         <motion.div

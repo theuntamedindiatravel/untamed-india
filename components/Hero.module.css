@@ -23,6 +23,19 @@
   filter: brightness(0.55);
 }
 
+.cinematicLayer {
+  position: absolute;
+  inset: -12vh -10vw;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 560px at 18% 24%, rgba(198, 165, 92, 0.08), transparent 58%),
+    radial-gradient(1000px 700px at 76% 44%, rgba(15, 91, 60, 0.10), transparent 60%),
+    radial-gradient(1200px 900px at 50% 70%, rgba(10, 10, 10, 0.16), transparent 55%);
+  mix-blend-mode: screen;
+  opacity: 0.95;
+}
+
 /* Subtle forest-green wash — atmospheric but not overwhelming */
 .overlay {
   position: absolute;

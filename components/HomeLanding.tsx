@@ -10,6 +10,9 @@ import EditorialSection from '@/components/EditorialSection';
 import OurStorySection from '@/components/OurStorySection';
 import MembershipSection from '@/components/MembershipSection';
 import CTABanner from '@/components/CTABanner';
+import FeaturedTours from '@/components/FeaturedTours';
+import CategoriesSection from '@/components/Categories';
+import Testimonials from '@/components/Testimonials';
 import RegisterInterestModal from '@/components/RegisterInterestModal';
 import PhotoStoryModal from '@/components/PhotoStoryModal';
 import { getHomePhotoStory } from '@/lib/homePhotoStories';
@@ -52,6 +55,10 @@ export default function HomeLanding() {
     <>
       <HeroSection />
 
+      <FeaturedTours />
+
+      <CategoriesSection />
+
       <ThreePanelHero onOpenStory={openPhotoStory} />
 
       <div id="discover" />
@@ -85,6 +92,8 @@ export default function HomeLanding() {
       />
 
       <OurStorySection />
+
+      <Testimonials />
 
       <MembershipSection />
 

@@ -12,8 +12,12 @@ export default function ToursPage() {
 
   const filteredTours = useMemo(() => {
     return tours.filter((tour) => {
-      const tribeMatch = !activeTribe || tour.tribes?.includes(activeTribe);
-      const moodMatch = !activeMood || tour.moods?.includes(activeMood);
+      const tribeMatch =
+        !activeTribe ||
+        (tour.tribes ?? []).some((t) => t.toLowerCase() === activeTribe.toLowerCase());
+      const moodMatch =
+        !activeMood ||
+        (tour.moods ?? []).some((m) => m.toLowerCase() === activeMood.toLowerCase());
       return tribeMatch && moodMatch;
     });
   }, [activeTribe, activeMood]);
@@ -30,6 +34,8 @@ export default function ToursPage() {
         </div>
 
         <ExperienceFilters 
+          activeTribe={activeTribe}
+          activeMood={activeMood}
           onFilterChange={(type, value) => {
             if (type === 'tribe') setActiveTribe(value);
             if (type === 'mood') setActiveMood(value);
