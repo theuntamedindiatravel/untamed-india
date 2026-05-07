@@ -64,6 +64,16 @@
   opacity: 0.95;
 }
 
+.navbar.onTourHero.visible:not(.scrolled) .desktopNavLink {
+  color: rgba(254, 253, 251, 0.92);
+  opacity: 0.88;
+}
+
+.navbar.onTourHero.visible:not(.scrolled) .desktopNavLink:hover {
+  color: var(--gold-light);
+  opacity: 1;
+}
+
 /* Scrolled: crisp off-white, ink shadow */
 .navbar.scrolled {
   background: var(--header-ivory);
@@ -79,6 +89,40 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+}
+
+.flexGrow {
+  flex: 1;
+  min-width: 0;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 28px;
+}
+
+.desktopNavLink {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.82;
+  transition: opacity 0.35s ease, color 0.35s ease;
+}
+
+.desktopNavLink:hover {
+  opacity: 1;
+  color: var(--gold);
+}
+
+@media (min-width: 900px) {
+  .desktopNav {
+    display: flex;
+  }
 }
 
 /* Inner pages: visible back affordance */

@@ -40,10 +40,11 @@ export default function Navbar() {
   const path = pathname ?? '';
   const isHome = path === '/';
   const isTourDetail = path.startsWith('/tours/') && path !== '/tours';
+  const isLuxuryHotels = path.startsWith('/luxury-hotels');
   const overlayOnHome =
     isHome && (!!searchParams.get('story') || searchParams.get('register') === '1');
   const showNav = !isHome || scrolled || mobileOpen || overlayOnHome;
-  const tourHeroNav = isTourDetail && !scrolled;
+  const tourHeroNav = (isTourDetail && !scrolled) || (isLuxuryHotels && !scrolled);
 
   return (
     <header
@@ -97,6 +98,17 @@ export default function Navbar() {
           UNTAMED INDIA
         </Link>
 
+        <div className={styles.flexGrow} aria-hidden="true" />
+
+        <nav className={styles.desktopNav} aria-label="Primary pages">
+          <Link href="/luxury-hotels" className={styles.desktopNavLink}>
+            Luxury Hotels
+          </Link>
+          <Link href="/tours" className={styles.desktopNavLink}>
+            Journeys
+          </Link>
+        </nav>
+
         <button
           className={styles.menuButton}
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -116,6 +128,9 @@ export default function Navbar() {
             </Link>
           ))}
           <div className={styles.mobileDivider} />
+          <Link href="/luxury-hotels" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>
+            Luxury Hotels
+          </Link>
           <Link href="/tours" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>All Journeys</Link>
           <Link href="/about" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Our Expertise</Link>
           <Link href="/contact" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Contact Concierge</Link>

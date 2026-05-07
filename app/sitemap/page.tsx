@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
 const links = [
   { href: '/', label: 'Home', note: 'Editorial landing + membership' },
+  { href: '/luxury-hotels', label: 'Luxury Hotels', note: 'Curated stays portfolio' },
   { href: '/tours', label: 'Journeys', note: 'All tours' },
   { href: '/about', label: 'Expertise', note: 'About NatIndia' },
   { href: '/contact', label: 'Concierge', note: 'Contact + enquiry form' },
