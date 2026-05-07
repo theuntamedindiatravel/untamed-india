@@ -43,6 +43,22 @@ Energetic, approachable, and highly attentive.`,
     photo: '/guides/shyam.png',
   },
   {
+    id: 'shivam',
+    name: 'Shivam',
+    languages: ['English', 'Hindi', 'French (developing)'],
+    region: 'Golden Triangle · Delhi · Jaipur · Agra',
+    descriptor: 'Golden Triangle specialist',
+    experienceYears: 6,
+    bio: `Shivam is a passionate English-speaking tour guide currently advancing his French language skills to offer an even more personalized experience to international travellers.
+
+Specializing in India’s iconic Golden Triangle circuit — Delhi, Jaipur, and Agra — he brings deep knowledge of the region’s history, architecture, culture, and local traditions. His tours are designed to go beyond sightseeing, offering guests authentic insights and engaging stories that bring each destination to life.
+
+With a strong focus on professionalism, hospitality, and creating meaningful travel experiences, Shivam ensures that every journey is smooth, informative, and memorable.
+
+Whether exploring the historic streets of Delhi, the royal heritage of Jaipur, or the timeless beauty of Agra, Shivam is dedicated to helping travellers discover the true essence of India.`,
+    photo: '/guides/shivam.png',
+  },
+  {
     id: 'raj',
     name: 'Raj',
     languages: ['English', 'Hindi'],
