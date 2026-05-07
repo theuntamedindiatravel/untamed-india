@@ -73,7 +73,7 @@ export const categories = [
     title: 'Cultural Journeys',
     description:
       'Trace the living pulse of India through ancient stone, tribal traditions, sacred forests, and centuries-old craft — private journeys that connect you to the subcontinent’s most authentic stories.',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=85',
+    image: 'https://images.unsplash.com/photo-1651927059928-156e0a1d49d8?auto=format&fit=crop&w=1400&q=85',
     icon: '🏛️',
     color: '#7A5C3A',
     count: 1,
@@ -455,7 +455,7 @@ export const tours = [
     reviews: 0,
     featured: true,
     badge: 'Cultural Journeys',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=88',
+    image: 'https://images.unsplash.com/photo-1651927059928-156e0a1d49d8?auto=format&fit=crop&w=1600&q=88',
     description:
       'Twelve days through the untamed heart of India — from the Buddhist stupas of Sanchi and the prehistoric caves of Pachmarhi, to tiger-dense jungles of Kanha and Bandhavgarh, the erotic sculptures of Khajuraho, and the riverside forts of Orchha. A journey that weaves wildlife, ancient stone, tribal culture, and living tradition into one unforgettable arc.',
     highlights: [
