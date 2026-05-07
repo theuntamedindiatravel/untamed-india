@@ -10,7 +10,6 @@ import EditorialSection from '@/components/EditorialSection';
 import OurStorySection from '@/components/OurStorySection';
 import MembershipSection from '@/components/MembershipSection';
 import CTABanner from '@/components/CTABanner';
-import FeaturedTours from '@/components/FeaturedTours';
 import CategoriesSection from '@/components/Categories';
 import Testimonials from '@/components/Testimonials';
 import RegisterInterestModal from '@/components/RegisterInterestModal';
@@ -54,8 +53,6 @@ export default function HomeLanding() {
   return (
     <>
       <HeroSection />
-
-      <FeaturedTours />
 
       <CategoriesSection />
 
