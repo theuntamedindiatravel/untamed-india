@@ -3,8 +3,8 @@ import Link from 'next/link';
 import styles from '../legal.module.css';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | NatIndia',
-  description: 'Terms of service for NatIndia.',
+  title: 'Terms of Service | The Untamed India',
+  description: 'Terms of service for The Untamed India.',
 };
 
 export default function TermsPage() {
@@ -32,7 +32,7 @@ export default function TermsPage() {
 
             <h2>Enquiries and proposals</h2>
             <p>
-              Any itineraries, pricing, or availability shared by NatIndia are indicative until confirmed in writing.
+              Any itineraries, pricing, or availability shared by The Untamed India are indicative until confirmed in writing.
             </p>
 
             <h2>Intellectual property</h2>

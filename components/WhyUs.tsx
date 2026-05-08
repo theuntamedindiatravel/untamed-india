@@ -48,8 +48,8 @@ export default function WhyUsSection() {
         <div className={styles.layout}>
           {/* Left panel */}
           <div className={styles.left}>
-            <span className="section-label">Why NatIndia</span>
-            <h2 className={styles.title}>The NatIndia Difference</h2>
+            <span className="section-label">Why The Untamed India</span>
+            <h2 className={styles.title}>The Untamed India Difference</h2>
             <div className="divider" />
             <p className={styles.body}>
               Since 1989, we've spent over three decades perfecting the art of deep, meaningful travel across India. We don't show you India — we let you feel it.

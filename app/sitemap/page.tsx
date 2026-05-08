@@ -3,15 +3,15 @@ import Link from 'next/link';
 import styles from '../legal.module.css';
 
 export const metadata: Metadata = {
-  title: 'Sitemap | NatIndia',
-  description: 'Sitemap for NatIndia pages.',
+  title: 'Sitemap | The Untamed India',
+  description: 'Sitemap for The Untamed India pages.',
 };
 
 const links = [
   { href: '/', label: 'Home', note: 'Editorial landing + membership' },
   { href: '/luxury-hotels', label: 'Luxury Hotels', note: 'Curated stays portfolio' },
   { href: '/tours', label: 'Journeys', note: 'All tours' },
-  { href: '/about', label: 'Expertise', note: 'About NatIndia' },
+  { href: '/about', label: 'Expertise', note: 'About The Untamed India' },
   { href: '/contact', label: 'Concierge', note: 'Contact + enquiry form' },
   { href: '/privacy', label: 'Privacy Policy', note: 'Template legal copy' },
   { href: '/terms', label: 'Terms of Service', note: 'Template legal copy' },

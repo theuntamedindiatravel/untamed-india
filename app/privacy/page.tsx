@@ -3,8 +3,8 @@ import Link from 'next/link';
 import styles from '../legal.module.css';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | NatIndia',
-  description: 'Privacy policy for NatIndia.',
+  title: 'Privacy Policy | The Untamed India',
+  description: 'Privacy policy for The Untamed India.',
 };
 
 export default function PrivacyPage() {
