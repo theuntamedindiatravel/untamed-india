@@ -78,6 +78,20 @@ Calm, resilient, and highly dependable`,
     photo: '/guides/raj.png',
   },
   {
+    id: 'ashu',
+    name: 'Ashu',
+    languages: ['English', 'Hindi'],
+    region: 'Pan-India · Women-only journeys',
+    descriptor: 'Women’s travel & adventure',
+    experienceYears: 10,
+    bio: `Passionate, confident, and deeply experienced, Ashu is our dedicated specialist for women-only journeys across India. With a strong understanding of what female travelers seek — safety, comfort, authentic cultural immersion, and meaningful experiences — she curates and leads tours designed to inspire confidence and create unforgettable memories.
+
+An avid adventure seeker herself, Ashu brings energy, enthusiasm, and a fearless spirit to every journey, whether it’s exploring hidden mountain trails, discovering vibrant local cultures, or creating unique offbeat experiences. Her warm personality, local expertise, and attention to detail ensure that every traveler feels supported, empowered, and completely at ease throughout the trip.
+
+For women looking to explore India with freedom, excitement, and complete peace of mind, Ashu is the perfect companion on the road.`,
+    photo: '/guides/ashu.png',
+  },
+  {
     id: 'aanya-mehra',
     name: 'Aanya Mehra',
     languages: ['English', 'French'],
