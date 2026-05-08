@@ -165,7 +165,8 @@ export const tours = [
     reviews: 42,
     featured: false,
     badge: 'Artist Series',
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=88',
+    image:
+      'https://www.letsgoforacamp.com/wp-content/uploads/2021/06/atharva-tulsi-XQKd1UN7gUU-unsplash-1-1.jpg',
     description: 'Master the macro and the majestic. Join a world-renowned wildlife photographer to capture the endemic life of the Western Ghats. Focused on slow observation and technical mastery in India’s most biodiverse hotspot.',
     highlights: ['Lead by NatGeo Contributor', 'Macro & Landscape Workshops', 'Private Jungle River Cruises', 'Premium Equipment Concierge'],
     itinerary: [
