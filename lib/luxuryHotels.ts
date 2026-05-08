@@ -37,6 +37,8 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'A lakeside palace of courtyards, reflecting pools, and Mughal-inspired gardens — where arrival by boat sets the tone for unhurried Rajasthani grandeur.',
     roomCategories: ['Premier Room', 'Luxury Suite', 'Royal Suite', 'Kohinoor Suite'],
     signatureExperience: 'Private sunset on Lake Pichola with dedicated butler service.',
+
+
     image: 'https://gos3.ibcdn.com/987e68e0fadd11e89ecb0242ac110003.jpg',
     filters: ['royal-palaces'],
   },

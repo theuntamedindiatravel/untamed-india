@@ -1,0 +1,5 @@
+.letter {
+  display: inline-block;
+  transition: color 0.18s ease, text-shadow 0.18s ease;
+  cursor: default;
+}

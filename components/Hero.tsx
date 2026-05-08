@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Hero.module.css';
+import HoverLetters from '@/components/motion/HoverLetters';
 
 const HERO_SLIDES = [
   { src: '/hero-tiger.jpg' },
@@ -57,7 +58,13 @@ export default function HeroSection() {
         >
           <div className={styles.kicker}>Luxury journeys with purpose</div>
 
-          <h1 className={styles.headline}>The Untamed India</h1>
+          <h1 className={styles.headline}>
+            <HoverLetters
+              text="The Untamed India"
+              hoverColor="#fffef5"
+              glowColor="rgba(255, 253, 210, 0.42)"
+            />
+          </h1>
 
           <p className={styles.subtext}>
             Not just a journey through India, a quiet, meaningful contribution to the places, people, and landscapes you touch.

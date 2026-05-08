@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { Car, Crown, Headphones, Languages, Plane, Sparkles } from 'lucide-react';
 
 import Reveal from '@/components/motion/Reveal';
+import HoverLetters from '@/components/motion/HoverLetters';
 import {
   HERO_SLIDESHOW_IMAGES,
   LUXURY_HOTEL_FILTERS,
@@ -126,7 +127,13 @@ export default function LuxuryHotelsPage() {
             transition={{ duration: 1.15, ease: [0.2, 0, 0, 1], delay: 0.15 }}
           >
             <p className={styles.heroLabel}>The Finest Stays Across the Indian Subcontinent</p>
-            <h1 className={styles.heroTitle}>India&apos;s Most Extraordinary Luxury Stays</h1>
+            <h1 className={styles.heroTitle}>
+              <HoverLetters
+                text="India's Most Extraordinary Luxury Stays"
+                hoverColor="#C6A55C"
+                glowColor="rgba(198, 165, 92, 0.38)"
+              />
+            </h1>
             <div className={styles.heroDivider} />
             <p className={styles.heroLead}>
               Curated residences, palaces and retreats where hospitality becomes an art form.
