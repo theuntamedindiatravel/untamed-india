@@ -99,7 +99,7 @@
 .desktopNav {
   display: none;
   align-items: center;
-  gap: 28px;
+  gap: 0;
 }
 
 .desktopNavLink {
@@ -112,6 +112,28 @@
   text-decoration: none;
   opacity: 0.82;
   transition: opacity 0.35s ease, color 0.35s ease;
+  padding: 6px 4px;
+  white-space: nowrap;
+}
+
+/* Mid-dot + air between items so three nav choices don’t read as one sentence */
+.desktopNavLink:not(:last-child)::after {
+  content: '·';
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: rgba(198, 165, 92, 0.55);
+  font-weight: 500;
+  font-size: 0.85rem;
+  line-height: 1;
+  letter-spacing: 0;
+  opacity: 0.9;
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+.navbar.onTourHero.visible:not(.scrolled) .desktopNavLink:not(:last-child)::after {
+  color: rgba(254, 253, 251, 0.42);
 }
 
 .desktopNavLink:hover {
