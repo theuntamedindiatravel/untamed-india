@@ -183,7 +183,8 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'Heritage villas on Vembanad Lake — snake boat silhouettes, Ayurvedic evenings, and the rhythm of backwater life.',
     roomCategories: ['Heritage Room', 'Lake Front Villa', 'Presidential Suite', 'Private Pool Villa'],
     signatureExperience: 'Private houseboat breakfast drift through the lagoon.',
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2000&q=88',
+    image:
+      'https://www.kumarakomlakeresort.in/assets/images/luxury-dining/vembanad-the-seafood-bar/vembanad-the-seafood-bar.jpg',
     filters: ['beach-escapes'],
   },
   {
@@ -195,7 +196,8 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'Plantation villas among coffee and mist — infinity pools, Kodava cuisine, and the cool air of the Western Ghats.',
     roomCategories: ['Pool Villa', 'Luxury Villa', 'Presidential Villa', 'Heritage Pool Bungalow'],
     signatureExperience: 'Plantation walk with estate naturalist and tasting lunch.',
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2000&q=88',
+    image:
+      'https://images.trvl-media.com/lodging/4000000/3790000/3781400/3781305/238084cc.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill',
     filters: ['wellness-retreats'],
   },
   {
