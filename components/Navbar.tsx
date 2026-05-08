@@ -41,10 +41,11 @@ export default function Navbar() {
   const isHome = path === '/';
   const isTourDetail = path.startsWith('/tours/') && path !== '/tours';
   const isLuxuryHotels = path.startsWith('/luxury-hotels');
+  const isWomensJourneys = path.startsWith('/womens-journeys');
   const overlayOnHome =
     isHome && (!!searchParams.get('story') || searchParams.get('register') === '1');
   const showNav = !isHome || scrolled || mobileOpen || overlayOnHome;
-  const tourHeroNav = (isTourDetail && !scrolled) || (isLuxuryHotels && !scrolled);
+  const tourHeroNav = (isTourDetail && !scrolled) || (isLuxuryHotels && !scrolled) || (isWomensJourneys && !scrolled);
 
   return (
     <header
@@ -101,10 +102,19 @@ export default function Navbar() {
         <div className={styles.flexGrow} aria-hidden="true" />
 
         <nav className={styles.desktopNav} aria-label="Primary pages">
-          <Link href="/luxury-hotels" className={styles.desktopNavLink}>
+          <Link
+            href="/luxury-hotels"
+            className={`${styles.desktopNavLink} ${path.startsWith('/luxury-hotels') ? styles.desktopNavLinkActive : ''}`}
+          >
             Luxury Hotels
           </Link>
-          <Link href="/tours" className={styles.desktopNavLink}>
+          <Link
+            href="/womens-journeys"
+            className={`${styles.desktopNavLink} ${path.startsWith('/womens-journeys') ? styles.desktopNavLinkActive : ''}`}
+          >
+            Women&rsquo;s Journeys
+          </Link>
+          <Link href="/tours" className={`${styles.desktopNavLink} ${path === '/tours' || path.startsWith('/tours/') ? styles.desktopNavLinkActive : ''}`}>
             Journeys
           </Link>
         </nav>
@@ -130,6 +140,9 @@ export default function Navbar() {
           <div className={styles.mobileDivider} />
           <Link href="/luxury-hotels" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>
             Luxury Hotels
+          </Link>
+          <Link href="/womens-journeys" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>
+            Women&rsquo;s Journeys
           </Link>
           <Link href="/tours" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>All Journeys</Link>
           <Link href="/about" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Our Expertise</Link>

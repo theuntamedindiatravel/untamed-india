@@ -16,6 +16,7 @@ const links = {
   company: [
     { label: 'Our Story', href: '/about' },
     { label: 'Luxury Hotels', href: '/luxury-hotels' },
+    { label: "Women's Journeys", href: '/womens-journeys' },
     { label: 'All Tours', href: '/tours' },
     { label: 'Expert Guides', href: '/about#guides' },
     { label: 'Conservation', href: '/about#conservation' },

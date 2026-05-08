@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 const links = [
   { href: '/', label: 'Home', note: 'Editorial landing + membership' },
   { href: '/luxury-hotels', label: 'Luxury Hotels', note: 'Curated stays portfolio' },
+  { href: '/womens-journeys', label: "Women's Journeys", note: 'Women-led Golden Triangle' },
   { href: '/tours', label: 'Journeys', note: 'All tours' },
   { href: '/about', label: 'Expertise', note: 'About The Untamed India' },
   { href: '/contact', label: 'Concierge', note: 'Contact + enquiry form' },

@@ -119,6 +119,16 @@
   color: var(--gold);
 }
 
+.desktopNavLinkActive {
+  opacity: 1;
+  color: var(--gold);
+}
+
+.navbar.onTourHero.visible:not(.scrolled) .desktopNavLinkActive {
+  color: var(--gold-light);
+  opacity: 1;
+}
+
 @media (min-width: 900px) {
   .desktopNav {
     display: flex;
