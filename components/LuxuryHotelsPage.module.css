@@ -524,10 +524,16 @@
 .finalTitle {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4.5vw, 3rem);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
   margin-bottom: 28px;
-  text-shadow: 0 16px 60px rgba(0, 0, 0, 0.35);
+  /* Override globals.css h2 { color: var(--ink) } — must stay light on photo */
+  color: #fdfcfa;
+  letter-spacing: -0.02em;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.85),
+    0 6px 28px rgba(0, 0, 0, 0.65),
+    0 0 48px rgba(0, 0, 0, 0.35);
 }
 
 .finalRule {
