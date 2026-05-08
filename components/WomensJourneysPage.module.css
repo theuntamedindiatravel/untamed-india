@@ -654,45 +654,127 @@
   isolation: isolate;
 }
 
-.finaleBg {
+/* Slow aurora-style motion — no bitmap; respects prefers-reduced-motion */
+.finaleAnimatedBg {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.05);
+  overflow: hidden;
+  background: linear-gradient(
+    155deg,
+    #faf7f0 0%,
+    #ede8dc 38%,
+    #f5f0e5 72%,
+    #ebe4d6 100%
+  );
 }
 
-.finaleMask {
+.finaleOrbA,
+.finaleOrbB,
+.finaleOrbC {
   position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to top, rgba(8, 12, 10, 0.88) 0%, rgba(8, 12, 10, 0.45) 45%, rgba(8, 12, 10, 0.72) 100%),
-    radial-gradient(900px 500px at 50% 30%, rgba(198, 165, 92, 0.12), transparent 65%);
-}
-
-.finaleGrain {
-  position: absolute;
-  inset: 0;
-  opacity: 0.07;
-  mix-blend-mode: overlay;
+  border-radius: 50%;
+  filter: blur(56px);
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  will-change: transform, opacity;
+}
+
+.finaleOrbA {
+  width: min(120vw, 980px);
+  height: min(120vw, 980px);
+  left: -25%;
+  top: -35%;
+  background: radial-gradient(circle at 40% 40%, rgba(198, 165, 92, 0.38), transparent 62%);
+  animation: wjOrbDriftA 28s ease-in-out infinite;
+}
+
+.finaleOrbB {
+  width: min(100vw, 820px);
+  height: min(100vw, 820px);
+  right: -30%;
+  bottom: -25%;
+  background: radial-gradient(circle at 55% 45%, rgba(15, 91, 60, 0.14), transparent 58%);
+  animation: wjOrbDriftB 34s ease-in-out infinite;
+}
+
+.finaleOrbC {
+  width: min(90vw, 640px);
+  height: min(90vw, 640px);
+  left: 25%;
+  bottom: -15%;
+  background: radial-gradient(circle at 50% 50%, rgba(230, 211, 163, 0.35), transparent 65%);
+  animation: wjOrbDriftC 22s ease-in-out infinite;
+}
+
+@keyframes wjOrbDriftA {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.85;
+  }
+  45% {
+    transform: translate(8%, 12%) scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes wjOrbDriftB {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate(-10%, -8%) scale(1.08);
+    opacity: 0.95;
+  }
+}
+
+@keyframes wjOrbDriftC {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.65;
+  }
+  40% {
+    transform: translate(14%, -10%) scale(1.12);
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .finaleOrbA,
+  .finaleOrbB,
+  .finaleOrbC {
+    animation: none;
+    opacity: 0.75;
+    transform: none;
+  }
 }
 
 .finaleInner {
   position: relative;
   z-index: 2;
-  max-width: 780px;
+  max-width: 640px;
+  margin: 0 auto;
   text-align: center;
+}
+
+.finaleCard {
+  padding: clamp(36px, 6vw, 52px) clamp(28px, 5vw, 44px);
+  background: rgba(255, 253, 250, 0.96);
+  border: 1px solid rgba(198, 165, 92, 0.3);
+  border-radius: 3px;
+  box-shadow: 0 12px 56px rgba(14, 24, 20, 0.07);
 }
 
 .finaleTitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.65rem, 3.6vw, 2.35rem);
+  font-size: clamp(1.5rem, 3.2vw, 2.15rem);
   font-weight: 500;
-  line-height: 1.35;
-  margin-bottom: 32px;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+  line-height: 1.38;
+  margin: 0 0 28px;
+  color: var(--ink);
+  text-shadow: none;
 }
 
 .finaleCta {

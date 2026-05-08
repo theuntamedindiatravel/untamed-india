@@ -11,7 +11,6 @@ import { getWhatsAppLink } from '@/lib/whatsapp';
 import {
   WOMENS_JOURNEYS_EDITORIAL_IMAGE,
   WOMENS_JOURNEYS_EMPOWER,
-  WOMENS_JOURNEYS_FINAL_BG,
   WOMENS_JOURNEYS_HERO_FALLBACK,
   WOMENS_JOURNEYS_HERO_VIDEO,
   WOMENS_JOURNEYS_LEADERS,
@@ -369,30 +368,23 @@ export default function WomensJourneysPage() {
       </section>
 
       <section className={styles.finale} id="plan" aria-label="Plan your journey">
-        <div
-          className={styles.finaleBg}
-          style={{ backgroundImage: `url(${WOMENS_JOURNEYS_FINAL_BG})` }}
-          role="presentation"
-        />
-        <div className={styles.finaleMask} />
-        <div className={styles.finaleGrain} aria-hidden="true" />
+        <div className={styles.finaleAnimatedBg} aria-hidden="true">
+          <span className={styles.finaleOrbA} />
+          <span className={styles.finaleOrbB} />
+          <span className={styles.finaleOrbC} />
+        </div>
 
         <div className={`container ${styles.finaleInner}`}>
-          <motion.h2
-            className={styles.finaleTitle}
-            initial={finVisible}
-            whileInView={finEnter}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: reduceMotion ? 0 : 0.9, ease: [0.2, 0, 0, 1] }}
-          >
-            Discover India Through the Strength, Grace, and Stories of Women
-          </motion.h2>
           <motion.div
+            className={styles.finaleCard}
             initial={finVisible}
             whileInView={finEnter}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: reduceMotion ? 0 : 0.9, ease: [0.2, 0, 0, 1], delay: reduceMotion ? 0 : 0.1 }}
+            viewport={{ once: true, amount: 0.45 }}
+            transition={{ duration: reduceMotion ? 0 : 0.85, ease: [0.2, 0, 0, 1] }}
           >
+            <h2 className={styles.finaleTitle}>
+              Discover India Through the Strength, Grace, and Stories of Women
+            </h2>
             <a className={styles.finaleCta} href={getWhatsAppLink("Hi! I'd like to plan a Women's Journey (Golden Triangle).")}>
               Plan Your Women&rsquo;s Journey
             </a>

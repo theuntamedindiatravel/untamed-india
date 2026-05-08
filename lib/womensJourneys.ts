@@ -115,5 +115,3 @@ export const WOMENS_JOURNEYS_STATS = [
 
 export const WOMENS_JOURNEYS_EMPOWER =
   'Every Women’s Journey directly supports female employment, leadership, and entrepreneurship across India’s tourism ecosystem.';
-
-export const WOMENS_JOURNEYS_FINAL_BG = '/womens-journeys/rooftop-evening.png';

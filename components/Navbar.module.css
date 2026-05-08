@@ -74,9 +74,9 @@
   opacity: 1;
 }
 
-/* Scrolled: crisp off-white, ink shadow */
+/* Scrolled: solid ivory so page content doesn’t read through behind links */
 .navbar.scrolled {
-  background: var(--header-ivory);
+  background: var(--cream);
   backdrop-filter: blur(14px) saturate(1.15);
   -webkit-backdrop-filter: blur(14px) saturate(1.15);
   padding: 18px 0;
