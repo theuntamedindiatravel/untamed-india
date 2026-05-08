@@ -7,6 +7,14 @@ export const WOMENS_JOURNEYS_HERO_VIDEO = {
 /** Cinematic fallback montage when no video file is present (crossfade slideshow). */
 export const WOMENS_JOURNEYS_HERO_FALLBACK = [
   {
+    src: '/womens-journeys/group-safari.png',
+    alt: 'Women travellers on a private safari in India’s wild landscapes',
+  },
+  {
+    src: '/womens-journeys/rooftop-evening.png',
+    alt: 'Evening with friends on a lit rooftop',
+  },
+  {
     src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=2400&q=88',
     alt: 'Confident traveller portrait',
   },
@@ -37,8 +45,8 @@ export const WOMENS_JOURNEYS_HERO_FALLBACK = [
 ] as const;
 
 export const WOMENS_JOURNEYS_EDITORIAL_IMAGE = {
-  src: '/guides/ashu.png',
-  alt: 'Women travellers with Untamed India in the Himalayas',
+  src: '/womens-journeys/group-safari.png',
+  alt: 'Women travellers on a private open-top journey through India’s dramatic terrain',
 };
 
 export type WomensJourneysUniqueCard = {
@@ -108,5 +116,4 @@ export const WOMENS_JOURNEYS_STATS = [
 export const WOMENS_JOURNEYS_EMPOWER =
   'Every Women’s Journey directly supports female employment, leadership, and entrepreneurship across India’s tourism ecosystem.';
 
-export const WOMENS_JOURNEYS_FINAL_BG =
-  'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2400&q=88';
+export const WOMENS_JOURNEYS_FINAL_BG = '/womens-journeys/rooftop-evening.png';
