@@ -14,11 +14,14 @@
   padding: 140px 24px 72px;
   color: #fdfcfa;
   isolation: isolate;
+  overflow: hidden;
+  /* Hides hairline gaps from scaled slides; blends edge before cream intro */
+  background-color: #060908;
 }
 
 .heroSlides {
   position: absolute;
-  inset: 0;
+  inset: -2px;
   z-index: 0;
 }
 
@@ -27,23 +30,25 @@
   inset: 0;
   background-size: cover;
   background-position: center;
-  transform: scale(1.08);
+  transform: scale(1.03);
 }
 
 .heroVignette {
   position: absolute;
-  inset: 0;
+  inset: -2px;
   z-index: 1;
   background:
+    /* Spotlight behind headline — keeps copy readable on bright palace façades */
+    radial-gradient(ellipse 92% 72% at 50% 38%, rgba(6, 10, 9, 0.62) 0%, transparent 58%),
     linear-gradient(to top, rgba(10, 12, 10, 0.88) 0%, rgba(10, 12, 10, 0.46) 46%, rgba(10, 12, 10, 0.62) 100%),
-    radial-gradient(1200px 700px at 50% 18%, rgba(198, 165, 92, 0.14), transparent 58%),
-    radial-gradient(900px 420px at 50% 62%, rgba(0, 0, 0, 0.26), transparent 70%);
+    radial-gradient(1200px 700px at 50% 18%, rgba(198, 165, 92, 0.18), transparent 58%),
+    radial-gradient(900px 420px at 50% 62%, rgba(0, 0, 0, 0.28), transparent 70%);
   pointer-events: none;
 }
 
 .heroGrain {
   position: absolute;
-  inset: 0;
+  inset: -2px;
   z-index: 2;
   opacity: 0.07;
   mix-blend-mode: overlay;
@@ -61,70 +66,84 @@
 
 .heroLabel {
   font-size: 0.72rem;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
-  font-weight: 600;
-  color: rgba(253, 252, 250, 0.72);
+  font-weight: 700;
+  color: #e8dcc4;
   margin-bottom: 22px;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.85),
+    0 4px 20px rgba(0, 0, 0, 0.55);
 }
 
 .heroTitle {
   font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5.5vw, 3.75rem);
-  font-weight: 500;
-  line-height: 1.08;
+  font-size: clamp(2.45rem, 5.8vw, 3.95rem);
+  font-weight: 600;
+  line-height: 1.06;
   letter-spacing: -0.02em;
   margin-bottom: 22px;
-  color: #fdfcfa;
+  color: #fffefb;
+  filter: drop-shadow(0 6px 28px rgba(0, 0, 0, 0.45));
   text-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.55),
-    0 18px 90px rgba(0, 0, 0, 0.55);
+    0 2px 4px rgba(0, 0, 0, 0.95),
+    0 10px 40px rgba(0, 0, 0, 0.72),
+    0 0 100px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .heroLead {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  line-height: 1.85;
-  color: rgba(253, 252, 250, 0.82);
+  font-size: clamp(1.08rem, 2vw, 1.28rem);
+  line-height: 1.82;
+  color: rgba(255, 254, 251, 0.94);
   max-width: 620px;
   margin: 0 auto 36px;
-  font-weight: 400;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  font-weight: 500;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.88),
+    0 6px 24px rgba(0, 0, 0, 0.55);
 }
 
 .heroDivider {
-  width: 72px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(198, 165, 92, 0.85), transparent);
+  width: 88px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(230, 211, 163, 0.95), transparent);
   margin: 0 auto 36px;
+  box-shadow: 0 0 24px rgba(198, 165, 92, 0.45);
 }
 
 .heroCta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 38px;
-  border: 1px solid rgba(198, 165, 92, 0.65);
-  color: #fdfcfa;
+  padding: 17px 42px;
+  border: 1px solid rgba(255, 253, 248, 0.35);
+  color: var(--midnight);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   text-decoration: none;
-  background: rgba(15, 61, 46, 0.22);
-  backdrop-filter: blur(14px);
+  background: linear-gradient(165deg, #dcc795 0%, #c6a55c 48%, #b8954e 100%);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.35) inset;
   transition:
     background 0.55s cubic-bezier(0.2, 0, 0, 1),
     border-color 0.55s cubic-bezier(0.2, 0, 0, 1),
     transform 0.55s cubic-bezier(0.2, 0, 0, 1),
-    box-shadow 0.55s cubic-bezier(0.2, 0, 0, 1);
+    box-shadow 0.55s cubic-bezier(0.2, 0, 0, 1),
+    color 0.55s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .heroCta:hover {
-  background: rgba(198, 165, 92, 0.92);
+  background: #fdfcfa;
   border-color: rgba(198, 165, 92, 0.95);
   color: var(--midnight);
   transform: translateY(-3px);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.28),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
 }
 
 .heroDots {
@@ -152,8 +171,16 @@
 }
 
 /* ─── Intro ─── */
+/* Pull intro up 2px to kill sub-pixel seam vs hero / white body background */
 .intro {
-  padding: 100px 24px 72px;
+  margin-top: -2px;
+  padding-top: calc(100px + 2px);
+  padding-right: 24px;
+  padding-bottom: 72px;
+  padding-left: 24px;
+  position: relative;
+  z-index: 1;
+  background: #fdfcfa;
   border-bottom: 1px solid rgba(198, 165, 92, 0.18);
 }
 
