@@ -15,6 +15,7 @@ export type LuxuryHotel = {
   roomCategories: string[];
   signatureExperience: string;
   image: string;
+  images?: string[];
   filters: Exclude<LuxuryHotelFilter, 'all'>[];
 };
 
@@ -39,7 +40,8 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
     signatureExperience: 'Private sunset on Lake Pichola with dedicated butler service.',
 
 
-    image: 'https://gos3.ibcdn.com/987e68e0fadd11e89ecb0242ac110003.jpg',
+    image: '/hotels/oberoi-udaivilas-1.jpg',
+    images: ['/hotels/oberoi-udaivilas-1.jpg', '/hotels/oberoi-udaivilas-2.jpg'],
     filters: ['royal-palaces'],
   },
   {
@@ -51,7 +53,8 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'Once the residence of a maharaja, today a Taj masterpiece of marble corridors, peacocks on the lawn, and ballroom evenings under chandeliers.',
     roomCategories: ['Palace Room', 'Historical Suite', 'Royal Suite', 'Grand Royal Suite'],
     signatureExperience: 'Heritage high tea in the palace gardens with curated Jaipur storytelling.',
-    image: 'https://images.unsplash.com/photo-1573363059793-b27b0b94302c?auto=format&fit=crop&w=2000&q=88',
+    image: '/hotels/rambagh-1.jpg',
+    images: ['/hotels/rambagh-1.jpg', '/hotels/rambagh-2.jpg', '/hotels/rambagh-3.jpg'],
     filters: ['royal-palaces'],
   },
   {
@@ -75,7 +78,8 @@ export const LUXURY_HOTELS: LuxuryHotel[] = [
       'A desert fort-hotel of sandstone and starlight — caravanserai dinners, Thar silence, and hospitality rooted in Marwar tradition.',
     roomCategories: ['Fort Room', 'Heritage Suite', 'Luxury Suite', 'Signature Suite'],
     signatureExperience: 'Private dunes supper with folk musicians and astronomer-led stargazing.',
-    image: 'https://inditales.com/wp-content/uploads/2013/08/musicians-welcome-guests-suryagarh.jpg',
+    image: '/hotels/suryagarh-1.jpg',
+    images: ['/hotels/suryagarh-1.jpg', '/hotels/suryagarh-2.jpg'],
     filters: ['royal-palaces'],
   },
   {

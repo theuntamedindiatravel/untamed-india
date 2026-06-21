@@ -59,6 +59,48 @@ const WHY_ITEMS = [
   },
 ];
 
+function HotelImage({ hotel }: { hotel: (typeof LUXURY_HOTELS)[number] }) {
+  const imgs = hotel.images && hotel.images.length > 1 ? hotel.images : [hotel.image];
+  const multi = imgs.length > 1;
+  const [idx, setIdx] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const prev = (e: React.MouseEvent) => { e.preventDefault(); e.stopPropagation(); setIdx((i) => (i - 1 + imgs.length) % imgs.length); };
+  const next = (e: React.MouseEvent) => { e.preventDefault(); e.stopPropagation(); setIdx((i) => (i + 1) % imgs.length); };
+
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) setIdx((i) => (i + (diff > 0 ? 1 : -1) + imgs.length) % imgs.length);
+    touchStartX.current = null;
+  };
+
+  return (
+    <>
+      <img
+        src={imgs[idx]}
+        alt=""
+        loading="lazy"
+        onTouchStart={multi ? onTouchStart : undefined}
+        onTouchEnd={multi ? onTouchEnd : undefined}
+        style={{ userSelect: 'none' }}
+      />
+      {multi && (
+        <>
+          <button onClick={prev} className={styles.imgArrow} style={{ left: 10 }} aria-label="Previous image">&#8249;</button>
+          <button onClick={next} className={styles.imgArrow} style={{ right: 10 }} aria-label="Next image">&#8250;</button>
+          <div className={styles.imgDots}>
+            {imgs.map((_, i) => (
+              <span key={i} className={i === idx ? styles.imgDotActive : styles.imgDot} />
+            ))}
+          </div>
+        </>
+      )}
+    </>
+  );
+}
+
 export default function LuxuryHotelsPage() {
   const [slide, setSlide] = useState(0);
   const [filter, setFilter] = useState<LuxuryHotelFilter>('all');
@@ -213,7 +255,7 @@ export default function LuxuryHotelsPage() {
                 <Reveal key={hotel.id} y={26}>
                   <article className={styles.hotelCard}>
                     <div className={styles.imageMask}>
-                      <img src={hotel.image} alt="" loading="lazy" />
+                      <HotelImage hotel={hotel} />
                       <div className={styles.goldWash} aria-hidden />
                     </div>
                     <div className={styles.cardBody}>
