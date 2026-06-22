@@ -1,6 +1,6 @@
 'use client';
 import { useMemo, useState } from 'react';
-import { MapPin, Phone, Mail, Camera, Globe, Play, Send } from 'lucide-react';
+import { Phone, Mail, Camera, Globe, Play, Send } from 'lucide-react';
 import styles from './Contact.module.css';
 import { getWhatsAppLink, getWhatsAppNumberE164Digits } from '@/lib/whatsapp';
 
@@ -160,13 +160,6 @@ export default function ContactPage() {
 
               <div className={styles.contactInfo}>
                 <div className={styles.infoItem}>
-                  <div className={styles.iconWrap}><MapPin size={20} /></div>
-                  <div>
-                    <strong>New Delhi Office</strong><br />
-                    B-12, Green Park Main, New Delhi, 110016
-                  </div>
-                </div>
-                <div className={styles.infoItem}>
                   <div className={styles.iconWrap}><Phone size={20} /></div>
                   <div>
                     <strong>Direct Line</strong><br />
@@ -177,7 +170,7 @@ export default function ContactPage() {
                   <div className={styles.iconWrap}><Mail size={20} /></div>
                   <div>
                     <strong>General Inquiries</strong><br />
-                    concierge@untamedindia.com
+                    Theuntamedindia.travel@gmail.com
                   </div>
                 </div>
               </div>
