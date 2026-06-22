@@ -59,6 +59,8 @@ const WHY_ITEMS = [
   },
 ];
 
+const SLIDE_EASE = [0.2, 0, 0, 1] as const;
+
 function HotelImage({ hotel }: { hotel: (typeof LUXURY_HOTELS)[number] }) {
   const imgs = hotel.images && hotel.images.length > 1 ? hotel.images : [hotel.image];
   const multi = imgs.length > 1;
@@ -78,14 +80,24 @@ function HotelImage({ hotel }: { hotel: (typeof LUXURY_HOTELS)[number] }) {
 
   return (
     <>
-      <img
-        src={imgs[idx]}
-        alt=""
-        loading="lazy"
-        onTouchStart={multi ? onTouchStart : undefined}
-        onTouchEnd={multi ? onTouchEnd : undefined}
-        style={{ userSelect: 'none' }}
-      />
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.35, ease: SLIDE_EASE }}
+          onTouchStart={multi ? onTouchStart : undefined}
+          onTouchEnd={multi ? onTouchEnd : undefined}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `url(${imgs[idx]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+      </AnimatePresence>
       {multi && (
         <>
           <button onClick={prev} className={styles.imgArrow} style={{ left: 10 }} aria-label="Previous image">&#8249;</button>
