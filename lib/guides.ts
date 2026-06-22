@@ -92,48 +92,18 @@ For women looking to explore India with freedom, excitement, and complete peace 
     photo: '/guides/ashu.png',
   },
   {
-    id: 'aanya-mehra',
-    name: 'Aanya Mehra',
-    languages: ['English', 'French'],
-    region: 'Rajasthan · North India',
-    descriptor: 'Heritage & culture specialist',
-    experienceYears: 11,
-    bio: 'Known for calm precision and warm storytelling, Aanya designs days that feel effortless — private access, thoughtful pacing, and deeply local encounters. She’s happiest in old cities at first light and desert landscapes at dusk.',
-    photo:
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85',
-  },
-  {
-    id: 'kabir-singh',
-    name: 'Kabir Singh',
+    id: 'shivraj-singh',
+    name: 'Shivraj Singh',
     languages: ['English', 'Hindi'],
-    region: 'Central India',
-    descriptor: 'Wildlife specialist',
-    experienceYears: 14,
-    bio: 'A field naturalist at heart, Kabir brings quiet confidence to the forest. He reads tracks, light, and behaviour with ease — and keeps every drive respectful, unhurried, and focused on true wilderness moments.',
-    photo:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=85',
-  },
-  {
-    id: 'tsering-dolma',
-    name: 'Tsering Dolma',
-    languages: ['English', 'Hindi', 'Ladakhi'],
-    region: 'Ladakh · Himalayas',
-    descriptor: 'High-altitude journeys',
-    experienceYears: 9,
-    bio: 'Raised in the mountains, Tsering leads with gentle clarity — balancing comfort, culture, and altitude-aware logistics. Expect quiet monasteries, warm family kitchens, and a pace that honours the Himalayas.',
-    photo:
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=85',
-  },
-  {
-    id: 'ishaan-roy',
-    name: 'Ishaan Roy',
-    languages: ['English', 'Spanish'],
-    region: 'South India · Coast',
-    descriptor: 'Slow luxury & wellbeing',
-    experienceYears: 12,
-    bio: 'Ishaan specialises in journeys that restore: coastal routes, gentle rhythms, and refined stays. He’s attentive without hovering — ensuring every detail lands softly, from transfers to table reservations.',
-    photo:
-      'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=900&q=85',
+    region: 'Rajasthan · Jaisalmer',
+    descriptor: 'Heritage specialist & storyteller',
+    experienceYears: 10,
+    bio: `Born and raised amidst the golden sand dunes of Jaisalmer, Shivraj brings the timeless spirit of the Thar Desert to every journey he leads. With a deep passion for India’s rich cultural legacy, he specializes in heritage tours, offering travelers an authentic and immersive understanding of Rajasthan’s magnificent forts, palaces, ancient traditions, and vibrant local communities.
+
+Known for his engaging storytelling and warm hospitality, Shivraj goes beyond dates and monuments to reveal the fascinating stories, legends, and living traditions that shape India’s heritage. Whether guiding guests through the majestic citadels of Rajasthan, hidden desert villages, or UNESCO-listed treasures, he ensures that every experience is insightful, memorable, and deeply connected to local culture.
+
+For travelers seeking a genuine cultural encounter and a deeper appreciation of India’s historical wonders, Shivraj is the perfect companion on the journey.`,
+    photo: '/guides/shivraj.png',
   },
 ];
 
