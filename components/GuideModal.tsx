@@ -73,10 +73,12 @@ export default function GuideModal({ open, guide, onClose }: GuideModalProps) {
                   <div className={styles.metaLabel}>Region</div>
                   <div className={styles.metaValue}>{guide.region}</div>
                 </div>
-                <div className={styles.metaRow}>
-                  <div className={styles.metaLabel}>Experience</div>
-                  <div className={styles.metaValue}>{guide.experienceYears}+ years</div>
-                </div>
+                {guide.experienceYears != null && (
+                  <div className={styles.metaRow}>
+                    <div className={styles.metaLabel}>Experience</div>
+                    <div className={styles.metaValue}>{guide.experienceYears}+ years</div>
+                  </div>
+                )}
               </div>
 
               <div className={styles.bio}>
