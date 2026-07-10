@@ -11,6 +11,22 @@ export type Guide = {
 
 export const GUIDES: Guide[] = [
   {
+    id: 'krishnapal-singh',
+    name: 'Krishnapal Singh',
+    languages: ['English', 'French'],
+    region: 'Pan-India',
+    descriptor: 'English & French-speaking tour leader',
+    experienceYears: 6,
+    bio: `For Krishnapal, travel is about far more than visiting remarkable places—it is about understanding the stories, traditions, and people that have shaped them over centuries. Fluent in both English and French, he leads immersive journeys across India, sharing the country’s extraordinary heritage with warmth, authenticity, and genuine enthusiasm.
+
+Whether guiding guests through the grandeur of the Mughal Empire, the royal legacy of Rajasthan, or the untamed landscapes of India’s national parks, Krishnapal combines historical insight with local knowledge to create experiences that are both enriching and deeply personal. His thoughtful approach ensures every journey unfolds at a comfortable pace, with attention to the details that transform a holiday into an unforgettable memory.
+
+Known for his engaging storytelling and attentive hospitality, Krishnapal believes that the finest travel experiences are built on meaningful connections. Every itinerary is an opportunity to introduce guests not only to India’s iconic landmarks, but also to its living traditions, hidden corners, vibrant cultures, and the people who make the country so exceptional.
+
+With every journey, his goal remains the same: to offer guests an authentic, seamless, and memorable experience that inspires a lasting connection with India long after they return home.`,
+    photo: '/guides/krishnapal.jpg',
+  },
+  {
     id: 'karan',
     name: 'Karan',
     languages: ['English', 'Hindi'],
