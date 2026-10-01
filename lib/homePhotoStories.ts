@@ -1,10 +1,15 @@
+import { getWhatsAppLink } from '@/lib/whatsapp';
+
 export type PhotoStory = {
   id: string;
+  /** Small label above the title; the modal falls back to "Why this moment matters". */
+  kicker?: string;
   title: string;
   subtitle?: string;
   statusLabel: string;
   paragraphs: string[];
   whyItMatters: string;
+  cta?: { label: string; href: string };
 };
 
 export const HOME_PHOTO_STORIES: Record<string, PhotoStory> = {
@@ -111,6 +116,96 @@ export const HOME_PHOTO_STORIES: Record<string, PhotoStory> = {
     ],
     whyItMatters:
       'When clients choose operators who pay fair wages and cap numbers, they protect the very silence that lets a snow leopard cross a ridge without vanishing forever.',
+  },
+  'feel-witness': {
+    id: 'feel-witness',
+    kicker: 'Five ways to feel India',
+    title: 'Witness',
+    subtitle: 'A tiger on the forest road, and the silence around it',
+    statusLabel: 'Ranthambore · Bandhavgarh · Kanha · Gir',
+    paragraphs: [
+      'Some moments cannot be arranged, only waited for. A tiger stepping onto a forest track at first light. The alarm call of a chital before anything appears. The long hush after it has gone.',
+      'We travel with senior naturalists who read the forest rather than chase it — private vehicles, unhurried drives, and time to stay with a sighting until it ends on its own terms.',
+      'Beyond the tiger: Asiatic lions in the dry forests of Gir, barasingha in Kanha’s meadows, and Himalayan birdlife at dawn in Pangot and Sattal.',
+    ],
+    whyItMatters:
+      'Patient, low-impact safaris put money into protection and local livelihoods — and keep the forest calm enough for the next sighting, yours or someone else’s.',
+    cta: {
+      label: 'Plan this journey',
+      href: getWhatsAppLink('Hi! I’d love to plan a wildlife journey — I want to witness India’s wild side.'),
+    },
+  },
+  'feel-create': {
+    id: 'feel-create',
+    kicker: 'Five ways to feel India',
+    title: 'Create',
+    subtitle: 'Carved wood, pressed cloth, and a pattern repeated until it becomes a garden',
+    statusLabel: 'Jaipur · Varanasi · Chettinad · Western Ghats',
+    paragraphs: [
+      'At a block-printing table, a carved wooden block is dipped, placed and pressed with the heel of the hand — again and again, until a length of plain cotton is covered in flowers.',
+      'Our journeys make room for you to make something yourself: an afternoon at the printing table, a visit to Varanasi’s silk weavers, a Chettinad craft workshop, or a camera and a mentor in the Western Ghats.',
+      'You leave with something made by your own hands — and a far deeper respect for the skill in everything you didn’t make.',
+    ],
+    whyItMatters:
+      'Paying artisans for their time and teaching keeps living crafts viable for the next generation — far more than a souvenir ever could.',
+    cta: {
+      label: 'Plan this journey',
+      href: getWhatsAppLink('Hi! I’d love to plan a journey with time to create — craft workshops, cooking or photography.'),
+    },
+  },
+  'feel-listen': {
+    id: 'feel-listen',
+    kicker: 'Five ways to feel India',
+    title: 'Listen',
+    subtitle: 'Temple bells, river prayers, and the stories your guide grew up with',
+    statusLabel: 'Rishikesh · Varanasi · Amritsar · Ladakh',
+    paragraphs: [
+      'India is loud, and then suddenly it isn’t. A row of temple bells set swinging above the river. Evening aarti on the ghats — conch, chant and a thousand small flames. Kirtan drifting across the water at the Golden Temple in the early morning.',
+      'In Ladakh it is the other way round: prayer flags in the wind, monks chanting in the half-dark of a gompa, and a silence so complete you can hear your own breath.',
+      'Our guides are storytellers first. Ask them what the bells are for.',
+    ],
+    whyItMatters:
+      'Listening is the most respectful way to travel. Arriving quietly, following local custom and choosing local guides keeps sacred places sacred — not backdrops.',
+    cta: {
+      label: 'Plan this journey',
+      href: getWhatsAppLink('Hi! I’d love to plan a journey to listen — India’s sacred sounds, rituals and stories.'),
+    },
+  },
+  'feel-savour': {
+    id: 'feel-savour',
+    kicker: 'Five ways to feel India',
+    title: 'Savour',
+    subtitle: 'Cardamom, pepper, slow-cooked spice and a long table',
+    statusLabel: 'Chettinad · Kerala · Amritsar · Rajasthan',
+    paragraphs: [
+      'Pepper from India’s southwest coast was once called black gold, and spice still sets the rhythm of an Indian day: chai at dawn, a thali at noon, something slow-cooked as the light goes.',
+      'We plan the meals as carefully as the stays — a Chettinad feast in a heritage mansion, lunch in a family kitchen, langar at the Golden Temple, and tea and spice gardens in the hills around Munnar.',
+      'Every dish tells you where you are. You only have to slow down enough to taste it.',
+    ],
+    whyItMatters:
+      'Eating local — family kitchens, heritage recipes and seasonal produce — keeps money in the community and food traditions alive.',
+    cta: {
+      label: 'Plan this journey',
+      href: getWhatsAppLink('Hi! I’d love to plan a journey built around food — I want to savour India.'),
+    },
+  },
+  'feel-breathe': {
+    id: 'feel-breathe',
+    kicker: 'Five ways to feel India',
+    title: 'Breathe',
+    subtitle: 'Thin air, wide skies, and nowhere you need to be',
+    statusLabel: 'Ladakh · Munnar · Kerala backwaters · Rishikesh',
+    paragraphs: [
+      'Above 3,500 metres, even your thoughts slow down. In Ladakh, cloud shadows cross whole mountainsides, and Pangong Lake shifts from blue to green in a single afternoon.',
+      'Further south, the pace is set by water: mist lifting off Munnar’s tea gardens, a houseboat drifting through the Alleppey backwaters, morning yoga beside the Ganga in Rishikesh.',
+      'We build in unscheduled time on purpose — acclimatisation days, empty afternoons, early nights. Here, luxury is space.',
+    ],
+    whyItMatters:
+      'Slow itineraries mean fewer transfers, a lighter footprint, and more of your spend staying with the homestays, guides and villages along the way.',
+    cta: {
+      label: 'Plan this journey',
+      href: getWhatsAppLink('Hi! I’d love to plan a slow journey — mountains, backwaters and space to breathe.'),
+    },
   },
 };
 

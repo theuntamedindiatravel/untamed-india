@@ -1,7 +1,8 @@
 'use client';
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { MapPin, Phone, Mail, Camera, Globe, Play, Send } from 'lucide-react';
+import Image from 'next/image';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const links = {
@@ -37,13 +38,11 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.topBand} />
-
       <div className={`container ${styles.main}`}>
         {/* Brand */}
         <div className={styles.brand}>
           <div className={styles.logo}>
-            <span className={styles.tuiMark} aria-hidden="true">TUI</span>
+            <Image src="/brand/mark-112.png" alt="" width={52} height={52} className={styles.tuiMark} unoptimized />
             <span className={styles.logoText}>The Untamed <span>India</span></span>
           </div>
           <p className={styles.tagline}>
@@ -60,12 +59,6 @@ export default function Footer() {
               <MapPin size={14} /> New Delhi, India
             </span>
           </div>
-          <div className={styles.social}>
-            <a href="#" aria-label="Instagram" className={styles.socialLink}><Camera size={18} /></a>
-            <a href="#" aria-label="Facebook" className={styles.socialLink}><Globe size={18} /></a>
-            <a href="#" aria-label="YouTube" className={styles.socialLink}><Play size={18} /></a>
-            <a href="#" aria-label="Twitter" className={styles.socialLink}><Send size={18} /></a>
-          </div>
         </div>
 
         {/* Links */}
@@ -78,7 +71,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className={styles.linksCol}>
-          <h4 className={styles.colTitle}>Company</h4>
+          <h4 className={styles.colTitle}>Quick Links</h4>
           <ul className={styles.linkList}>
             {links.company.map((l) => (
               <li key={l.href}><Link href={l.href} className={styles.link}>{l.label}</Link></li>

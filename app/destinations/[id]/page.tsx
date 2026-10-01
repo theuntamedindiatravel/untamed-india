@@ -1,6 +1,6 @@
 'use client';
 import { useParams, notFound } from 'next/navigation';
-import { tours, categories } from '@/lib/data';
+import { tours, categories, moods } from '@/lib/data';
 import TourCard from '@/components/TourCard';
 import styles from './Destination.module.css';
 import Link from 'next/link';
@@ -11,7 +11,10 @@ export default function DestinationPage() {
   const id = params.id;
 
   const category = categories.find((c) => c.id === id);
-  const filteredTours = tours.filter((t) => t.category === id);
+  const ownTours = tours.filter((t) => t.category === id);
+  // A collection with no journeys of its own (e.g. Royal Heritage) shows the journeys tagged with its theme instead.
+  const mood = moods.find((m) => m.toLowerCase() === String(id).toLowerCase());
+  const filteredTours = ownTours.length > 0 || !mood ? ownTours : tours.filter((t) => (t.moods ?? []).includes(mood));
 
   if (!category) {
     notFound();

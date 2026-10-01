@@ -1,50 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
-
 :root {
-  /* ── Surfaces (quiet luxury ivory) ─────────── */
-  --cream:       #F7F3EA;  /* page background (ivory)                */
-  --cream-dark:  #FFFDF8;  /* cards / sections                       */
-  --header-ivory: rgba(247, 243, 234, 0.92);
+  /* ── Palette: black, cream and saffron (reference-style homepage) ── */
+  --black:        #0F0F0F;  /* navbar, video gallery, footer          */
+  --cream:        #F7F1E8;  /* light sections                         */
+  --white:        #FFFFFF;  /* cards                                  */
+  --saffron:      #E07A2A;  /* underlines, icons, large accents       */
+  --saffron-ink:  #B4561A;  /* small orange text (WCAG AA on cream)   */
+  --saffron-deep: #93460F;  /* hover on orange buttons                */
+  --saffron-soft: #F2C9A0;  /* orange on black                        */
+  --ink:          #1C1814;  /* headings                               */
+  --ink-muted:    #5A5048;  /* body copy                              */
 
-  /* ── Ink (higher contrast on ivory / cream) ── */
-  --ink:         #0E1814;
-  --ink-muted:   #243530;
-  
-  /* ── Legacy aliases (keep existing styles working) */
+  /* ── Lines & shape ─────────────────────────── */
+  --hairline:      rgba(28, 24, 20, 0.12);
+  --hairline-gold: rgba(224, 122, 42, 0.4);
+  --radius:        2px;
+
+  /* ── Aliases: names used by the inner pages and earlier components ── */
+  --paper:         var(--cream);
+  --paper-light:   var(--white);
+  --indigo:        var(--black);
+  --indigo-deep:   var(--black);
+  --madder:        var(--saffron-ink);
+  --madder-deep:   var(--saffron-deep);
+  --gold:          var(--saffron);
+  --gold-light:    var(--saffron-soft);
+  --gold-ink:      var(--saffron-ink);
+  --forest:        #1E3B2F;
+  --cream-dark:    var(--white);
+  --header-ivory:  rgba(247, 241, 232, 0.94);
   --charcoal:      var(--ink);
   --charcoal-soft: var(--ink-muted);
   --text-primary:  var(--ink);
-  /* Gold/brown for small caps on light backgrounds (WCAG-friendly vs. pale gold) */
-  --gold-ink:      #5a4822;
-
-  /* ── Tricolor palette (green/white/orange) ─── */
-  --green:       #0F5B3C;
-  --green-soft:  #137A4F;
-  --orange:      #FF7A00;
-  --orange-soft: #FF9A3D;
-  --green-tint:  rgba(15, 91, 60, 0.08);
-
-  /* ── Gold ──────────────────────────────────── */
-  --gold:        #C6A55C;
-  --gold-light:  #E6D3A3;
-  --gold-pale:   rgba(198, 165, 92, 0.18);
-
-  /* ── Borders ───────────────────────────────── */
-  --border-subtle: rgba(27, 43, 35, 0.10);
-  --border-gold:   rgba(198, 165, 92, 0.34);
-
-  /* ── Legacy aliases (keep other components working) */
-  --midnight:      #0B2019;
+  --green:         var(--forest);
+  --green-soft:    #2A5040;
+  --green-tint:    rgba(30, 59, 47, 0.08);
+  --orange:        var(--saffron);
+  --orange-soft:   var(--saffron-soft);
+  --gold-pale:     rgba(224, 122, 42, 0.16);
+  --border-subtle: var(--hairline);
+  --border-gold:   var(--hairline-gold);
+  --midnight:      var(--black);
   --muted:         var(--ink-muted);
-  --saffron:       var(--gold);
-  --saffron-light: var(--gold-light);
-  --saffron-dark:  #A78945;
+  --saffron-light: var(--saffron-soft);
+  --saffron-dark:  var(--saffron-deep);
   --forest-light:  var(--green-soft);
-  
-  /* Typography */
-  --font-serif: "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  --font-display: "Playfair Display", Georgia, serif;
+
+  /* Typography — --font-inter / --font-playfair / --font-allison come from next/font in app/layout.tsx */
+  --font-serif:   var(--font-playfair), Georgia, serif;
+  --font-sans:    var(--font-inter), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-script:  var(--font-allison), cursive;
 
   /* Spacing & Layout */
   --section-py: 120px;
@@ -78,21 +83,6 @@ body {
   position: relative;
 }
 
-/* Global rich “grainy green” atmosphere (subtle) */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(1100px 700px at 18% 12%, rgba(15, 91, 60, 0.14), transparent 62%),
-    radial-gradient(900px 620px at 85% 30%, rgba(255, 122, 0, 0.06), transparent 60%),
-    linear-gradient(180deg, rgba(11, 32, 25, 0.02) 0%, rgba(11, 32, 25, 0.06) 100%);
-  opacity: 0.22;
-  mix-blend-mode: multiply;
-}
-
 body > * {
   position: relative;
   z-index: 1;
@@ -118,11 +108,11 @@ button {
 }
 
 /* ─── Typography Utils ─── */
-h1, h2, h3 { 
-  font-family: var(--font-serif); 
-  line-height: 1.2; 
-  font-weight: 600; 
-  letter-spacing: -0.015em;
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: 0;
   color: var(--ink);
 }
 
@@ -135,7 +125,7 @@ h1, h2, h3 {
 .modern-caps {
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold-ink);
@@ -148,6 +138,30 @@ h1, h2, h3 {
   padding: 0 40px;
 }
 
+/* ─── Section heading: centred serif with a short saffron underline ─── */
+.section-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  text-align: center;
+  color: var(--ink);
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin: 18px auto 0;
+  background: var(--saffron);
+}
+
+/* ─── Faint jaali (lattice) pattern behind light sections ─── */
+.jaali {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23B4561A' stroke-opacity='0.07' stroke-width='1'%3E%3Cpath d='M0 0L40 40M40 0L0 40'/%3E%3Ccircle cx='20' cy='20' r='6'/%3E%3Ccircle cx='0' cy='0' r='6'/%3E%3Ccircle cx='40' cy='0' r='6'/%3E%3Ccircle cx='0' cy='40' r='6'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 40px 40px;
+}
+
 /* ─── Buttons ─── */
 .btn {
   display: inline-flex;
@@ -157,59 +171,55 @@ h1, h2, h3 {
   padding: 16px 36px;
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  transition: background 0.45s ease, color 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
+  transition: background 0.45s ease, color 0.45s ease, border-color 0.45s ease;
   cursor: pointer;
   border: 1px solid var(--border-gold);
-  border-radius: 0;
+  border-radius: var(--radius);
 }
 
-/* Primary: deep green with thin gold border */
+/* Primary: madder red */
 .btn-primary {
-  background: var(--green);
-  color: var(--gold-light);
-  border-color: var(--border-gold);
+  background: var(--madder);
+  color: var(--paper-light);
+  border-color: var(--madder);
 }
 .btn-primary:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--midnight);
-  transform: translateY(-2px);
+  background: var(--madder-deep);
+  border-color: var(--madder-deep);
 }
 
-/* Outline: gold border, no fill; inverts on hover */
+/* Outline: gold rule, ink text; fills with ink on hover */
 .btn-outline {
-  border: 1px solid var(--border-gold);
-  color: var(--gold);
+  border: 1px solid var(--gold);
+  color: var(--ink);
   background: transparent;
 }
 .btn-outline:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: var(--midnight);
-  transform: translateY(-2px);
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper-light);
 }
 
-/* Ghost — gold bordered, for use on dark/green backgrounds */
+/* Ghost — for indigo/dark surfaces */
 .btn-ghost {
-  border: 1px solid var(--gold);
-  color: var(--gold);
+  border: 1px solid var(--gold-light);
+  color: var(--gold-light);
   background: transparent;
 }
 .btn-ghost:hover {
-  background: var(--gold);
-  color: var(--charcoal);
-  transform: translateY(-2px);
+  background: var(--gold-light);
+  color: var(--indigo);
 }
 
 .section-label {
   display: flex;
   align-items: center;
   gap: 15px;
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold-ink);
@@ -219,17 +229,28 @@ h1, h2, h3 {
   content: '';
   flex: 0 0 40px;
   height: 1px;
-  background: var(--gold-ink);
+  background: var(--gold);
 }
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-track { background: var(--paper); }
 ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 999px; }
 
-::selection { background: var(--gold-pale); color: var(--charcoal); }
+::selection { background: var(--gold-pale); color: var(--ink); }
 
 @media (max-width: 768px) {
   :root { --section-py: 80px; }
   .container { padding: 0 24px; }
+  /* Room for the fixed phone bar (components/MobileBar) */
+  body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

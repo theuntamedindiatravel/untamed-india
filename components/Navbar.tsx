@@ -1,8 +1,10 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowLeft } from 'lucide-react';
 import styles from './Navbar.module.css';
+import { useHeroInView } from '@/lib/heroStore';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 function scrollToGuidesSection() {
@@ -11,146 +13,118 @@ function scrollToGuidesSection() {
   });
 }
 
-const destinations = [
-  { label: 'Wildlife Safaris', href: '/destinations/wildlife' },
-  { label: 'Cultural Journeys', href: '/destinations/cultural' },
-  { label: 'Himalayan Adventures', href: '/destinations/himalayan' },
-  { label: 'Coastal Escapes', href: '/destinations/coastal' },
-  { label: 'Spiritual Pilgrimages', href: '/destinations/spiritual' },
-  { label: 'Heritage & History', href: '/destinations/heritage' },
-  { label: 'Northeast Wilderness', href: '/destinations/northeast' },
-  { label: 'Kerala & the South', href: '/destinations/kerala' },
+const MENU_LINKS = [
+  { label: 'Destinations', href: '/#destinations' },
+  { label: 'Journeys', href: '/tours' },
+  { label: 'Luxury Hotels', href: '/luxury-hotels' },
+  { label: "Women's Journeys", href: '/womens-journeys' },
+  { label: 'Our Story', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
-  const megaRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const overHero = useHeroInView();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const path = pathname ?? '';
   const isHome = path === '/';
-  const isTourDetail = path.startsWith('/tours/') && path !== '/tours';
-  const isLuxuryHotels = path.startsWith('/luxury-hotels');
-  const isWomensJourneys = path.startsWith('/womens-journeys');
-  const overlayOnHome =
-    isHome && (!!searchParams.get('story') || searchParams.get('register') === '1');
-  const showNav = !isHome || scrolled || mobileOpen || overlayOnHome;
-  const tourHeroNav = (isTourDetail && !scrolled) || (isLuxuryHotels && !scrolled) || (isWomensJourneys && !scrolled);
+  const overlayOnHome = isHome && (!!searchParams.get('story') || searchParams.get('register') === '1');
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
+  const goBack = () => {
+    try {
+      // Dismiss in-page overlays first (stay on the same route).
+      if (path === '/about' && searchParams.get('guide')) {
+        const next = new URLSearchParams(searchParams.toString());
+        next.delete('guide');
+        const qs = next.toString();
+        router.replace(qs ? `${path}?${qs}` : path, { scroll: false });
+        scrollToGuidesSection();
+        return;
+      }
+      if (path === '/' && (searchParams.get('story') || searchParams.get('register') === '1')) {
+        const next = new URLSearchParams(searchParams.toString());
+        next.delete('story');
+        next.delete('register');
+        const qs = next.toString();
+        router.replace(qs ? `${path}?${qs}` : path, { scroll: false });
+        return;
+      }
+      if (window.history.length > 1) router.back();
+      else router.push('/');
+    } catch {
+      router.push('/');
+    }
+  };
+
+  const solid = !overHero || overlayOnHome || menuOpen;
 
   return (
-    <header
-      className={`${styles.navbar} ${showNav ? styles.visible : styles.hidden} ${scrolled ? styles.scrolled : ''} ${mobileOpen ? styles.mobileActive : ''} ${tourHeroNav ? styles.onTourHero : ''}`}
-    >
+    <header className={styles.navbar} data-nav data-solid={solid || undefined}>
       <div className={`container ${styles.inner}`}>
-        {!isHome || overlayOnHome ? (
-          <button
-            type="button"
-            className={styles.backButton}
-            onClick={() => {
-              try {
-                // Dismiss in-page overlays first (stay on the same route).
-                if (path === '/about' && searchParams.get('guide')) {
-                  const next = new URLSearchParams(searchParams.toString());
-                  next.delete('guide');
-                  const qs = next.toString();
-                  router.replace(qs ? `${path}?${qs}` : path, { scroll: false });
-                  scrollToGuidesSection();
-                  return;
-                }
-                if (path === '/' && searchParams.get('story')) {
-                  const next = new URLSearchParams(searchParams.toString());
-                  next.delete('story');
-                  const qs = next.toString();
-                  router.replace(qs ? `${path}?${qs}` : path, { scroll: false });
-                  return;
-                }
-                if (path === '/' && searchParams.get('register') === '1') {
-                  const next = new URLSearchParams(searchParams.toString());
-                  next.delete('register');
-                  const qs = next.toString();
-                  router.replace(qs ? `${path}?${qs}` : path, { scroll: false });
-                  return;
-                }
-                if (window.history.length > 1) router.back();
-                else router.push('/');
-              } catch {
-                router.push('/');
-              }
-            }}
-            aria-label="Go back"
-          >
-            ←
-          </button>
-        ) : (
-          <span className={styles.backSpacer} aria-hidden="true" />
-        )}
-
-        <Link href="/" className={styles.brand} aria-label="Untamed India">
-          UNTAMED INDIA
-        </Link>
-
-        <div className={styles.flexGrow} aria-hidden="true" />
-
-        <nav className={styles.desktopNav} aria-label="Primary pages">
-          <Link
-            href="/luxury-hotels"
-            className={`${styles.desktopNavLink} ${path.startsWith('/luxury-hotels') ? styles.desktopNavLinkActive : ''}`}
-          >
-            Luxury Hotels
+        <div className={styles.left}>
+          {(!isHome || overlayOnHome) && (
+            <button type="button" className={styles.iconButton} onClick={goBack} aria-label="Go back">
+              <ArrowLeft size={20} strokeWidth={1.5} />
+            </button>
+          )}
+          <Link href="/" className={styles.brand} aria-label="The Untamed India, home">
+            <Image src="/brand/mark-112.png" alt="" width={42} height={42} className={styles.mark} unoptimized />
+            <span className={styles.wordmark}>
+              <span>The Untamed</span>
+              <span>India</span>
+            </span>
           </Link>
-          <Link
-            href="/womens-journeys"
-            className={`${styles.desktopNavLink} ${path.startsWith('/womens-journeys') ? styles.desktopNavLinkActive : ''}`}
-          >
-            Women&rsquo;s Journeys
-          </Link>
-          <Link href="/tours" className={`${styles.desktopNavLink} ${path === '/tours' || path.startsWith('/tours/') ? styles.desktopNavLinkActive : ''}`}>
-            Journeys
-          </Link>
+        </div>
+
+        <nav className={styles.links} aria-label="Primary">
+          <Link href="/#destinations" className={styles.link}>Destinations</Link>
+          <Link href="/tours" className={`${styles.link} ${path.startsWith('/tours') ? styles.linkActive : ''}`}>Journeys</Link>
         </nav>
 
         <button
-          className={styles.menuButton}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          ref={menuButtonRef}
+          type="button"
+          className={styles.iconButton}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
         >
-          <span className={styles.burger} aria-hidden="true" />
+          <span className={styles.burger} data-open={menuOpen || undefined} aria-hidden="true" />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className={styles.mobileMenu}>
-          <div className={styles.mobileLabel}>Explore Experiences</div>
-          {destinations.map((d) => (
-            <Link key={d.href} href={d.href} className={styles.mobileLink} onClick={() => setMobileOpen(false)}>
-              {d.label}
+      {menuOpen && (
+        <div className={styles.overlay} data-menu-overlay>
+          <nav className={styles.overlayNav} aria-label="Menu">
+            {MENU_LINKS.map((l) => (
+              <Link key={l.href} href={l.href} className={styles.overlayLink} onClick={() => setMenuOpen(false)}>
+                {l.label}
+              </Link>
+            ))}
+            <Link href="/?register=1#register" className={styles.overlayCta} onClick={() => setMenuOpen(false)}>
+              Plan your journey
             </Link>
-          ))}
-          <div className={styles.mobileDivider} />
-          <Link href="/luxury-hotels" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>
-            Luxury Hotels
-          </Link>
-          <Link href="/womens-journeys" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>
-            Women&rsquo;s Journeys
-          </Link>
-          <Link href="/tours" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>All Journeys</Link>
-          <Link href="/about" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Our Expertise</Link>
-          <Link href="/contact" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>Contact Concierge</Link>
-          <div className={styles.mobileDivider} />
-          <Link href="/?register=1#register" className={styles.mobileLink} onClick={() => setMobileOpen(false)}>
-            Register Interest
-          </Link>
+          </nav>
         </div>
       )}
     </header>

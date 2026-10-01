@@ -1,22 +1,58 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import HeroSection from '@/components/Hero';
-import ThreePanelHero from '@/components/ThreePanelHero';
-import ThreePhotoStrip from '@/components/ThreePhotoStrip';
-import EditorialSection from '@/components/EditorialSection';
-import OurStorySection from '@/components/OurStorySection';
-import MembershipSection from '@/components/MembershipSection';
-import CTABanner from '@/components/CTABanner';
-import CategoriesSection from '@/components/Categories';
-import Testimonials from '@/components/Testimonials';
+import Hero from '@/components/home/Hero';
+import OurStory from '@/components/home/OurStory';
+import DestinationsCarousel from '@/components/home/DestinationsCarousel';
+import WhatCallsYou from '@/components/home/WhatCallsYou';
+import VideoGallery from '@/components/home/VideoGallery';
+import MakingDifference from '@/components/home/MakingDifference';
+import GuestStories from '@/components/home/GuestStories';
 import RegisterInterestModal from '@/components/RegisterInterestModal';
 import PhotoStoryModal from '@/components/PhotoStoryModal';
 import { getHomePhotoStory } from '@/lib/homePhotoStories';
 
+// The sections never read the URL, so they prerender into the page's HTML.
+// Only the pop-ups depend on ?story= / ?register=, and they sit in their own Suspense boundary.
 export default function HomeLanding() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const openPhotoStory = useCallback(
+    (id: string) => {
+      const next = new URLSearchParams(window.location.search);
+      next.set('story', id);
+      router.push(`${pathname}?${next.toString()}`, { scroll: false });
+    },
+    [pathname, router],
+  );
+
+  return (
+    <>
+      <Hero />
+
+      <OurStory />
+
+      <DestinationsCarousel />
+
+      <WhatCallsYou />
+
+      <VideoGallery onOpenStory={openPhotoStory} />
+
+      <MakingDifference />
+
+      <GuestStories />
+
+      <Suspense fallback={null}>
+        <HomeOverlays />
+      </Suspense>
+    </>
+  );
+}
+
+function HomeOverlays() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -29,15 +65,6 @@ export default function HomeLanding() {
     if (!storyParam) return null;
     return getHomePhotoStory(storyParam) ?? null;
   }, [storyParam]);
-
-  const openPhotoStory = useCallback(
-    (id: string) => {
-      const next = new URLSearchParams(searchParams.toString());
-      next.set('story', id);
-      router.push(`${pathname}?${next.toString()}`, { scroll: false });
-    },
-    [pathname, router, searchParams],
-  );
 
   const closePhotoStory = useCallback(() => {
     const next = new URLSearchParams(searchParams.toString());
@@ -52,50 +79,6 @@ export default function HomeLanding() {
 
   return (
     <>
-      <HeroSection />
-
-      <CategoriesSection />
-
-      <ThreePanelHero onOpenStory={openPhotoStory} />
-
-      <div id="discover" />
-      <EditorialSection
-        eyebrow="in the tall grass"
-        title="Where the wild still feels timeless."
-        body="In India’s great grasslands, the one-horned rhino moves with quiet authority — a living reminder that true luxury is space, silence, and protection."
-        imageSrc="https://images.unsplash.com/photo-1706187586614-31f2a58624bb?auto=format&fit=crop&w=1800&q=85"
-        imageAlt="One-horned rhinoceros in tall grass"
-        imageKicker="GRASSLANDS"
-        imageTitle="One-Horned Rhino"
-        ctaLabel="discover"
-        ctaHref="/destinations/heritage"
-        storyId="editorial-rhino"
-        onOpenStory={openPhotoStory}
-      />
-
-      <ThreePhotoStrip onOpenStory={openPhotoStory} />
-
-      <EditorialSection
-        eyebrow="exclusive familiarity"
-        title="Personal, effortless, precise."
-        body="From the first welcome to the last farewell, every detail is curated around you — expert access, unhurried pacing, and the luxury of space."
-        imageSrc="https://images.unsplash.com/photo-1760835251791-1fda687de791?auto=format&fit=crop&w=1800&q=85"
-        imageAlt="Thiksey Monastery, Ladakh"
-        ctaLabel="discover"
-        ctaHref="/tours"
-        reverse
-        storyId="editorial-ladakh"
-        onOpenStory={openPhotoStory}
-      />
-
-      <OurStorySection />
-
-      <Testimonials />
-
-      <MembershipSection />
-
-      <CTABanner />
-
       <RegisterInterestModal
         open={open}
         onClose={() => {
@@ -111,4 +94,3 @@ export default function HomeLanding() {
     </>
   );
 }
-

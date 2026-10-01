@@ -1,10 +1,21 @@
 'use client';
-import { useState, useMemo } from 'react';
-import { tours } from '@/lib/data';
+import { Suspense, useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { moods, tours } from '@/lib/data';
 import TourCard from '@/components/TourCard';
 import ExperienceFilters from '@/components/ExperienceFilters';
 import styles from './Tours.module.css';
 import Link from 'next/link';
+
+// Reads ?mood= (e.g. from the homepage's "What calls you?") as the starting mood filter.
+// Kept in its own Suspense boundary so the journeys list still prerenders.
+function MoodFromUrl({ onMood }: { onMood: (mood: string | null) => void }) {
+  const param = useSearchParams().get('mood');
+  useEffect(() => {
+    onMood(moods.find((m) => m.toLowerCase() === param?.toLowerCase()) ?? null);
+  }, [param, onMood]);
+  return null;
+}
 
 export default function ToursPage() {
   const [activeTribe, setActiveTribe] = useState<string | null>(null);
@@ -32,6 +43,10 @@ export default function ToursPage() {
             From the high Himalayas to the tropical backwaters, explore our curated selection of expert-led journeys across India.
           </p>
         </div>
+
+        <Suspense fallback={null}>
+          <MoodFromUrl onMood={setActiveMood} />
+        </Suspense>
 
         <ExperienceFilters 
           activeTribe={activeTribe}

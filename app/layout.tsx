@@ -1,7 +1,19 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { Allison, Inter, Playfair_Display } from 'next/font/google';
 import Script from 'next/script';
 import AppShell from '@/components/AppShell';
+
+// Self-hosted at build time; exposed as CSS variables that globals.css builds the font stacks from.
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+// Script accent: hero line and the video gallery title only.
+const allison = Allison({ subsets: ['latin'], weight: '400', variable: '--font-allison', display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Untamed India | Luxury Journeys With Purpose',
@@ -16,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${allison.variable}`}>
       <body>
         <AppShell>{children}</AppShell>
         <Script id="microsoft-clarity" strategy="afterInteractive">

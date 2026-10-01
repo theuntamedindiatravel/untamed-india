@@ -1,0 +1,57 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-py) 0;
+  background: var(--cream);
+}
+
+/* The photograph is a faint memory behind the text, washed into cream */
+.backdrop {
+  object-fit: cover;
+  opacity: 0.16;
+  filter: sepia(0.3);
+}
+
+.wash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(247, 241, 232, 0.55) 0%, rgba(247, 241, 232, 0.92) 70%);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.body {
+  margin-top: 36px;
+  max-width: 64ch;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--ink-muted);
+}
+
+.more {
+  margin-top: 32px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--saffron-ink);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.more:hover {
+  color: var(--saffron-deep);
+}
+
+.more:focus-visible {
+  outline: 1px solid var(--saffron);
+  outline-offset: 4px;
+}

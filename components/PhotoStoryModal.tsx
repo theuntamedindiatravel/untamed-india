@@ -46,7 +46,7 @@ export default function PhotoStoryModal({ open, story, onClose }: PhotoStoryModa
           ×
         </button>
 
-        <div className={styles.kicker}>Why this moment matters</div>
+        <div className={styles.kicker}>{story.kicker ?? 'Why this moment matters'}</div>
         <h2 className={styles.title} id={titleId}>
           {story.title}
         </h2>
@@ -65,6 +65,14 @@ export default function PhotoStoryModal({ open, story, onClose }: PhotoStoryModa
           <div className={styles.whyLabel}>Why it matters for travellers</div>
           <p className={styles.whyText}>{story.whyItMatters}</p>
         </div>
+
+        {story.cta && (
+          <div className={styles.ctaRow}>
+            <a className="btn btn-primary" href={story.cta.href} target="_blank" rel="noreferrer">
+              {story.cta.label}
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,13 +1,15 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import Image from 'next/image';
 import styles from './ChatAssistant.module.css';
 import { getWhatsAppLink } from '@/lib/whatsapp';
+import { useChatOpen } from '@/lib/chatStore';
 
 type QuickIntent = 'Plan a trip' | 'Talk to an expert' | 'Ask a question';
 
 export default function ChatAssistant() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useChatOpen();
   const [intent, setIntent] = useState<QuickIntent | null>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -157,7 +159,7 @@ export default function ChatAssistant() {
         type="button"
         className={styles.fab}
         onClick={() => {
-          setOpen((v) => !v);
+          setOpen(!open);
           if (!open) {
             setError(null);
             setSubmitted(false);
@@ -165,7 +167,7 @@ export default function ChatAssistant() {
         }}
         aria-label={open ? 'Close chat assistant' : 'Open chat assistant'}
       >
-        <span className={styles.fabMark} aria-hidden="true">TUI</span>
+        <Image src="/brand/emblem-96.png" alt="" width={48} height={48} className={styles.fabMark} unoptimized />
       </button>
     </div>
   );

@@ -11,16 +11,16 @@ type RevealProps = PropsWithChildren<
   } & Omit<MotionProps, 'initial' | 'animate' | 'whileInView' | 'viewport' | 'transition'>
 >;
 
-export default function Reveal({ children, delay = 0, y = 22, ...rest }: RevealProps) {
+export default function Reveal({ children, delay = 0, y = 12, ...rest }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y, filter: 'blur(8px)' }}
-      animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-      transition={{ duration: 0.8, ease: [0.2, 0, 0, 1], delay }}
+      initial={{ opacity: 0, y }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 1.1, ease: [0.2, 0, 0, 1], delay }}
       {...rest}
     >
       {children}
