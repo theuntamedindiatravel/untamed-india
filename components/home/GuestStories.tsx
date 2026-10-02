@@ -21,7 +21,7 @@ export default function GuestStories() {
   const [index, setIndex] = useState(0);
   const count = testimonials.length;
   const go = (step: number) => setIndex((i) => (i + step + count) % count);
-  useGsap(ref, (g) => revealTitles(g));
+  useGsap(ref, (g) => revealTitles(g, ref.current));
 
   return (
     <section ref={ref} className={`jaali ${styles.section}`} data-home-guests aria-roledescription="carousel" aria-label="What our guests say">

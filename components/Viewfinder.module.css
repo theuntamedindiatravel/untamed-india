@@ -1,0 +1,136 @@
+.vf {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  color: #fff;
+  --vf-ink: rgba(255, 255, 255, 0.92);
+  --vf-shadow: drop-shadow(0 0 2px rgba(0, 0, 0, 0.55));
+}
+
+/* Rule-of-thirds grid */
+.thirds {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background:
+    linear-gradient(to right, transparent calc(33.333% - 0.5px), rgba(255, 255, 255, 0.35) calc(33.333% - 0.5px), rgba(255, 255, 255, 0.35) calc(33.333% + 0.5px), transparent calc(33.333% + 0.5px)),
+    linear-gradient(to right, transparent calc(66.666% - 0.5px), rgba(255, 255, 255, 0.35) calc(66.666% - 0.5px), rgba(255, 255, 255, 0.35) calc(66.666% + 0.5px), transparent calc(66.666% + 0.5px)),
+    linear-gradient(to bottom, transparent calc(33.333% - 0.5px), rgba(255, 255, 255, 0.35) calc(33.333% - 0.5px), rgba(255, 255, 255, 0.35) calc(33.333% + 0.5px), transparent calc(33.333% + 0.5px)),
+    linear-gradient(to bottom, transparent calc(66.666% - 0.5px), rgba(255, 255, 255, 0.35) calc(66.666% - 0.5px), rgba(255, 255, 255, 0.35) calc(66.666% + 0.5px), transparent calc(66.666% + 0.5px));
+  transition: opacity 0.5s ease;
+}
+
+/* Corner brackets start wide and close in on the frame */
+.corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  opacity: 0;
+  filter: var(--vf-shadow);
+  transition: opacity 0.35s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tl { top: 14px; left: 14px; border-top: 2px solid var(--vf-ink); border-left: 2px solid var(--vf-ink); transform: translate(-10px, -10px); }
+.tr { top: 14px; right: 14px; border-top: 2px solid var(--vf-ink); border-right: 2px solid var(--vf-ink); transform: translate(10px, -10px); }
+.bl { bottom: 44px; left: 14px; border-bottom: 2px solid var(--vf-ink); border-left: 2px solid var(--vf-ink); transform: translate(-10px, 10px); }
+.br { bottom: 44px; right: 14px; border-bottom: 2px solid var(--vf-ink); border-right: 2px solid var(--vf-ink); transform: translate(10px, 10px); }
+
+/* Focus box: hunts (GSAP), then turns saffron when locked */
+.focus {
+  position: absolute;
+  width: 22%;
+  aspect-ratio: 1;
+  max-width: 120px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  border: 1.5px solid var(--vf-ink);
+  filter: var(--vf-shadow);
+  transition: border-color 0.2s ease;
+}
+
+.focus::before,
+.focus::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--vf-ink);
+  transform: translate(-50%, -50%);
+}
+.focus::before { width: 10px; height: 1.5px; }
+.focus::after { width: 1.5px; height: 10px; }
+
+.focus[data-locked] {
+  border-color: var(--saffron);
+}
+.focus[data-locked]::before,
+.focus[data-locked]::after {
+  background: var(--saffron);
+}
+
+/* Focus-lock indicator */
+.af {
+  position: absolute;
+  top: 18px;
+  left: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+  transition: opacity 0.35s ease;
+}
+
+.af i {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: 1px solid var(--vf-ink);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.af[data-locked] i {
+  background: var(--saffron);
+  border-color: var(--saffron);
+}
+
+/* Exposure readout */
+.readout {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.readout span {
+  min-width: 4.5ch;
+  text-align: center;
+}
+
+/* Active state */
+.vf[data-active] .thirds { opacity: 0.55; }
+.vf[data-active] .corner { opacity: 1; transform: none; }
+.vf[data-active] .af { opacity: 1; }
+.vf[data-active] .readout { opacity: 1; transform: none; }
+
+/* Without hover (or before the hunt starts) the focus box stays hidden; GSAP fades it in. */
+@media (prefers-reduced-motion: reduce) {
+  .vf[data-active] .focus { opacity: 1; }
+}

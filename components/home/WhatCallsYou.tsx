@@ -9,7 +9,7 @@ import { revealTitles, useGsap } from '@/lib/useGsap';
 export default function WhatCallsYou() {
   const ref = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
-  useGsap(ref, (g) => revealTitles(g));
+  useGsap(ref, (g) => revealTitles(g, ref.current));
   const current = HOME_INTERESTS[active];
 
   return (

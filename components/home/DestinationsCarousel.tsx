@@ -15,7 +15,7 @@ export default function DestinationsCarousel() {
   const ref = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
   const dragStart = useRef<number | null>(null);
-  useGsap(ref, (g) => revealTitles(g));
+  useGsap(ref, (g) => revealTitles(g, ref.current));
 
   const step = (by: number) => setActive((a) => (a + by + COUNT) % COUNT);
 

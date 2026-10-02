@@ -8,7 +8,7 @@ import { revealTitles, useGsap } from '@/lib/useGsap';
 
 export default function OurStory() {
   const ref = useRef<HTMLElement>(null);
-  useGsap(ref, (g) => revealTitles(g));
+  useGsap(ref, (g) => revealTitles(g, ref.current));
 
   return (
     <section ref={ref} className={styles.section} data-home-story>

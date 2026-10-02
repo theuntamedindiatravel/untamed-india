@@ -28,6 +28,20 @@
   gap: 32px;
 }
 
+/* Photography page: the bookable journey(s) after the programmes, centred */
+.more {
+  margin-top: 110px;
+  padding-bottom: 40px;
+}
+
+.moreGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
+  justify-content: center;
+  gap: 32px;
+  margin-top: 56px;
+}
+
 .emptyState {
   text-align: center;
   padding: 100px 0;

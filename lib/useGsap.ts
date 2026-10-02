@@ -24,9 +24,13 @@ export function useGsap(
   }, deps);
 }
 
-/** Section headings rise in word by word as they enter the viewport (once). Call inside a useGsap setup. */
-export function revealTitles(g: typeof gsap, selector = 'h2') {
-  g.utils.toArray<HTMLElement>(selector).forEach((el) => {
+/**
+ * Section headings rise in word by word as they enter the viewport (once). Call inside a useGsap setup.
+ * Only headings inside `scope` are touched, so sections never re-split each other's headings.
+ */
+export function revealTitles(g: typeof gsap, scope: HTMLElement | null, selector = 'h2') {
+  if (!scope) return;
+  scope.querySelectorAll<HTMLElement>(selector).forEach((el) => {
     const split = new SplitText(el, { type: 'words' });
     g.from(split.words, {
       y: 24,

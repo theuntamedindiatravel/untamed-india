@@ -21,7 +21,7 @@ const links = {
     { label: 'All Tours', href: '/tours' },
     { label: 'Expert Guides', href: '/about#guides' },
     { label: 'Conservation', href: '/about#conservation' },
-    { label: 'Photo Expeditions', href: '/destinations/wildlife' },
+    { label: 'Photo Expeditions', href: '/destinations/photography' },
     { label: 'Contact Us', href: '/contact' },
   ],
 };

@@ -43,6 +43,16 @@ export const HOME_INTERESTS: HomeInterest[] = [
   { id: 'women', label: "Women's Journeys", title: 'Travel India, led by women.', body: 'Small-group journeys hosted by women, designed for comfort, connection and safety.', image: '/womens-journeys/group-safari.png', alt: 'Women travellers on a safari jeep', href: '/womens-journeys' },
 ];
 
+// "How Impact Credits work" panel; wording from the site's original Our Story section.
+export const IMPACT_CREDITS = {
+  title: 'How Impact Credits work',
+  points: [
+    { title: '5% returned to you', body: 'When your journey finishes, you receive Impact Credits equal to 5% of your total tour package.' },
+    { title: 'Use them, or gift them forward', body: "Use your credits as a discount on a future journey, or choose to sponsor a girl child's education with the same value." },
+    { title: 'Travel with a trace of good', body: 'The aim is simple: support communities, encourage responsible tourism, and keep the regions we love thriving for the next traveller and for the people who call these places home.' },
+  ],
+};
+
 export const HOME_IMPACT = {
   title: 'Travel that gives back',
   body: "When your journey ends, 5% of its value returns to you as Impact Credits. Use them on a future trip, or gift them to fund a girl child's education.",

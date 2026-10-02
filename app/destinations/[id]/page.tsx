@@ -5,6 +5,7 @@ import TourCard from '@/components/TourCard';
 import styles from './Destination.module.css';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import PhotographyJourneys from '@/components/PhotographyJourneys';
 
 export default function DestinationPage() {
   const params = useParams();
@@ -20,6 +21,8 @@ export default function DestinationPage() {
     notFound();
   }
 
+  const isPhotography = id === 'photography';
+
   return (
     <div className={styles.section}>
       <div className="container">
@@ -33,30 +36,51 @@ export default function DestinationPage() {
           <p className={styles.description}>{category.description}</p>
         </div>
 
-        {filteredTours.length > 0 ? (
-          <div className={styles.grid}>
-            {filteredTours.map((tour) => (
-              <TourCard key={tour.slug} tour={tour} />
-            ))}
-          </div>
-        ) : (
-          <div className={styles.emptyState}>
-            <p style={{ fontSize: '1.2rem', color: '#666' }}>
-              We're currently designing new {category.title} expeditions. 
-              Check back soon or explore our other collections.
-            </p>
-            <br />
-            <Link href="/tours" className="btn btn-primary">Browse All Tours</Link>
-          </div>
-        )}
+        {!isPhotography && (
+          <>
+          {filteredTours.length > 0 ? (
+            <div className={styles.grid}>
+              {filteredTours.map((tour) => (
+                <TourCard key={tour.slug} tour={tour} />
+              ))}
+            </div>
+          ) : (
+            <div className={styles.emptyState}>
+              <p style={{ fontSize: '1.2rem', color: '#666' }}>
+                We're currently designing new {category.title} expeditions. 
+                Check back soon or explore our other collections.
+              </p>
+              <br />
+              <Link href="/tours" className="btn btn-primary">Browse All Tours</Link>
+            </div>
+          )}
 
-        {filteredTours.length > 0 && (
-          <div style={{ marginTop: '80px', textAlign: 'center' }}>
-            <p style={{ color: '#666', marginBottom: '20px' }}>Looking for something bespoke?</p>
-            <Link href="/contact" className="btn btn-outline">Our Specialists Can Help</Link>
-          </div>
+          {filteredTours.length > 0 && (
+            <div style={{ marginTop: '80px', textAlign: 'center' }}>
+              <p style={{ color: '#666', marginBottom: '20px' }}>Looking for something bespoke?</p>
+              <Link href="/contact" className="btn btn-outline">Our Specialists Can Help</Link>
+            </div>
+          )}
+          </>
         )}
       </div>
+
+      {/* Photography: the programmes come first; the bookable journey(s) follow under their own heading */}
+      {isPhotography && (
+        <>
+          <PhotographyJourneys />
+          {filteredTours.length > 0 && (
+            <section className={`container ${styles.more}`} data-more-journeys>
+              <h2 className="section-title">More Photography Journeys</h2>
+              <div className={styles.moreGrid} data-more-grid>
+                {filteredTours.map((tour) => (
+                  <TourCard key={tour.slug} tour={tour} />
+                ))}
+              </div>
+            </section>
+          )}
+        </>
+      )}
     </div>
   );
 }
