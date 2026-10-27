@@ -26,6 +26,18 @@ const links = {
   ],
 };
 
+// TODO: confirm each URL against the links in Travelstride's partner email before deploying.
+const travelstride = {
+  home: 'https://www.travelstride.com/tour-operators/the-untamed-india',
+  links: [
+    { label: 'The Untamed India on Travelstride', href: 'https://www.travelstride.com/tour-operators/the-untamed-india' },
+    { label: 'India Tours', href: 'https://www.travelstride.com/guide/india-tours' },
+    { label: 'Our Trips', href: 'https://www.travelstride.com/operators/the-untamed-india-trips' },
+    { label: 'India Tour Companies', href: 'https://www.travelstride.com/tc/india-tour-companies' },
+    { label: 'Things to Do in India', href: 'https://www.travelstride.com/attractions/things-to-do-in-india-attractions' },
+  ],
+};
+
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -135,6 +147,23 @@ export default function Footer() {
                 ? error || 'Could not subscribe. Please try again.'
                 : 'No spam. Unsubscribe anytime.'}
           </p>
+        </div>
+      </div>
+
+      {/* Partners */}
+      <div className={styles.partners}>
+        <div className={`container ${styles.partnersInner}`}>
+          <span className={styles.partnersLabel}>Find us on</span>
+          <a href={travelstride.home} target="_blank" rel="noopener" className={styles.partnerLogo}>
+            <Image src="/partners/travelstride.png" alt="Travelstride" width={220} height={49} unoptimized />
+          </a>
+          <ul className={styles.partnerLinks}>
+            {travelstride.links.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} target="_blank" rel="noopener" className={styles.link}>{l.label}</a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
