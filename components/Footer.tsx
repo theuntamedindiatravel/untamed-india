@@ -31,9 +31,7 @@ const travelstride = {
   home: 'https://www.travelstride.com/tour-operators/the-untamed-india',
   links: [
     { label: 'The Untamed India on Travelstride', href: 'https://www.travelstride.com/tour-operators/the-untamed-india' },
-    { label: 'India Tours', href: 'https://www.travelstride.com/guide/india-tours' },
     { label: 'Our Trips', href: 'https://www.travelstride.com/operators/the-untamed-india-trips' },
-    { label: 'India Tour Companies', href: 'https://www.travelstride.com/tc/india-tour-companies' },
     { label: 'Things to Do in India', href: 'https://www.travelstride.com/attractions/things-to-do-in-india-attractions' },
   ],
 };
