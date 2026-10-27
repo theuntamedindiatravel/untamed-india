@@ -136,6 +136,12 @@
   text-transform: uppercase;
   color: var(--gold-light);
 }
+.partner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
 .partnerLogo {
   display: inline-flex;
   align-items: center;
@@ -178,6 +184,7 @@
 @media (max-width: 560px) {
   .main { grid-template-columns: 1fr; }
   .partnersInner { flex-direction: column; text-align: center; }
+  .partner { flex-direction: column; }
   .partnerLinks { justify-content: center; }
   .bottomInner { flex-direction: column; text-align: center; }
 }

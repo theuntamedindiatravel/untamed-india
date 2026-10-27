@@ -26,15 +26,28 @@ const links = {
   ],
 };
 
-// TODO: confirm each URL against the links in Travelstride's partner email before deploying.
-const travelstride = {
-  home: 'https://www.travelstride.com/tour-operators/the-untamed-india',
-  links: [
-    { label: 'The Untamed India on Travelstride', href: 'https://www.travelstride.com/tour-operators/the-untamed-india' },
-    { label: 'Our Trips', href: 'https://www.travelstride.com/operators/the-untamed-india-trips' },
-    { label: 'Things to Do in India', href: 'https://www.travelstride.com/attractions/things-to-do-in-india-attractions' },
-  ],
-};
+const tripadvisorUrl =
+  'https://www.tripadvisor.com/Attraction_Review-g304551-d34523505-Reviews-The_Untamed_India-New_Delhi_National_Capital_Territory_of_Delhi.html';
+
+// TODO: confirm the Travelstride URLs against the links in their partner email before deploying.
+const partners = [
+  {
+    name: 'Travelstride',
+    logo: { src: '/partners/travelstride.png', width: 220, height: 49 },
+    home: 'https://www.travelstride.com/tour-operators/the-untamed-india',
+    links: [
+      { label: 'The Untamed India on Travelstride', href: 'https://www.travelstride.com/tour-operators/the-untamed-india' },
+      { label: 'Our Trips', href: 'https://www.travelstride.com/operators/the-untamed-india-trips' },
+      { label: 'Things to Do in India', href: 'https://www.travelstride.com/attractions/things-to-do-in-india-attractions' },
+    ],
+  },
+  {
+    name: 'Tripadvisor',
+    logo: { src: '/partners/tripadvisor.svg', width: 200, height: 43 },
+    home: tripadvisorUrl,
+    links: [{ label: 'Read our reviews', href: tripadvisorUrl }],
+  },
+];
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -152,16 +165,20 @@ export default function Footer() {
       <div className={styles.partners}>
         <div className={`container ${styles.partnersInner}`}>
           <span className={styles.partnersLabel}>Find us on</span>
-          <a href={travelstride.home} target="_blank" rel="noopener" className={styles.partnerLogo}>
-            <Image src="/partners/travelstride.png" alt="Travelstride" width={220} height={49} unoptimized />
-          </a>
-          <ul className={styles.partnerLinks}>
-            {travelstride.links.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} target="_blank" rel="noopener" className={styles.link}>{l.label}</a>
-              </li>
-            ))}
-          </ul>
+          {partners.map((p) => (
+            <div key={p.name} className={styles.partner}>
+              <a href={p.home} target="_blank" rel="noopener" className={styles.partnerLogo}>
+                <Image src={p.logo.src} alt={p.name} width={p.logo.width} height={p.logo.height} unoptimized />
+              </a>
+              <ul className={styles.partnerLinks}>
+                {p.links.map((l) => (
+                  <li key={l.label}>
+                    <a href={l.href} target="_blank" rel="noopener" className={styles.link}>{l.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
 
