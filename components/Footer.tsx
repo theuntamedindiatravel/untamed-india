@@ -43,7 +43,7 @@ const partners = [
   },
   {
     name: 'Tripadvisor',
-    logo: { src: '/partners/tripadvisor.svg', width: 200, height: 43 },
+    logo: { src: '/partners/tripadvisor.svg', width: 512, height: 78 },
     home: tripadvisorUrl,
     links: [{ label: 'Read our reviews', href: tripadvisorUrl }],
   },
